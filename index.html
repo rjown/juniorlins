@@ -1,119 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dr. Alfredo Cabral de Melo</title>
-<style>
-  :root {
-    --preto-profundo: #0D0D0D;
-    --grafite-escuro: #1A1A1A;
-    --cinza-fosco: rgba(43, 43, 43, 0.85);
-    --cobre-rose: #D7A999;
-    --branco-gelo: #F5F5F5;
-    --dourado-fosco: #C8A97E;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Alfredo Cabral de Melo</title>
+  <style>
+    :root {
+      --preto-profundo: #0D0D0D;
+      --grafite-escuro: #1A1A1A;
+      --cinza-fosco: rgba(43, 43, 43, 0.85);
+      --cobre-rose: #D7A999;
+      --branco-gelo: #F5F5F5;
+      --dourado-fosco: #C8A97E;
+    }
 
-  /* Reset básico */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    background-color: var(--preto-profundo);
-    color: var(--branco-gelo);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-  }
+    body {
+      background-color: var(--preto-profundo);
+      color: var(--branco-gelo);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
 
-  header {
-    background: var(--grafite-escuro);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--cobre-rose);
-  }
+    header {
+      background: var(--grafite-escuro);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--cobre-rose);
+    }
 
-  header h1 {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--cobre-rose);
-  }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--cobre-rose);
+    }
 
-  nav a {
-    color: var(--branco-gelo);
-    text-decoration: none;
-    margin-left: 1.5rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
+    header .subtitle {
+      color: var(--branco-gelo);
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
 
-  nav a:hover {
-    color: var(--dourado-fosco);
-  }
+    nav a {
+      color: var(--branco-gelo);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
 
-  main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
+    nav a:hover {
+      color: var(--dourado-fosco);
+    }
 
-  .intro {
-    background: var(--cinza-fosco);
-    padding: 2rem;
-    border-radius: 8px;
-    color: var(--branco-gelo);
-  }
+    nav a.cta {
+      margin-left: 2rem;
+      padding: 0.5rem 1rem;
+      background: var(--cobre-rose);
+      color: var(--grafite-escuro);
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
 
-  .intro h2 {
-    color: var(--cobre-rose);
-    margin-bottom: 1rem;
-  }
+    nav a.cta:hover {
+      background: var(--dourado-fosco);
+    }
 
-  .intro p {
-    font-size: 1.1rem;
-  }
+    .home-section {
+      text-align: center;
+      padding: 4rem 1rem;
+      background-color: var(--preto-profundo);
+      color: var(--branco-gelo);
+    }
 
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background: var(--grafite-escuro);
-    border-top: 2px solid var(--cobre-rose);
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    color: var(--branco-gelo);
-  }
+    .logo-principal {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 0.8rem;
+      filter: brightness(1.1);
+    }
 
-  /* Link ativo simples */
-  nav a.active {
-    color: var(--cobre-rose);
-    font-weight: 700;
-  }
-</style>
+    .subtexto-logo {
+      font-size: 1rem;
+      color: var(--dourado-fosco);
+      margin-bottom: 2rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .apresentacao {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--cinza-fosco);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .apresentacao h2 {
+      color: var(--cobre-rose);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .apresentacao p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--grafite-escuro);
+      border-top: 2px solid var(--cobre-rose);
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--branco-gelo);
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div>
+      <h1>Dr. Alfredo Cabral de Melo</h1>
+      <p class="subtitle">Sociedade Individual de Advocacia</p>
+    </div>
+    <nav>
+      <a href="#inicio" class="active">Início</a>
+      <a href="#about">Sobre</a>
+      <a href="#services">Atuação</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </header>
+  <section class="home-section" id="inicio">
+    <img src="fotos/logo1.jpg" alt="Logo do escritório" class="logo-principal" loading="lazy" />
+    <div class="subtexto-logo">Sociedade Individual de Advocacia</div>
 
-<header>
-  <h1>Dr. Alfredo Cabral de Melo</h1>
-  <nav>
-    <a href="#home" class="active">Home</a>
-    <a href="#about">Sobre</a>
-    <a href="#services">Serviços</a>
-    <a href="#contact">Contato</a>
-  </nav>
-</header>
-
-<main>
-  <section id="home" class="intro">
-    <h2>Bem-vindo ao site do Dr. Alfredo Cabral de Melo</h2>
-    <p>Advocacia especializada em direito empresarial, com atendimento personalizado e soluções eficientes para você e sua empresa.</p>
+    <div class="apresentacao">
+      <h2>Quem somos</h2>
+      <p>
+        Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
+        Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
+      </p>
+    </div>
   </section>
-</main>
 
-<footer>
-  &copy; 2025 Dr. Alfredo Cabral de Melo — Todos os direitos reservados
-</footer>
-
+  <footer>
+    © 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
+  </footer>
 </body>
 </html>
