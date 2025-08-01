@@ -1,11 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Meu Primeiro Site</title>
-  </head>
-  <body>
-    <h1>Olá, mundo!</h1>
-    <p>Esse é o meu primeiro site no GitHub Pages.</p>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dr. Alfredo Cabral de Melo</title>
+<style>
+  :root {
+    --preto-profundo: #0D0D0D;
+    --grafite-escuro: #1A1A1A;
+    --cinza-fosco: rgba(43, 43, 43, 0.85);
+    --cobre-rose: #D7A999;
+    --branco-gelo: #F5F5F5;
+    --dourado-fosco: #C8A97E;
+  }
+
+  /* Reset básico */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--preto-profundo);
+    color: var(--branco-gelo);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+
+  header {
+    background: var(--grafite-escuro);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--cobre-rose);
+  }
+
+  header h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--cobre-rose);
+  }
+
+  nav a {
+    color: var(--branco-gelo);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--dourado-fosco);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .intro {
+    background: var(--cinza-fosco);
+    padding: 2rem;
+    border-radius: 8px;
+    color: var(--branco-gelo);
+  }
+
+  .intro h2 {
+    color: var(--cobre-rose);
+    margin-bottom: 1rem;
+  }
+
+  .intro p {
+    font-size: 1.1rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--grafite-escuro);
+    border-top: 2px solid var(--cobre-rose);
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--branco-gelo);
+  }
+
+  /* Link ativo simples */
+  nav a.active {
+    color: var(--cobre-rose);
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Dr. Alfredo Cabral de Melo</h1>
+  <nav>
+    <a href="#home" class="active">Home</a>
+    <a href="#about">Sobre</a>
+    <a href="#services">Serviços</a>
+    <a href="#contact">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="intro">
+    <h2>Bem-vindo ao site do Dr. Alfredo Cabral de Melo</h2>
+    <p>Advocacia especializada em direito empresarial, com atendimento personalizado e soluções eficientes para você e sua empresa.</p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Dr. Alfredo Cabral de Melo — Todos os direitos reservados
+</footer>
+
+</body>
 </html>
