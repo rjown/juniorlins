@@ -10,12 +10,15 @@
 
   <style>
     :root {
-      --branco: #FFFFFF;
-      --grafite-escuro: #1A1A1A;
+      --branco: #ffffff;
+      --grafite-escuro: #2c2c2c; /* para menus e textos principais */
       --cinza-fosco: rgba(43, 43, 43, 0.1);
-      --cobre-rose: #D7A999;
-      --cinza-claro: #555555;
-      --preto-profundo: #0D0D0D;
+      --cobre-rose: #d69d80; /* para títulos */
+      --cinza-claro: #e6b18e; /* para subtítulo no header */
+      --preto-profundo: #2c2c2c; /* usado no texto do botão CTA e menus */
+      --cobre-rose-escuro: #b67c67; /* para bordas e linhas */
+      --botao-cta-fundo: #f4c39d; /* botão CTA */
+      --menu-hover: #c58b72; /* hover e active no menu */
     }
 
     * {
@@ -40,7 +43,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--cobre-rose);
+      border-bottom: 2px solid var(--cobre-rose-escuro);
       position: fixed;
       width: 100%;
       top: 0;
@@ -82,13 +85,13 @@
 
     nav a:hover,
     nav a.active {
-      color: var(--cobre-rose);
+      color: var(--menu-hover);
     }
 
     nav a.cta {
       padding: 0.5rem 1rem;
-      background: var(--cobre-rose);
-      color: var(--branco);
+      background: var(--botao-cta-fundo);
+      color: var(--preto-profundo);
       border-radius: 4px;
       font-weight: 600;
       transition: background 0.3s ease;
@@ -153,8 +156,8 @@
         color: var(--grafite-escuro);
       }
       nav a.cta {
-        background: var(--cobre-rose);
-        color: var(--branco);
+        background: var(--botao-cta-fundo);
+        color: var(--preto-profundo);
         width: 100%;
         text-align: center;
         border-radius: 6px;
@@ -232,12 +235,11 @@
       text-align: left; /* mantém texto justificado à esquerda */
       padding: 0 10px;
     }
-
     footer {
       text-align: center;
       padding: 1rem;
       background: var(--branco);
-      border-top: 2px solid var(--cobre-rose);
+      border-top: 2px solid var(--cobre-rose-escuro);
       margin-top: 3rem;
       font-size: 0.9rem;
       color: var(--grafite-escuro);
@@ -277,7 +279,6 @@
         Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
       </p>
     </div>
-  </section>
   </section>
 
   <footer>
