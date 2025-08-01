@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dr. Alfredo Cabral de Melo</title>
+
+  <!-- Importação da fonte Montserrat do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --branco: #FFFFFF;
@@ -23,7 +27,7 @@
     body {
       background-color: var(--branco);
       color: var(--grafite-escuro);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       line-height: 1.6;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
@@ -49,6 +53,7 @@
       font-weight: 700;
       font-size: 1.5rem;
       color: var(--cobre-rose);
+      font-family: Helvetica, Arial, sans-serif; /* Títulos com Helvetica */
     }
 
     header .subtitle {
@@ -57,6 +62,7 @@
       margin-top: 0.15rem;
       font-style: normal;
       letter-spacing: 0.02em;
+      font-family: 'Montserrat', sans-serif;
     }
 
     nav {
@@ -71,6 +77,7 @@
       font-weight: 600;
       font-size: 1rem;
       transition: color 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
     }
 
     nav a:hover,
@@ -85,6 +92,7 @@
       border-radius: 4px;
       font-weight: 600;
       transition: background 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
     }
 
     nav a.cta:hover {
@@ -169,8 +177,9 @@
       color: var(--grafite-escuro);
     }
 
+    /* Logo maior */
     .logo-principal {
-      max-width: 180px;
+      max-width: 280px; /* Aumentado de 180px */
       height: auto;
       margin: 0 auto 1rem auto;
       display: block;
@@ -181,30 +190,33 @@
       transform: scale(1.05);
     }
 
+    /* Subtítulo novo texto, menor e sem fundo */
     .subtexto-logo {
-      font-size: 0.85rem; /* menor que antes */
+      font-size: 0.85rem;
       color: var(--cinza-claro);
       margin-bottom: 3rem;
-      font-style: normal; /* remove itálico */
+      font-style: normal;
       letter-spacing: 0.05em;
       font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
     }
 
+    /* Seção “Quem somos” sem balão, texto flutuante */
     .apresentacao {
       max-width: 650px;
       margin: 0 auto;
-      background: var(--cinza-fosco);
-      padding: 2.5rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      text-align: left;
+      padding: 0; /* remove padding do balão */
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center; /* título centralizado */
       color: var(--grafite-escuro);
     }
 
     .apresentacao h2 {
       color: var(--cobre-rose);
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 1.8rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       font-weight: 700;
       letter-spacing: 0.05em;
     }
@@ -212,6 +224,11 @@
     .apresentacao p {
       font-size: 1.15rem;
       line-height: 1.7;
+      font-family: 'Montserrat', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left; /* mantém texto justificado à esquerda */
+      padding: 0 10px;
     }
 
     footer {
@@ -222,15 +239,15 @@
       margin-top: 3rem;
       font-size: 0.9rem;
       color: var(--grafite-escuro);
+      font-family: 'Montserrat', sans-serif;
     }
-
   </style>
 </head>
 <body>
   <header>
     <div>
       <h1>Dr. Alfredo Cabral de Melo</h1>
-      <p class="subtitle">Sociedade Individual de Advocacia</p>
+      <p class="subtitle">Compromisso, ética e excelência jurídica ao seu lado.</p>
     </div>
 
     <div class="hamburger" id="hamburger">
@@ -249,7 +266,7 @@
 
   <section class="home-section" id="inicio">
     <img src="fotos/logo1.png" alt="Logo do escritório" class="logo-principal" loading="lazy" />
-    <div class="subtexto-logo">Sociedade Individual de Advocacia</div>
+    <div class="subtexto-logo">Compromisso, ética e excelência jurídica ao seu lado.</div>
 
     <div class="apresentacao">
       <h2>Quem somos</h2>
