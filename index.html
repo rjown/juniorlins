@@ -177,9 +177,11 @@
       color: var(--grafite-escuro);
     }
 
-    /* Logo maior */
+    /* Logo flexível para diferentes telas */
     .logo-principal {
-      max-width: 280px; /* Aumentado de 180px */
+      width: 40vw;        /* 40% da largura da viewport */
+      max-width: 350px;   /* máximo 350px */
+      min-width: 150px;   /* mínimo 150px */
       height: auto;
       margin: 0 auto 1rem auto;
       display: block;
