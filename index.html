@@ -1,297 +1,631 @@
-<!-- PARTE 1: Seção “Atuação” (lista vertical) e CSS -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Alfredo Cabral de Melo</title>
 
-<style>
-  /* CSS para seção Atuação em lista vertical */
-  .atuacao-section {
-    max-width: 700px;
-    margin: 3rem auto 4rem auto;
-    padding: 0 1rem;
-    color: var(--grafite-escuro);
-    font-family: 'Montserrat', sans-serif;
-  }
+  <!-- Importação da fonte Montserrat do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-  .atuacao-section h2 {
-    color: var(--cobre-rose);
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+  <!-- Importação Font Awesome para ícones -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-dGm7bWjCnCdQn5T7NhRTPu3X3QwhUuCFmX7xDF3w7KXHZrZqW+JjJMr3oJb7mFfFybqR9q8zaxXnNj8+eGLcWg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-  .atuacao-section p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-  }
+  <style>
+    :root {
+      --branco: #ffffff;
+      --grafite-escuro: #2c2c2c; /* para menus e textos principais */
+      --cinza-fosco: rgba(43, 43, 43, 0.1);
+      --cobre-rose: #d69d80; /* para títulos */
+      --cinza-claro: #e6b18e; /* para subtítulo no header */
+      --preto-profundo: #2c2c2c; /* usado no texto do botão CTA e menus */
+      --cobre-rose-escuro: #b67c67; /* para bordas e linhas */
+      --botao-cta-fundo: #f4c39d; /* botão CTA */
+      --menu-hover: #c58b72; /* hover e active no menu */
+      --sobre-texto-hover: #b67c67; /* cor destaque do texto Sobre */
+    }
 
-  .atuacao-lista {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .atuacao-item {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 1rem 1.5rem;
-    border: 1px solid var(--cobre-rose-escuro);
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    background: var(--cinza-fosco);
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    user-select: none;
-    outline-offset: 3px;
-  }
+    body {
+      background-color: var(--branco);
+      color: var(--grafite-escuro);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-  .atuacao-item:hover,
-  .atuacao-item:focus {
-    background-color: var(--cobre-rose-escuro);
-    border-color: var(--cobre-rose);
-    color: var(--branco);
-  }
+    header {
+      background: var(--branco);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--cobre-rose-escuro);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: relative;
+    }
 
-  .atuacao-item i {
-    font-size: 2.5rem;
-    color: var(--cobre-rose);
-    pointer-events: none;
-  }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      order: 2; /* para garantir posição atrás do hamburger */
+    }
 
-  .atuacao-item:hover i,
-  .atuacao-item:focus i {
-    color: var(--branco);
-  }
+    nav a {
+      color: var(--grafite-escuro);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-  .atuacao-item span {
-    font-weight: 600;
-    font-size: 1.15rem;
-    flex-grow: 1;
-  }
-</style>
+    nav a:hover,
+    nav a.active {
+      color: var(--menu-hover);
+    }
 
-<section class="atuacao-section" id="services">
-  <h2>Atuação</h2>
-  <p>Direito Civil que engloba as áreas de:</p>
+    nav a.cta {
+      padding: 0.5rem 1rem;
+      background: var(--botao-cta-fundo);
+      color: var(--preto-profundo);
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-  <ul class="atuacao-lista">
-    <li class="atuacao-item" data-modal="modal-familia" tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família">
-      <i class="fas fa-users" aria-hidden="true"></i>
-      <span>Direito de Família</span>
-    </li>
-    <li class="atuacao-item" data-modal="modal-sucessoes" tabindex="0" role="button" aria-pressed="false" aria-label="Direito das Sucessões">
-      <i class="fas fa-file-invoice" aria-hidden="true"></i>
-      <span>Direito das Sucessões</span>
-    </li>
-    <li class="atuacao-item" data-modal="modal-imobiliario" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Imobiliário">
-      <i class="fas fa-home" aria-hidden="true"></i>
-      <span>Direito Imobiliário</span>
-    </li>
-    <li class="atuacao-item" data-modal="modal-empresarial" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Empresarial">
-      <i class="fas fa-briefcase" aria-hidden="true"></i>
-      <span>Direito Empresarial</span>
-    </li>
-    <li class="atuacao-item" data-modal="modal-previdenciario" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Previdenciário">
-      <i class="fas fa-user-shield" aria-hidden="true"></i>
-      <span>Direito Previdenciário</span>
-    </li>
-    <li class="atuacao-item" data-modal="modal-maritimo" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Marítimo">
-      <i class="fas fa-ship" aria-hidden="true"></i>
-      <span>Direito Marítimo</span>
-    </li>
-    <li class="atuacao-item" data-modal="modal-violencia" tabindex="0" role="button" aria-pressed="false" aria-label="Violência contra a mulher">
-      <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
-      <span>Violência contra a mulher</span>
-    </li>
-  </ul>
-</section>
-<!-- PARTE 2: Modais explicativos para cada área da seção Atuação -->
+    nav a.cta:hover {
+      background: #b89a75;
+    }
 
-<!-- Modal Direito de Família -->
-<div id="modal-familia" class="modal-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-familia-title" style="display:none;">
-  <div class="modal-content" role="document">
-    <button class="close-modal" aria-label="Fechar modal">&times;</button>
-    <h3 id="modal-familia-title">Direito de Família</h3>
-    <p>Atua em questões relativas a casamento, divórcio, guarda, alimentos, tutela e proteção dos direitos familiares.</p>
+    /* Botão hamburger - oculto por padrão */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 25px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1100;
+      order: 1; /* para garantir posição à esquerda do nav */
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--grafite-escuro);
+      border-radius: 3px;
+      transition: all 0.3s linear;
+      position: relative;
+    }
+
+    /* Transformação do hamburger quando ativo */
+    .hamburger.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Menu mobile - oculto por padrão */
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 64px; /* altura do header */
+        left: 0; /* mudou de right: 0 para left: 0 */
+        background: var(--branco);
+        height: calc(100vh - 64px);
+        width: 220px;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.1); /* sombra para esquerda */
+        transform: translateX(-100%); /* sair pela esquerda */
+        transition: transform 0.3s ease-in-out;
+        order: 2;
+      }
+      nav.open {
+        transform: translateX(0);
+      }
+      nav a {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        color: var(--grafite-escuro);
+      }
+      nav a.cta {
+        background: var(--botao-cta-fundo);
+        color: var(--preto-profundo);
+        width: 100%;
+        text-align: center;
+        border-radius: 6px;
+        padding: 0.7rem 0;
+      }
+      .hamburger {
+        display: flex;
+        order: 1;
+      }
+    }
+
+    /* Perfil foto no canto superior direito */
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      border: 2px solid var(--cobre-rose-escuro);
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    /* Espaçamento para compensar o header fixo */
+    main, .home-section {
+      padding-top: 80px;
+    }
+
+    .home-section {
+      text-align: center;
+      padding: 4rem 1rem 6rem 1rem;
+      background-color: var(--branco);
+      color: var(--grafite-escuro);
+    }
+
+    /* Logo flexível para diferentes telas */
+    .logo-principal {
+      width: 60vw;        /* 40% da largura da viewport */
+      max-width: 550px;   /* máximo 350px */
+      min-width: 250px;   /* mínimo 150px */
+      height: auto;
+      margin: 0 auto 1rem auto;
+      display: block;
+      filter: brightness(1);
+      transition: transform 0.3s ease;
+    }
+    .logo-principal:hover {
+      transform: scale(1.05);
+    }
+
+    /* Subtítulo novo texto, menor e sem fundo */
+    .subtexto-logo {
+      font-size: 0.85rem;
+      color: var(--cinza-claro);
+      margin-bottom: 3rem;
+      font-style: normal;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Seção “Quem somos” sem balão, texto flutuante */
+    .apresentacao {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 0; /* remove padding do balão */
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center; /* título centralizado */
+      color: var(--grafite-escuro);
+    }
+
+    .apresentacao h2 {
+      color: var(--cobre-rose);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .apresentacao p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      font-family: 'Montserrat', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--branco);
+      border-top: 2px solid var(--cobre-rose-escuro);
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--grafite-escuro);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* NOVA SEÇÃO SOBRE */
+    .sobre-section {
+      max-width: 900px;
+      margin: 3rem auto 4rem auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      color: var(--grafite-escuro);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    .sobre-section img {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    .sobre-texto {
+      font-size: 1.1rem;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Efeito hover para desktop */
+    .sobre-texto:hover,
+    .sobre-texto.ativo {
+      color: var(--sobre-texto-hover);
+      text-shadow: 0 0 5px rgba(182,124,103,0.8);
+    }
+
+    /* Responsividade: empilha vertical em telas pequenas */
+    @media (max-width: 768px) {
+      .sobre-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .sobre-section img {
+        width: 250px;
+        margin-bottom: 1.5rem;
+      }
+      .sobre-texto {
+        font-size: 1rem;
+      }
+    }
+
+
+    /* NOVA SEÇÃO ATUAÇÃO */
+    .atuacao-section {
+      max-width: 900px;
+      margin: 3rem auto 4rem auto;
+      padding: 0 1rem;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--grafite-escuro);
+    }
+
+    .atuacao-section h2 {
+      color: var(--cobre-rose);
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .atuacao-section p.intro {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: var(--grafite-escuro);
+    }
+
+    .atuacao-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      justify-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .atuacao-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .atuacao-item {
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      border: 1px solid transparent;
+    }
+    .atuacao-item:hover {
+      background-color: var(--cinza-fosco);
+      border-color: var(--cobre-rose-escuro);
+    }
+
+    .atuacao-item i {
+      color: var(--cobre-rose);
+      font-size: 2.5rem; /* fa-2x approx */
+      margin-bottom: 0.7rem;
+      transition: color 0.3s ease;
+    }
+    .atuacao-item:hover i {
+      color: var(--menu-hover);
+    }
+
+    .atuacao-item span {
+      display: block;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--grafite-escuro);
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal {
+      background: var(--branco);
+      border-radius: 10px;
+      max-width: 450px;
+      width: 100%;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: relative;
+      text-align: center;
+    }
+    .modal h3 {
+      margin-bottom: 1rem;
+      color: var(--cobre-rose);
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+    }
+    .modal p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--grafite-escuro);
+      margin-bottom: 1.5rem;
+    }
+    .modal button.close-modal {
+      background: var(--botao-cta-fundo);
+      color: var(--preto-profundo);
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+    .modal button.close-modal:hover {
+      background: var(--cobre-rose-escuro);
+      color: var(--branco);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#about">Sobre</a>
+      <a href="#services">Atuação</a>
+      <a href="#contact">Contato</a>
+    </nav>
+
+    <img src="fotos/logo3.png" alt="Foto de perfil" class="profile-pic" loading="lazy" />
+  </header>
+
+  <section class="home-section" id="inicio">
+    <img src="fotos/logo1.png" alt="Logo do escritório" class="logo-principal" loading="lazy" />
+    <div class="subtexto-logo">Compromisso, ética e excelência jurídica ao seu lado.</div>
+
+    <div class="apresentacao">
+      <h2>Quem somos</h2>
+      <p>
+        Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
+        Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
+      </p>
+    </div>
+  </section>
+  <section class="sobre-section" id="about">
+    <img src="fotos/cabral1.jpg" alt="Foto Dr. Alfredo Cabral de Melo" loading="lazy" />
+    <p class="sobre-texto">
+      O escritório — Cabral de Melo Advocacia — está nessa estrutura desde 2021 e, desde então, busca atender e desenvolver um trabalho diferenciado dentro da advocacia, evitando litígios e promovendo a pacificação.<br><br>
+      O escritório é capitaneado por Dr. Alfredo Cabral de Melo, especialista em Direito Civil e Processo Civil, com maior enfoque no Direito das Famílias e Sucessões, além de ter forte atuação na advocacia empresarial e imobiliária.
+    </p>
+  </section>
+
+  <section class="atuacao-section" id="services">
+    <h2>Áreas de Atuação</h2>
+    <p class="intro">Especialização em Direito Civil e suas diversas vertentes.</p>
+    <div class="atuacao-grid">
+      <div class="atuacao-item" data-modal="modal-familia" tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família">
+        <i class="fas fa-people-roof" aria-hidden="true"></i>
+        <span>Direito de Família</span>
+      </div>
+      <div class="atuacao-item" data-modal="modal-sucessoes" tabindex="0" role="button" aria-pressed="false" aria-label="Direito das Sucessões">
+        <i class="fas fa-file-signature" aria-hidden="true"></i>
+        <span>Direito das Sucessões</span>
+      </div>
+      <div class="atuacao-item" data-modal="modal-imobiliario" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Imobiliário">
+        <i class="fas fa-building" aria-hidden="true"></i>
+        <span>Direito Imobiliário</span>
+      </div>
+      <div class="atuacao-item" data-modal="modal-empresarial" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Empresarial">
+        <i class="fas fa-briefcase" aria-hidden="true"></i>
+        <span>Direito Empresarial</span>
+      </div>
+      <div class
+      <div class="atuacao-item" data-modal="modal-previdenciario" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Previdenciário">
+        <i class="fas fa-hand-holding-medical" aria-hidden="true"></i>
+        <span>Direito Previdenciário</span>
+      </div>
+      <div class="atuacao-item" data-modal="modal-maritimo" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Marítimo">
+        <i class="fas fa-ship" aria-hidden="true"></i>
+        <span>Direito Marítimo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modais -->
+  <div id="modal-familia" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-familia-title" tabindex="-1">
+    <div class="modal">
+      <h3 id="modal-familia-title">Direito de Família</h3>
+      <p>Atua na regulamentação das relações familiares, incluindo divórcio, guarda de filhos, pensão alimentícia e outros direitos decorrentes dos vínculos familiares.</p>
+      <button class="close-modal" aria-label="Fechar modal Direito de Família">Fechar</button>
+    </div>
   </div>
-</div>
 
-<!-- Modal Direito das Sucessões -->
-<div id="modal-sucessoes" class="modal-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-sucessoes-title" style="display:none;">
-  <div class="modal-content" role="document">
-    <button class="close-modal" aria-label="Fechar modal">&times;</button>
-    <h3 id="modal-sucessoes-title">Direito das Sucessões</h3>
-    <p>Regula a transferência de bens, direitos e obrigações após o falecimento, abrangendo testamentos e inventários.</p>
+  <div id="modal-sucessoes" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-sucessoes-title" tabindex="-1">
+    <div class="modal">
+      <h3 id="modal-sucessoes-title">Direito das Sucessões</h3>
+      <p>Cuida da transmissão do patrimônio de uma pessoa após seu falecimento, abrangendo testamentos, inventários e partilhas de bens.</p>
+      <button class="close-modal" aria-label="Fechar modal Direito das Sucessões">Fechar</button>
+    </div>
   </div>
-</div>
 
-<!-- Modal Direito Imobiliário -->
-<div id="modal-imobiliario" class="modal-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-imobiliario-title" style="display:none;">
-  <div class="modal-content" role="document">
-    <button class="close-modal" aria-label="Fechar modal">&times;</button>
-    <h3 id="modal-imobiliario-title">Direito Imobiliário</h3>
-    <p>Envolve compra, venda, locação e regularização de imóveis, além de conflitos imobiliários e registros públicos.</p>
+  <div id="modal-imobiliario" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-imobiliario-title" tabindex="-1">
+    <div class="modal">
+      <h3 id="modal-imobiliario-title">Direito Imobiliário</h3>
+      <p>Envolve a compra, venda, aluguel, financiamento e regularização de imóveis, garantindo segurança jurídica nas transações imobiliárias.</p>
+      <button class="close-modal" aria-label="Fechar modal Direito Imobiliário">Fechar</button>
+    </div>
   </div>
-</div>
 
-<!-- Modal Direito Empresarial -->
-<div id="modal-empresarial" class="modal-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-empresarial-title" style="display:none;">
-  <div class="modal-content" role="document">
-    <button class="close-modal" aria-label="Fechar modal">&times;</button>
-    <h3 id="modal-empresarial-title">Direito Empresarial</h3>
-    <p>Atuação focada em contratos, sociedades empresariais, falências, recuperações judiciais e questões societárias.</p>
+  <div id="modal-empresarial" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-empresarial-title" tabindex="-1">
+    <div class="modal">
+      <h3 id="modal-empresarial-title">Direito Empresarial</h3>
+      <p>Foca nas relações comerciais, contratos, constituição e dissolução de empresas, bem como na proteção dos interesses empresariais.</p>
+      <button class="close-modal" aria-label="Fechar modal Direito Empresarial">Fechar</button>
+    </div>
   </div>
-</div>
 
-<!-- Modal Direito Previdenciário -->
-<div id="modal-previdenciario" class="modal-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-previdenciario-title" style="display:none;">
-  <div class="modal-content" role="document">
-    <button class="close-modal" aria-label="Fechar modal">&times;</button>
-    <h3 id="modal-previdenciario-title">Direito Previdenciário</h3>
-    <p>Envolve benefícios, aposentadorias, pensões e auxílio-doença junto à previdência social.</p>
+  <div id="modal-previdenciario" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-previdenciario-title" tabindex="-1">
+    <div class="modal">
+      <h3 id="modal-previdenciario-title">Direito Previdenciário</h3>
+      <p>Regula os direitos relacionados à previdência social, como aposentadorias, auxílios e benefícios previdenciários.</p>
+      <button class="close-modal" aria-label="Fechar modal Direito Previdenciário">Fechar</button>
+    </div>
   </div>
-</div>
 
-<!-- Modal Direito Marítimo -->
-<div id="modal-maritimo" class="modal-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-maritimo-title" style="display:none;">
-  <div class="modal-content" role="document">
-    <button class="close-modal" aria-label="Fechar modal">&times;</button>
-    <h3 id="modal-maritimo-title">Direito Marítimo</h3>
-    <p>Atuação em contratos, transporte e responsabilidades relacionadas ao setor marítimo e portuário.</p>
+  <div id="modal-maritimo" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-maritimo-title" tabindex="-1">
+    <div class="modal">
+      <h3 id="modal-maritimo-title">Direito Marítimo</h3>
+      <p>Trata das normas jurídicas aplicáveis às atividades marítimas, como transporte, contratos navais e responsabilidades em acidentes no mar.</p>
+      <button class="close-modal" aria-label="Fechar modal Direito Marítimo">Fechar</button>
+    </div>
   </div>
-</div>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
-<!-- Modal Violência contra a mulher -->
-<div id="modal-violencia" class="modal-overlay" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-violencia-title" style="display:none;">
-  <div class="modal-content" role="document">
-    <button class="close-modal" aria-label="Fechar modal">&times;</button>
-    <h3 id="modal-violencia-title">Violência contra a mulher</h3>
-    <p>Atua na proteção legal contra violência doméstica e medidas de defesa previstas na Lei Maria da Penha.</p>
-  </div>
-</div>
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
 
-<style>
-  /* Estilos para os modais */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(44, 44, 44, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1500;
-  }
+    // Fechar menu ao clicar em algum link (mobile)
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if(navMenu.classList.contains('open')){
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('open');
+        }
+      });
+    });
 
-  .modal-overlay[style*="display:none"] {
-    display: none !important;
-  }
-
-  .modal-content {
-    background: var(--branco);
-    border-radius: 12px;
-    padding: 2rem 2.5rem;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    position: relative;
-    color: var(--grafite-escuro);
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .modal-content h3 {
-    margin-top: 0;
-    color: var(--cobre-rose);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  .modal-content p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-  }
-
-  .close-modal {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    background: transparent;
-    border: none;
-    font-size: 2rem;
-    line-height: 1;
-    color: var(--cobre-rose-escuro);
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-
-  .close-modal:hover,
-  .close-modal:focus {
-    color: var(--cobre-rose);
-    outline: none;
-  }
-</style>
-<!-- PARTE 3: Script para controle dos modais e integração com menu hamburger -->
-
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-<script>
-  // Código existente para menu hamburger (não modificado)
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('open');
-  });
-
-  document.querySelectorAll('#nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      if(navMenu.classList.contains('open')){
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('open');
+    // Script para destacar o texto ao toque em mobile na seção "Sobre"
+    const sobreTexto = document.querySelector('.sobre-texto');
+    sobreTexto.addEventListener('touchstart', () => {
+      if(sobreTexto.classList.contains('ativo')) {
+        sobreTexto.classList.remove('ativo');
+      } else {
+        sobreTexto.classList.add('ativo');
       }
     });
-  });
 
-  // Controle dos modais da seção Atuação
-  const atuacaoItems = document.querySelectorAll('.atuacao-item');
-  const modais = document.querySelectorAll('.modal-overlay');
+    // Script para abrir e fechar os modais da seção Atuação
+    const atuacaoItems = document.querySelectorAll('.atuacao-item');
+    const modais = document.querySelectorAll('.modal-overlay');
 
-  atuacaoItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const modalId = item.getAttribute('data-modal');
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = 'flex';
-        modal.querySelector('.close-modal').focus();
-      }
-    });
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        item.click();
-      }
-    });
-  });
-
-  modais.forEach(modal => {
-    const btnClose = modal.querySelector('.close-modal');
-
-    btnClose.addEventListener('click', () => {
-      modal.style.display = 'none';
+    atuacaoItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const modalId = item.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('active');
+          modal.focus();
+        }
+      });
+      // Permitir abrir modal com Enter ou Espaço (acessibilidade teclado)
+      item.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      });
     });
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
+    modais.forEach(modal => {
+      // Fechar ao clicar no botão fechar
+      const btnClose = modal.querySelector('.close-modal');
+      btnClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
 
-    // Fechar modal com tecla ESC
-    modal.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modal.style.display = 'none';
-      }
+      // Fechar ao clicar fora da caixa modal
+      modal.addEventListener('click', (e) => {
+        if(e.target === modal){
+          modal.classList.remove('active');
+        }
+      });
+
+      // Fechar com a tecla Esc
+      modal.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape'){
+          modal.classList.remove('active');
+        }
+      });
     });
-  });
-</script>
+  </script>
+</body>
+</html>
