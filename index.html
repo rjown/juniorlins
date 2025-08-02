@@ -39,19 +39,23 @@
 
     /* HEADER - ALTERAÇÕES INICIADAS */
     header {
-      background: url('fotos/logo4.jpeg') no-repeat center center;
-      background-size: cover;
-      padding: 5rem 2rem 2rem;
-      display: flex;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      border-bottom: 2px solid var(--cobre-rose-escuro);
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
+  background: url('fotos/logo4.jpeg') no-repeat center center;
+  background-size: contain; /* ou use cover, mas contain evita corte */
+  padding: 5rem 2rem 2rem;
+  height: 150px; /* define altura fixa, ajuste conforme a altura da sua imagem */
+  max-height: 150px; /* opcional para limitar altura */
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid var(--cobre-rose-escuro);
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  overflow: hidden; /* garante que nada vaze para fora */
+}
+
 
     header > div:first-child {
       display: none; /* Remove o título e subtítulo */
