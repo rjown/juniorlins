@@ -41,7 +41,7 @@
       background: var(--branco);
       padding: 1rem 2rem;
       display: flex;
-      justify-content: flex-start; /* menu à esquerda */
+      justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid var(--cobre-rose-escuro);
       position: fixed;
@@ -50,14 +50,14 @@
       left: 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      overflow: visible;
-      gap: 2rem; /* espaço entre menu e foto */
+      position: relative;
     }
 
     nav {
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      order: 2; /* para garantir posição atrás do hamburger */
     }
 
     nav a {
@@ -97,6 +97,7 @@
       height: 22px;
       cursor: pointer;
       z-index: 1100;
+      order: 1; /* para garantir posição à esquerda do nav */
     }
     .hamburger div {
       width: 25px;
@@ -123,15 +124,16 @@
       nav {
         position: fixed;
         top: 64px; /* altura do header */
-        right: 0;
+        left: 0; /* mudou de right: 0 para left: 0 */
         background: var(--branco);
         height: calc(100vh - 64px);
         width: 220px;
         flex-direction: column;
         padding: 2rem 1rem;
-        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-        transform: translateX(100%);
+        box-shadow: 2px 0 8px rgba(0,0,0,0.1); /* sombra para esquerda */
+        transform: translateX(-100%); /* sair pela esquerda */
         transition: transform 0.3s ease-in-out;
+        order: 2;
       }
       nav.open {
         transform: translateX(0);
@@ -151,21 +153,21 @@
       }
       .hamburger {
         display: flex;
+        order: 1;
       }
     }
 
-    /* Foto de perfil estilo círculo no canto superior direito */
-    header .profile-pic {
-      position: fixed;
-      top: 10px;
-      right: 15px;
+    /* Perfil foto no canto superior direito */
+    .profile-pic {
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      border: 2px solid var(--cobre-rose-escuro);
       object-fit: cover;
-      z-index: 1100;
-      background-color: var(--branco);
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      border: 2px solid var(--cobre-rose-escuro);
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
 
     /* Espaçamento para compensar o header fixo */
@@ -249,6 +251,12 @@
 </head>
 <body>
   <header>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
     <nav id="nav-menu">
       <a href="#inicio" class="active">Início</a>
       <a href="#about">Sobre</a>
@@ -256,13 +264,6 @@
       <a href="#contact">Contato</a>
     </nav>
 
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-    <!-- Foto de perfil no canto superior direito -->
     <img src="fotos/logo3.png" alt="Foto de perfil" class="profile-pic" loading="lazy" />
   </header>
 
