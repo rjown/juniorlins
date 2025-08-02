@@ -2,126 +2,307 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dr. Alfredo Cabral de Melo</title>
+
+  <!-- Importação da fonte Montserrat do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    :root {
+      --branco: #ffffff;
+      --grafite-escuro: #2c2c2c; /* para menus e textos principais */
+      --cinza-fosco: rgba(43, 43, 43, 0.1);
+      --cobre-rose: #d69d80; /* para títulos */
+      --cinza-claro: #e6b18e; /* para subtítulo no header */
+      --preto-profundo: #2c2c2c; /* usado no texto do botão CTA e menus */
+      --cobre-rose-escuro: #b67c67; /* para bordas e linhas */
+      --botao-cta-fundo: #f4c39d; /* botão CTA */
+      --menu-hover: #c58b72; /* hover e active no menu */
+    }
+
+    * {
       margin: 0;
-      font-family: 'Share Tech Mono', monospace;
-      background-color: #1a1a1a;
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
     }
 
+    body {
+      background-color: var(--branco);
+      color: var(--grafite-escuro);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* HEADER - ALTERAÇÕES INICIADAS */
     header {
-      position: relative;
+      background: url('fotos/logo4.jpeg') no-repeat center center;
+      background-size: cover;
+      padding: 5rem 2rem 2rem;
+      display: flex;
+      align-items: center;
+      position: fixed;
       width: 100%;
-      height: auto;
+      top: 0;
+      left: 0;
+      border-bottom: 2px solid var(--cobre-rose-escuro);
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    header img {
-      width: 100%;
-      height: auto;
-      display: block;
+    header > div:first-child {
+      display: none; /* Remove o título e subtítulo */
     }
 
     nav {
-      position: absolute;
-      top: 20px;
-      left: 20px;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
+      align-items: center;
+      gap: 1.5rem;
+      background-color: rgba(244, 195, 157, 0.85); /* #f4c39d com transparência */
+      padding: 0.5rem 1rem;
       border-radius: 8px;
+      position: absolute;
+      left: 2rem;
+      top: 1.5rem;
     }
 
     nav a {
-      color: #f4c39d;
+      color: var(--preto-profundo);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1rem;
+      transition: color 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover,
+    nav a.active {
+      color: var(--menu-hover);
     }
 
-    main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+    nav a.cta {
+      padding: 0.5rem 1rem;
+      background: var(--botao-cta-fundo);
+      color: var(--preto-profundo);
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    h2 {
-      color: #f4c39d;
+    nav a.cta:hover {
+      background: #b89a75;
+    }
+    /* FIM DAS ALTERAÇÕES NO HEADER */
+
+    /* Botão hamburger - oculto por padrão */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 25px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--grafite-escuro);
+      border-radius: 3px;
+      transition: all 0.3s linear;
+      position: relative;
     }
 
-    footer {
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
+    /* Transformação do hamburger quando ativo */
+    .hamburger.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
 
+    /* Menu mobile - oculto por padrão */
     @media (max-width: 768px) {
       nav {
-        top: 10px;
-        left: 10px;
-        padding: 8px 12px;
-        gap: 8px;
+        position: fixed;
+        top: 64px; /* altura do header */
+        right: 0;
+        background: var(--branco);
+        height: calc(100vh - 64px);
+        width: 220px;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0;
+        position: fixed; /* para garantir posicionamento no mobile */
+        left: auto;
+        z-index: 1001;
       }
-
+      nav.open {
+        transform: translateX(0);
+      }
       nav a {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        color: var(--grafite-escuro);
       }
+      nav a.cta {
+        background: var(--botao-cta-fundo);
+        color: var(--preto-profundo);
+        width: 100%;
+        text-align: center;
+        border-radius: 6px;
+        padding: 0.7rem 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Espaçamento para compensar o header fixo */
+    main, .home-section {
+      padding-top: 80px;
+    }
+
+    .home-section {
+      text-align: center;
+      padding: 4rem 1rem 6rem 1rem;
+      background-color: var(--branco);
+      color: var(--grafite-escuro);
+    }
+
+    /* Logo flexível para diferentes telas */
+    .logo-principal {
+      width: 60vw;        /* 40% da largura da viewport */
+      max-width: 550px;   /* máximo 350px */
+      min-width: 250px;   /* mínimo 150px */
+      height: auto;
+      margin: 0 auto 1rem auto;
+      display: block;
+      filter: brightness(1);
+      transition: transform 0.3s ease;
+    }
+    .logo-principal:hover {
+      transform: scale(1.05);
+    }
+
+    /* Subtítulo novo texto, menor e sem fundo */
+    .subtexto-logo {
+      font-size: 0.85rem;
+      color: var(--cinza-claro);
+      margin-bottom: 3rem;
+      font-style: normal;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Seção “Quem somos” sem balão, texto flutuante */
+    .apresentacao {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 0; /* remove padding do balão */
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center; /* título centralizado */
+      color: var(--grafite-escuro);
+    }
+
+    .apresentacao h2 {
+      color: var(--cobre-rose);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .apresentacao p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      font-family: 'Montserrat', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--branco);
+      border-top: 2px solid var(--cobre-rose-escuro);
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--grafite-escuro);
+      font-family: 'Montserrat', sans-serif;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo4.jpeg" alt="Logo do escritório" />
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#atuacao">Atuação</a>
-      <a href="#contato">Contato</a>
+    <div>
+      <h1>Dr. Alfredo Cabral de Melo</h1>
+      <p class="subtitle">Compromisso, ética e excelência jurídica ao seu lado.</p>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#about">Sobre</a>
+      <a href="#services">Atuação</a>
+      <a href="#contact">Contato</a>
     </nav>
   </header>
 
-  <main>
-    <section id="inicio">
-      <h2>Bem-vindo</h2>
-      <p>Seja bem-vindo ao site oficial do escritório do Dr. Alfredo Cabral de Melo.</p>
-    </section>
-    <section id="sobre">
-        <h2>Sobre</h2>
-        <p>Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas. Sempre com um atendimento e solução sob medida para cada cliente.</p>
-    </section>
+  <section class="home-section" id="inicio">
+    <img src="fotos/logo1.png" alt="Logo do escritório" class="logo-principal" loading="lazy" />
+    <div class="subtexto-logo">Compromisso, ética e excelência jurídica ao seu lado.</div>
 
-    <section id="atuacao">
-        <h2>Áreas de Atuação</h2>
-        <ul>
-            <li>Direito Civil</li>
-            <li>Direito de Família</li>
-            <li>Direito do Consumidor</li>
-            <li>Direito Trabalhista</li>
-            <li>Direito Previdenciário</li>
-        </ul>
-    </section>
+    <div class="apresentacao">
+      <h2>Quem somos</h2>
+      <p>
+        Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
+        Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
+      </p>
+    </div>
+  </section>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Telefone: (81) 91234-5678</p>
-        <p>Email: contato@cabraldemelo.adv.br</p>
-        <p>Endereço: Rua Exemplo, nº 123, Recife - PE</p>
-    </section>
+  <footer>
+    © 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
+  </footer>
 
-    <footer>
-        <p>&copy; 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.</p>
-    </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    // Fechar menu ao clicar em algum link (mobile)
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if(navMenu.classList.contains('open')){
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
