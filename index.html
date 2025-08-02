@@ -19,6 +19,7 @@
       --cobre-rose-escuro: #b67c67; /* para bordas e linhas */
       --botao-cta-fundo: #f4c39d; /* botão CTA */
       --menu-hover: #c58b72; /* hover e active no menu */
+      --menu-texto-sobre-imagem: #f4c39d; /* cor do menu sobre a imagem */
     }
 
     * {
@@ -38,44 +39,32 @@
     }
 
     header {
-      background: var(--branco);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid var(--cobre-rose-escuro);
-      position: fixed;
+      background: transparent; /* transparente para imagem ficar visível */
+      padding: 0; /* remover padding para a imagem ocupar tudo */
+      position: relative; /* para posicionamento absoluto do menu */
       width: 100%;
       top: 0;
       left: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: none; /* remover sombra para não atrapalhar a imagem */
     }
 
-    header h1 {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--cobre-rose);
-      font-family: Helvetica, Arial, sans-serif; /* Títulos com Helvetica */
-    }
-
-    header .subtitle {
-      color: var(--cinza-claro);
-      font-size: 0.75rem;
-      margin-top: 0.15rem;
-      font-style: normal;
-      letter-spacing: 0.02em;
-      font-family: 'Montserrat', sans-serif;
-    }
-
+    /* Menu posicionado sobre a imagem, alinhado à esquerda */
     nav {
+      position: absolute;
+      top: 0;
+      left: 0;
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      padding: 1rem 2rem;
+      background: transparent;
+      z-index: 1100;
+      width: auto;
     }
 
     nav a {
-      color: var(--grafite-escuro);
+      color: var(--menu-texto-sobre-imagem);
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
@@ -102,8 +91,11 @@
       background: #b89a75;
     }
 
-    /* Botão hamburger - oculto por padrão */
+    /* Botão hamburger - mantido para responsividade */
     .hamburger {
+      position: absolute;
+      top: 1rem;
+      left: 220px; /* deslocado para a direita do menu */
       display: none;
       flex-direction: column;
       justify-content: space-around;
@@ -115,7 +107,7 @@
     .hamburger div {
       width: 25px;
       height: 3px;
-      background: var(--grafite-escuro);
+      background: var(--menu-texto-sobre-imagem);
       border-radius: 3px;
       transition: all 0.3s linear;
       position: relative;
@@ -132,7 +124,7 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Menu mobile - oculto por padrão */
+    /* Menu mobile */
     @media (max-width: 768px) {
       nav {
         position: fixed;
@@ -165,10 +157,13 @@
       }
       .hamburger {
         display: flex;
+        left: auto;
+        right: 1.5rem;
+        top: 1rem;
       }
     }
 
-    /* Espaçamento para compensar o header fixo */
+    /* Espaçamento para compensar header fixo */
     main, .home-section {
       padding-top: 80px;
     }
@@ -180,22 +175,16 @@
       color: var(--grafite-escuro);
     }
 
-    /* Logo flexível para diferentes telas */
-    .logo-principal {
-      width: 60vw;        /* 40% da largura da viewport */
-      max-width: 550px;   /* máximo 350px */
-      min-width: 250px;   /* mínimo 150px */
+    /* Logo flexível para diferentes telas dentro do header */
+    .header-logo {
+      width: 100%;
       height: auto;
-      margin: 0 auto 1rem auto;
       display: block;
-      filter: brightness(1);
-      transition: transform 0.3s ease;
-    }
-    .logo-principal:hover {
-      transform: scale(1.05);
+      max-height: 150px;
+      object-fit: contain;
     }
 
-    /* Subtítulo novo texto, menor e sem fundo */
+    /* Mantém estilo das outras seções sem alterações */
     .subtexto-logo {
       font-size: 0.85rem;
       color: var(--cinza-claro);
@@ -206,14 +195,13 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* Seção “Quem somos” sem balão, texto flutuante */
     .apresentacao {
       max-width: 650px;
       margin: 0 auto;
-      padding: 0; /* remove padding do balão */
+      padding: 0;
       border-radius: 0;
       box-shadow: none;
-      text-align: center; /* título centralizado */
+      text-align: center;
       color: var(--grafite-escuro);
     }
 
@@ -249,10 +237,12 @@
 </head>
 <body>
   <header>
-    <div>
-      <h1>Dr. Alfredo Cabral de Melo</h1>
-      <p class="subtitle">Compromisso, ética e excelência jurídica ao seu lado.</p>
-    </div>
+    <nav id="nav-menu">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#about">Sobre</a>
+      <a href="#services">Atuação</a>
+      <a href="#contact">Contato</a>
+    </nav>
 
     <div class="hamburger" id="hamburger">
       <div></div>
@@ -260,12 +250,7 @@
       <div></div>
     </div>
 
-    <nav id="nav-menu">
-      <a href="#inicio" class="active">Início</a>
-      <a href="#about">Sobre</a>
-      <a href="#services">Atuação</a>
-      <a href="#contact">Contato</a>
-    </nav>
+    <img src="fotos/logo 2.jpg" alt="Logo do escritório" class="header-logo" loading="lazy" />
   </header>
 
   <section class="home-section" id="inicio">
@@ -280,7 +265,6 @@
       </p>
     </div>
   </section>
-
   <footer>
     © 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
   </footer>
