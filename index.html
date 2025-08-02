@@ -38,10 +38,10 @@
     }
 
     header {
-      background: var(--branco); /* removido background da imagem */
+      background: var(--branco);
       padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start; /* menu à esquerda */
       align-items: center;
       border-bottom: 2px solid var(--cobre-rose-escuro);
       position: fixed;
@@ -51,22 +51,7 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       overflow: visible;
-    }
-
-    header h1 {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--cobre-rose);
-      font-family: Helvetica, Arial, sans-serif; /* Títulos com Helvetica */
-    }
-
-    header .subtitle {
-      color: var(--cinza-claro);
-      font-size: 0.75rem;
-      margin-top: 0.15rem;
-      font-style: normal;
-      letter-spacing: 0.02em;
-      font-family: 'Montserrat', sans-serif;
+      gap: 2rem; /* espaço entre menu e foto */
     }
 
     nav {
@@ -174,8 +159,8 @@
       position: fixed;
       top: 10px;
       right: 15px;
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       border: 2px solid var(--cobre-rose-escuro);
       object-fit: cover;
@@ -264,23 +249,18 @@
 </head>
 <body>
   <header>
-    <div>
-      <h1>Dr. Alfredo Cabral de Melo</h1>
-      <p class="subtitle">Compromisso, ética e excelência jurídica ao seu lado.</p>
-    </div>
-
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
     <nav id="nav-menu">
       <a href="#inicio" class="active">Início</a>
       <a href="#about">Sobre</a>
       <a href="#services">Atuação</a>
       <a href="#contact">Contato</a>
     </nav>
+
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
     <!-- Foto de perfil no canto superior direito -->
     <img src="fotos/logo3.png" alt="Foto de perfil" class="profile-pic" loading="lazy" />
