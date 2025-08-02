@@ -19,6 +19,7 @@
       --cobre-rose-escuro: #b67c67; /* para bordas e linhas */
       --botao-cta-fundo: #f4c39d; /* botão CTA */
       --menu-hover: #c58b72; /* hover e active no menu */
+      --sobre-texto-hover: #b67c67; /* cor destaque do texto Sobre */
     }
 
     * {
@@ -237,6 +238,7 @@
       text-align: center;
       padding: 0 10px;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -246,6 +248,56 @@
       font-size: 0.9rem;
       color: var(--grafite-escuro);
       font-family: 'Montserrat', sans-serif;
+    }
+
+    /* NOVA SEÇÃO SOBRE */
+    .sobre-section {
+      max-width: 900px;
+      margin: 3rem auto 4rem auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      color: var(--grafite-escuro);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    .sobre-section img {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    .sobre-texto {
+      font-size: 1.1rem;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Efeito hover para desktop */
+    .sobre-texto:hover,
+    .sobre-texto.ativo {
+      color: var(--sobre-texto-hover);
+      text-shadow: 0 0 5px rgba(182,124,103,0.8);
+    }
+
+    /* Responsividade: empilha vertical em telas pequenas */
+    @media (max-width: 768px) {
+      .sobre-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .sobre-section img {
+        width: 250px;
+        margin-bottom: 1.5rem;
+      }
+      .sobre-texto {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -279,6 +331,13 @@
       </p>
     </div>
   </section>
+  <section class="sobre-section" id="about">
+    <img src="fotos/cabral1.jpg" alt="Foto Dr. Alfredo Cabral de Melo" loading="lazy" />
+    <p class="sobre-texto">
+      O escritório — Cabral de Melo Advocacia — está nessa estrutura desde 2021 e, desde então, busca atender e desenvolver um trabalho diferenciado dentro da advocacia, evitando litígios e promovendo a pacificação.<br><br>
+      O escritório é capitaneado por Dr. Alfredo Cabral de Melo, especialista em Direito Civil e Processo Civil, com maior enfoque no Direito das Famílias e Sucessões, além de ter forte atuação na advocacia empresarial e imobiliária.
+    </p>
+  </section>
 
   <footer>
     © 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
@@ -301,6 +360,16 @@
           navMenu.classList.remove('open');
         }
       });
+    });
+
+    // Script para destacar o texto ao toque em mobile
+    const sobreTexto = document.querySelector('.sobre-texto');
+    sobreTexto.addEventListener('touchstart', () => {
+      if(sobreTexto.classList.contains('ativo')) {
+        sobreTexto.classList.remove('ativo');
+      } else {
+        sobreTexto.classList.add('ativo');
+      }
     });
   </script>
 </body>
