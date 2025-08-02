@@ -38,12 +38,11 @@
     }
 
     /* HEADER - ALTERAÇÕES INICIADAS */
-    header {
+   header {
   background: url('fotos/logo4.jpeg') no-repeat center center;
-  background-size: contain; /* ou use cover, mas contain evita corte */
-  padding: 5rem 2rem 2rem;
-  height: 150px; /* define altura fixa, ajuste conforme a altura da sua imagem */
-  max-height: 150px; /* opcional para limitar altura */
+  background-size: cover;
+  height: 150px; /* ajuste conforme a altura desejada */
+  padding: 0 2rem; /* remova padding vertical para evitar altura extra */
   display: flex;
   align-items: center;
   position: fixed;
@@ -53,8 +52,9 @@
   border-bottom: 2px solid var(--cobre-rose-escuro);
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  overflow: hidden; /* garante que nada vaze para fora */
+  overflow: hidden;
 }
+
 
 
     header > div:first-child {
