@@ -343,17 +343,10 @@
     </div>
   </section>
   <section class="atuacao-section" id="services">
-    <h2 style="
-  text-align: center;
-  color: var(--cobre-rose);
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-">Áreas de Atuação</h2>
-
-    <p class="intro" style="text-align:center; color: var(--grafite-escuro);">Especialização em Direito Civil e suas diversas vertentes.</p>
+    <h2 style="text-align:center; color: var(--cobre-rose); font-family: Helvetica, Arial, sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700; letter-spacing: 0.05em;">Áreas de Atuação</h2>
+    <p class="intro" style="text-align:center; color: var(--grafite-escuro); max-width: 600px; margin: 0 auto 2rem auto; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; line-height: 1.6;">
+      Atuamos com excelência em diversas frentes do Direito, oferecendo suporte completo e especializado de acordo com a necessidade de cada cliente. Conheça algumas das principais áreas em que podemos ajudar.
+    </p>
     <ul class="atuacao-lista">
       <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família" onclick="abrirModal('modal1')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal1')">
         <img src="fotos/familia.png" alt="Ícone Direito de Família" class="icon" />
@@ -363,10 +356,6 @@
         <img src="fotos/sucessoes.png" alt="Ícone Direito das Sucessões" class="icon" />
         <div class="atuacao-nome">Direito das Sucessões</div>
       </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito do Consumidor" onclick="abrirModal('modal3')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal3')">
-        <img src="fotos/consumidor.png" alt="Ícone Direito do Consumidor" class="icon" />
-        <div class="atuacao-nome">Direito do Consumidor</div>
-      </li>
       <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito Cível" onclick="abrirModal('modal4')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal4')">
         <img src="fotos/civil.png" alt="Ícone Direito Cível" class="icon" />
         <div class="atuacao-nome">Direito Cível</div>
@@ -375,9 +364,13 @@
         <img src="fotos/previdencia.png" alt="Ícone Direito Previdenciário" class="icon" />
         <div class="atuacao-nome">Direito Previdenciário</div>
       </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito à Saúde" onclick="abrirModal('modal6')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal6')">
-        <img src="fotos/saude.png" alt="Ícone Direito à Saúde" class="icon" />
-        <div class="atuacao-nome">Direito à Saúde</div>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito Marítimo" onclick="abrirModal('modal8')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal8')">
+        <img src="fotos/maritimo.png" alt="Ícone Direito Marítimo" class="icon" />
+        <div class="atuacao-nome">Direito Marítimo</div>
+      </li>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito Eleitoral" onclick="abrirModal('modal9')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal9')">
+        <img src="fotos/eleitoral.png" alt="Ícone Direito Eleitoral" class="icon" />
+        <div class="atuacao-nome">Direito Eleitoral</div>
       </li>
       <li tabindex="0" role="button" aria-pressed="false" aria-label="Violência contra a mulher" onclick="abrirModal('modal7')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal7')">
         <img src="fotos/violencia.png" alt="Ícone Violência contra a mulher" class="icon" />
@@ -385,7 +378,6 @@
       </li>
     </ul>
   </section>
-
   <!-- Modais das atuações -->
   <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1">
     <div class="modal-content">
@@ -400,14 +392,6 @@
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal2')">&times;</button>
       <h3 id="modal2Title">Direito das Sucessões</h3>
       <p id="modal2Desc">Orientação e processos relacionados a inventários, testamentos e partilha de bens.</p>
-    </div>
-  </div>
-
-  <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal3Title" aria-describedby="modal3Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal3')">&times;</button>
-      <h3 id="modal3Title">Direito do Consumidor</h3>
-      <p id="modal3Desc">Defesa dos direitos dos consumidores em compras, contratos e serviços.</p>
     </div>
   </div>
 
@@ -426,14 +410,6 @@
     </div>
   </div>
 
-  <div id="modal6" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal6Title" aria-describedby="modal6Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal6')">&times;</button>
-      <h3 id="modal6Title">Direito à Saúde</h3>
-      <p id="modal6Desc">Atuação em casos relacionados ao direito ao acesso à saúde e tratamentos.</p>
-    </div>
-  </div>
-
   <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title" aria-describedby="modal7Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal7')">&times;</button>
@@ -442,136 +418,18 @@
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
-  </footer>
+  <div id="modal8" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal8Title" aria-describedby="modal8Desc" tabindex="-1">
+    <div class="modal-content">
+      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal8')">&times;</button>
+      <h3 id="modal8Title">Direito Marítimo</h3>
+      <p id="modal8Desc">Atuação em questões relacionadas ao transporte marítimo, navegação, contratos e litígios marítimos.</p>
+    </div>
+  </div>
 
-  <script>
-    // Script para hamburger menu mobile
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('open');
-    });
-
-    // Fechar menu ao clicar em link (mobile)
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('open');
-      });
-    });
-
-    // Funções para abrir e fechar modais
-    function abrirModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.style.display = 'block';
-      modal.setAttribute('aria-hidden', 'false');
-      modal.focus();
-      // Fechar modal ao clicar fora do conteúdo
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          fecharModal(id);
-        }
-      });
-      // Fechar modal com ESC
-      document.addEventListener('keydown', function escListener(e) {
-        if (e.key === 'Escape') {
-          fecharModal(id);
-          document.removeEventListener('keydown', escListener);
-        }
-      });
-    }
-
-    function fecharModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
-    }
-  </script>
-  <style>
-    /* Estilos para os modais */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1500;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-      font-family: 'Montserrat', sans-serif;
-    }
-    .modal-content {
-      background-color: #fff;
-      margin: 8% auto;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 500px;
-      position: relative;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-      color: var(--grafite-escuro);
-    }
-    .fechar {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: transparent;
-      border: none;
-      font-size: 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--grafite-escuro);
-      line-height: 1;
-      transition: color 0.3s ease;
-    }
-    .fechar:hover,
-    .fechar:focus {
-      color: var(--menu-hover);
-      outline: none;
-    }
-
-    /* Estilos para ícones da atuação e nomes */
-    .atuacao-lista {
-      list-style: none;
-      padding-left: 0;
-      max-width: 300px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .atuacao-lista li {
-      cursor: pointer;
-      user-select: none;
-      outline: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--grafite-escuro);
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    .atuacao-lista li:hover,
-    .atuacao-lista li:focus {
-      color: var(--menu-hover);
-    }
-    .atuacao-lista li img.icon {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
-    .atuacao-nome {
-      text-align: center;
-    }
-  </style>
-</body>
-</html>
+  <div id="modal9" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal9Title" aria-describedby="modal9Desc" tabindex="-1">
+    <div class="modal-content">
+      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal9')">&times;</button>
+      <h3 id="modal9Title">Direito Eleitoral</h3>
+      <p id="modal9Desc">Assessoria jurídica em processos eleitorais, candidaturas, impugnações e campanhas.</p>
+    </div>
+  </div>
