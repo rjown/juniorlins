@@ -4,582 +4,222 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dr. Alfredo Cabral de Melo</title>
-
-  <!-- Importação da fonte Montserrat do Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
-  <!-- Importação Font Awesome para ícones -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-dGm7bWjCnCdQn5T7NhRTPu3X3QwhUuCFmX7xDF3w7KXHZrZqW+JjJMr3oJb7mFfFybqR9q8zaxXnNj8+eGLcWg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
+  <link rel="stylesheet" href="style.css" />
   <style>
-    :root {
-      --branco: #ffffff;
-      --grafite-escuro: #2c2c2c; /* para menus e textos principais */
-      --cinza-fosco: rgba(43, 43, 43, 0.1);
-      --cobre-rose: #d69d80; /* para títulos */
-      --cinza-claro: #e6b18e; /* para subtítulo no header */
-      --preto-profundo: #2c2c2c; /* usado no texto do botão CTA e menus */
-      --cobre-rose-escuro: #b67c67; /* para bordas e linhas */
-      --botao-cta-fundo: #f4c39d; /* botão CTA */
-      --menu-hover: #c58b72; /* hover e active no menu */
-      --sobre-texto-hover: #b67c67; /* cor destaque do texto Sobre */
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: var(--branco);
-      color: var(--grafite-escuro);
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    header {
-      background: var(--branco);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid var(--cobre-rose-escuro);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: relative;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      order: 2; /* para garantir posição atrás do hamburger */
-    }
-
-    nav a {
-      color: var(--grafite-escuro);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--menu-hover);
-    }
-
-    nav a.cta {
-      padding: 0.5rem 1rem;
-      background: var(--botao-cta-fundo);
-      color: var(--preto-profundo);
-      border-radius: 4px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    nav a.cta:hover {
-      background: #b89a75;
-    }
-
-    /* Botão hamburger - oculto por padrão */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 25px;
-      height: 22px;
-      cursor: pointer;
-      z-index: 1100;
-      order: 1; /* para garantir posição à esquerda do nav */
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: var(--grafite-escuro);
-      border-radius: 3px;
-      transition: all 0.3s linear;
-      position: relative;
-    }
-
-    /* Transformação do hamburger quando ativo */
-    .hamburger.active div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.active div:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active div:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Menu mobile - oculto por padrão */
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        top: 64px; /* altura do header */
-        left: 0;
-        background: var(--branco);
-        height: calc(100vh - 64px);
-        width: 220px;
-        flex-direction: column;
-        padding: 2rem 1rem;
-        box-shadow: 2px 0 8px rgba(0,0,0,0.1);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        order: 2;
-      }
-      nav.open {
-        transform: translateX(0);
-      }
-      nav a {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        color: var(--grafite-escuro);
-      }
-      nav a.cta {
-        background: var(--botao-cta-fundo);
-        color: var(--preto-profundo);
-        width: 100%;
-        text-align: center;
-        border-radius: 6px;
-        padding: 0.7rem 0;
-      }
-      .hamburger {
-        display: flex;
-        order: 1;
-      }
-    }
-
-    /* Perfil foto no canto superior direito */
-    .profile-pic {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      border: 2px solid var(--cobre-rose-escuro);
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      z-index: 1200;
-    }
-
-    /* Espaçamento para compensar o header fixo */
-    main, .home-section {
-      padding-top: 80px;
-    }
-
-    .home-section {
+    .atuacoes-section {
+      padding: 40px 20px;
+      background-color: #111;
+      color: #fff;
       text-align: center;
-      padding: 4rem 1rem 6rem 1rem;
-      background-color: var(--branco);
-      color: var(--grafite-escuro);
     }
-
-    /* Logo flexível para diferentes telas */
-    .logo-principal {
-      width: 60vw;
-      max-width: 550px;
-      min-width: 250px;
+    .atuacoes-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .atuacao {
+      cursor: pointer;
+    }
+    .atuacao img {
+      width: 90px;
       height: auto;
-      margin: 0 auto 1rem auto;
       display: block;
-      filter: brightness(1);
-      transition: transform 0.3s ease;
-    }
-    .logo-principal:hover {
-      transform: scale(1.05);
-    }
-
-    /* Subtítulo novo texto, menor e sem fundo */
-    .subtexto-logo {
-      font-size: 0.85rem;
-      color: var(--cinza-claro);
-      margin-bottom: 3rem;
-      font-style: normal;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    /* Seção “Quem somos” sem balão, texto flutuante */
-    .apresentacao {
-      max-width: 650px;
       margin: 0 auto;
-      padding: 0;
-      border-radius: 0;
-      box-shadow: none;
-      text-align: center;
-      color: var(--grafite-escuro);
     }
-
-    .apresentacao h2 {
-      color: var(--cobre-rose);
-      font-family: Helvetica, Arial, sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
     }
-
-    .apresentacao p {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      font-family: 'Montserrat', sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 0 10px;
+    .modal-content {
+      background-color: #222;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
     }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: var(--branco);
-      border-top: 2px solid var(--cobre-rose-escuro);
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: var(--grafite-escuro);
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    /* NOVA SEÇÃO SOBRE */
-    .sobre-section {
-      max-width: 900px;
-      margin: 3rem auto 4rem auto;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      color: var(--grafite-escuro);
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-    }
-
-    .sobre-section img {
-      width: 300px;
-      max-width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      flex-shrink: 0;
-    }
-
-    .sobre-texto {
-      font-size: 1.1rem;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
       cursor: pointer;
     }
-
-    /* Efeito hover para desktop */
-    .sobre-texto:hover,
-    .sobre-texto.ativo {
-      color: var(--sobre-texto-hover);
-      text-shadow: 0 0 5px rgba(182,124,103,0.8);
+    .close:hover,
+    .close:focus {
+      color: #fff;
+      text-decoration: none;
     }
-
-    /* Responsividade: empilha vertical em telas pequenas */
-    @media (max-width: 768px) {
-      .sobre-section {
-        flex-direction: column;
-        text-align: center;
-      }
-      .sobre-section img {
-        width: 250px;
-        margin-bottom: 1.5rem;
-      }
-      .sobre-texto {
-        font-size: 1rem;
-      }
-    }
-
-    /* NOVA SEÇÃO ATUAÇÃO */
-    .atuacao-section {
-      max-width: 900px;
-      margin: 3rem auto 4rem auto;
-      padding: 0 1rem;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--grafite-escuro);
-      /* Alinhar texto à esquerda */
-      text-align: left;
-    }
-
-    .atuacao-section h2 {
-      color: var(--cobre-rose);
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-      text-align: left;
-    }
-
-    .atuacao-section p.intro {
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-      color: var(--grafite-escuro);
-      text-align: left;
-    }
-
-    /* Atualização: lista vertical com itens centralizados e layout vertical */
-    .atuacao-lista {
-      list-style: none;
-      padding-left: 0;
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .atuacao-lista li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--grafite-escuro);
-      user-select: none;
-      outline-offset: 4px;
-      transition: color 0.3s ease;
-    }
-
-    .atuacao-lista li:hover,
-    .atuacao-lista li:focus {
-      color: var(--menu-hover);
-      outline: none;
-    }
-
-    .atuacao-lista li img {
-      width: 80px;
-      height: auto;
-      margin-top: 8px;
-      user-select: none;
-      pointer-events: none; /* evita conflito no clique da imagem */
-    }
-
   </style>
 </head>
 <body>
+
   <header>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div style="display: flex; align-items: center; padding: 20px;">
+      <img src="profilepic1.jpeg" alt="Foto de Perfil" style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid white; margin-right: 15px;" loading="lazy" />
+      <h1 style="font-family: 'Share Tech Mono', monospace; color: white;">Dr. Alfredo Cabral de Melo</h1>
     </div>
-
-    <nav id="nav-menu">
-      <a href="#inicio" class="active">Início</a>
-      <a href="#about">Sobre</a>
-      <a href="#services">Atuação</a>
-      <a href="#contact">Contato</a>
-    </nav>
-
-    <img src="fotos/logo3.png" alt="Foto de perfil" class="profile-pic" loading="lazy" />
   </header>
 
-  <section class="home-section" id="inicio">
-    <img src="fotos/logo1.png" alt="Logo do escritório" class="logo-principal" loading="lazy" />
-    <div class="subtexto-logo">Compromisso, ética e excelência jurídica ao seu lado.</div>
+  <!-- Outras seções anteriores aqui -->
 
-    <div class="apresentacao">
-      <h2>Quem somos</h2>
-      <p>
-        Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
-        Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
-      </p>
+  <section id="atuacoes" class="atuacoes-section">
+    <h2 style="font-family: 'Share Tech Mono', monospace;">Áreas de Atuação</h2>
+    <div class="atuacoes-container">
+
+      <!-- Civil -->
+      <div class="atuacao" onclick="openModal('modalCivil')">
+        <h3>Direito Civil</h3>
+        <img src="fotos/civil.png" alt="Direito Civil" loading="lazy">
+      </div>
+
+      <!-- Consumidor -->
+      <div class="atuacao" onclick="openModal('modalConsumidor')">
+        <h3>Direito do Consumidor</h3>
+        <img src="fotos/consumidor.png" alt="Direito do Consumidor" loading="lazy">
+      </div>
+
+      <!-- Família -->
+      <div class="atuacao" onclick="openModal('modalFamilia')">
+        <h3>Direito de Família</h3>
+        <img src="fotos/familia.png" alt="Direito de Família" loading="lazy">
+      </div>
+      <!-- Previdenciário -->
+      <div class="atuacao" onclick="openModal('modalPrevidencia')">
+        <h3>Direito Previdenciário</h3>
+        <img src="fotos/previdencia.png" alt="Direito Previdenciário" loading="lazy">
+      </div>
+
+      <!-- Saúde -->
+      <div class="atuacao" onclick="openModal('modalSaude')">
+        <h3>Direito à Saúde</h3>
+        <img src="fotos/saude.png" alt="Direito à Saúde" loading="lazy">
+      </div>
+
+      <!-- Sucessões -->
+      <div class="atuacao" onclick="openModal('modalSucessoes')">
+        <h3>Direito das Sucessões</h3>
+        <img src="fotos/sucessoes.png" alt="Direito das Sucessões" loading="lazy">
+      </div>
+
+      <!-- Violência Doméstica -->
+      <div class="atuacao" onclick="openModal('modalViolencia')">
+        <h3>Violência Doméstica</h3>
+        <img src="fotos/violencia.png" alt="Violência Doméstica" loading="lazy">
+      </div>
     </div>
   </section>
 
-  <section class="sobre-section" id="about">
-    <img src="fotos/cabral1.jpg" alt="Foto Dr. Alfredo Cabral de Melo" loading="lazy" />
-    <p class="sobre-texto">
-      O escritório — Cabral de Melo Advocacia — está nessa estrutura desde 2021 e, desde então, busca atender e desenvolver um trabalho diferenciado dentro da advocacia, evitando litígios e promovendo a pacificação.<br><br>
-      O escritório é capitaneado por Dr. Alfredo Cabral de Melo, especialista em Direito Civil e Processo Civil, com maior enfoque no Direito das Famílias e Sucessões, além de ter forte atuação na advocacia empresarial e imobiliária.
-    </p>
-  </section>
+  <!-- Modais -->
+  <div id="modalCivil" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalCivil')">&times;</span>
+      <h2>Direito Civil</h2>
+      <p>Atuação em questões contratuais, indenizatórias, responsabilidade civil, entre outras demandas do direito privado.</p>
+    </div>
+  </div>
 
-  <section class="atuacao-section" id="services">
-    <h2>Áreas de Atuação</h2>
-    <p class="intro">Especialização em Direito Civil e suas diversas vertentes.</p>
-        <section id="atuacao">
-            <h2 class="titulo-secao">Atuação</h2>
-            <ul class="atuacao-lista">
-                <li tabindex="0" role="button" aria-label="Direito Civil" onclick="abrirModal('modal-civil')">
-                    <p class="atuacao-titulo">Direito Civil</p>
-                    <img src="fotos/civil.png" alt="Ícone Direito Civil" class="icone-atuacao" loading="lazy">
-                </li>
-                <li tabindex="0" role="button" aria-label="Direito do Consumidor" onclick="abrirModal('modal-consumidor')">
-                    <p class="atuacao-titulo">Direito do Consumidor</p>
-                    <img src="fotos/consumidor.png" alt="Ícone Direito do Consumidor" class="icone-atuacao" loading="lazy">
-                </li>
-                <li tabindex="0" role="button" aria-label="Direito de Família" onclick="abrirModal('modal-familia')">
-                    <p class="atuacao-titulo">Direito de Família</p>
-                    <img src="fotos/familia.png" alt="Ícone Direito de Família" class="icone-atuacao" loading="lazy">
-                </li>
-                <li tabindex="0" role="button" aria-label="Direito Previdenciário" onclick="abrirModal('modal-previdencia')">
-                    <p class="atuacao-titulo">Direito Previdenciário</p>
-                    <img src="fotos/previdencia.png" alt="Ícone Direito Previdenciário" class="icone-atuacao" loading="lazy">
-                </li>
-                <li tabindex="0" role="button" aria-label="Direito à Saúde" onclick="abrirModal('modal-saude')">
-                    <p class="atuacao-titulo">Direito à Saúde</p>
-                    <img src="fotos/saude.png" alt="Ícone Direito à Saúde" class="icone-atuacao" loading="lazy">
-                </li>
-                <li tabindex="0" role="button" aria-label="Sucessões" onclick="abrirModal('modal-sucessoes')">
-                    <p class="atuacao-titulo">Sucessões</p>
-                    <img src="fotos/sucessoes.png" alt="Ícone Sucessões" class="icone-atuacao" loading="lazy">
-                </li>
-                <li tabindex="0" role="button" aria-label="Violência Contra a Mulher" onclick="abrirModal('modal-violencia')">
-                    <p class="atuacao-titulo">Violência Contra a Mulher</p>
-                    <img src="fotos/violencia.png" alt="Ícone Violência Contra a Mulher" class="icone-atuacao" loading="lazy">
-                </li>
-            </ul>
-        </section>
+  <div id="modalConsumidor" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalConsumidor')">&times;</span>
+      <h2>Direito do Consumidor</h2>
+      <p>Defesa dos direitos do consumidor em relações de consumo, compras, serviços, cobranças indevidas e danos morais.</p>
+    </div>
+  </div>
 
-        <!-- Modais -->
-        <div id="modal-civil" class="modal">
-            <div class="modal-conteudo">
-                <span class="fechar" onclick="fecharModal('modal-civil')">&times;</span>
-                <h3>Direito Civil</h3>
-                <p>Trata das relações entre pessoas, bens e contratos, abrangendo responsabilidade civil, obrigações, posse e propriedade.</p>
-            </div>
-        </div>
+  <div id="modalFamilia" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalFamilia')">&times;</span>
+      <h2>Direito de Família</h2>
+      <p>Atendimento em casos de divórcio, pensão alimentícia, guarda, reconhecimento e dissolução de união estável.</p>
+    </div>
+  </div>
 
-        <div id="modal-consumidor" class="modal">
-            <div class="modal-conteudo">
-                <span class="fechar" onclick="fecharModal('modal-consumidor')">&times;</span>
-                <h3>Direito do Consumidor</h3>
-                <p>Protege o consumidor em suas relações com fornecedores de bens e serviços, garantindo transparência, qualidade e segurança.</p>
-            </div>
-        </div>
+  <div id="modalPrevidencia" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalPrevidencia')">&times;</span>
+      <h2>Direito Previdenciário</h2>
+      <p>Aposentadorias, auxílios, revisões e benefícios negados pelo INSS, com foco na garantia de direitos previdenciários.</p>
+    </div>
+  </div>
+  <div id="modalSaude" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalSaude')">&times;</span>
+      <h2>Direito à Saúde</h2>
+      <p>Atuação em casos relacionados ao direito ao acesso à saúde e tratamentos.</p>
+    </div>
+  </div>
 
-        <div id="modal-familia" class="modal">
-            <div class="modal-conteudo">
-                <span class="fechar" onclick="fecharModal('modal-familia')">&times;</span>
-                <h3>Direito de Família</h3>
-                <p>Regula as relações familiares, incluindo casamento, união estável, guarda, alimentos e divórcio.</p>
-            </div>
-        </div>
+  <div id="modalSucessoes" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalSucessoes')">&times;</span>
+      <h2>Direito das Sucessões</h2>
+      <p>Orientação e processos relacionados a inventários, testamentos e partilha de bens.</p>
+    </div>
+  </div>
 
-        <div id="modal-previdencia" class="modal">
-            <div class="modal-conteudo">
-                <span class="fechar" onclick="fecharModal('modal-previdencia')">&times;</span>
-                <h3>Direito Previdenciário</h3>
-                <p>Cuida dos direitos relacionados à previdência social, como aposentadorias, pensões e benefícios do INSS.</p>
-            </div>
-        </div>
+  <div id="modalViolencia" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalViolencia')">&times;</span>
+      <h2>Violência contra a mulher</h2>
+      <p>Atuação na defesa das mulheres vítimas de violência doméstica, sexual e outras formas de agressão.</p>
+    </div>
+  </div>
 
-        <div id="modal-saude" class="modal">
-            <div class="modal-conteudo">
-                <span class="fechar" onclick="fecharModal('modal-saude')">&times;</span>
-                <h3>Direito à Saúde</h3>
-                <p>Assegura o acesso à saúde por meio do SUS ou planos privados, garantindo tratamentos, medicamentos e procedimentos.</p>
-            </div>
-        </div>
-
-        <div id="modal-sucessoes" class="modal">
-            <div class="modal-conteudo">
-                <span class="fechar" onclick="fecharModal('modal-sucessoes')">&times;</span>
-                <h3>Sucessões</h3>
-                <p>Regula a transmissão de bens, direitos e deveres após a morte de uma pessoa, incluindo inventário e partilha.</p>
-            </div>
-        </div>
-
-        <div id="modal-violencia" class="modal">
-            <div class="modal-conteudo">
-                <span class="fechar" onclick="fecharModal('modal-violencia')">&times;</span>
-                <h3>Violência Contra a Mulher</h3>
-                <p>Atua na proteção de mulheres vítimas de violência doméstica, psicológica, patrimonial e sexual, com base na Lei Maria da Penha.</p>
-            </div>
-        </div>
-        <!-- Modal Violência -->
-        <div id="violenciaModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="violenciaTitle">
-          <div class="modal-content">
-            <span class="close" role="button" tabindex="0" aria-label="Fechar" onclick="closeModal('violenciaModal')">&times;</span>
-            <h2 id="violenciaTitle">Violência Contra a Mulher</h2>
-            <p>Assistência jurídica para mulheres vítimas de violência, buscando proteção e justiça.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contato">
-        <h2>Contato</h2>
-        <p>Envie uma mensagem ou agende uma consulta:</p>
-        <form action="https://formspree.io/f/xwkgglna" method="POST">
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" required>
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="mensagem">Mensagem:</label>
-          <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-
-          <button type="submit">Enviar</button>
-        </form>
-      </section>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      // Menu responsivo
-      function toggleMenu() {
-        const menu = document.querySelector('nav ul');
-        menu.classList.toggle('show');
+  <script>
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = 'block';
+        modal.setAttribute('aria-hidden', 'false');
+        modal.focus();
       }
-
-      // Abrir modal
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) modal.style.display = "block";
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
       }
-
-      // Fechar modal
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) modal.style.display = "none";
-      }
-
-      // Fechar modal ao clicar fora
-      window.onclick = function(event) {
+    }
+    // Fechar modal ao clicar fora do conteúdo
+    window.addEventListener('click', function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          modal.setAttribute('aria-hidden', 'true');
+        }
+      });
+    });
+    // Fechar modal com ESC
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
         const modals = document.querySelectorAll('.modal');
         modals.forEach(modal => {
-          if (event.target === modal) {
-            modal.style.display = "none";
+          if (modal.style.display === 'block') {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
           }
         });
       }
+    });
+  </script>
 
-      // Fechar modal com tecla ESC
-      document.addEventListener("keydown", function(event) {
-        if (event.key === "Escape") {
-          const modals = document.querySelectorAll(".modal");
-          modals.forEach(modal => {
-            modal.style.display = "none";
-          });
-        }
-      });
-    </script>
-  </body>
+  <footer style="text-align: center; padding: 1rem; background: #fff; border-top: 2px solid #b67c67; margin-top: 3rem; font-size: 0.9rem; color: #2c2c2c; font-family: 'Montserrat', sans-serif;">
+    &copy; 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
+  </footer>
+
+</body>
 </html>
