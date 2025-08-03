@@ -309,28 +309,6 @@
         font-size: 1rem;
       }
     }
-
-    /* === NOVO: Centralizar e colorir título e subtítulo da seção Áreas de Atuação === */
-    .atuacao-section h2,
-    .atuacao-section p.intro {
-      text-align: center;
-    }
-    .atuacao-section h2 {
-      color: var(--cobre-rose);
-      font-family: Helvetica, Arial, sans-serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }
-    .atuacao-section p.intro {
-      color: var(--cobre-rose);
-      font-weight: 500;
-      font-size: 1.1rem;
-      margin-top: 0;
-      margin-bottom: 2rem;
-      font-family: 'Montserrat', sans-serif;
-    }
   </style>
 </head>
 <body>
@@ -364,8 +342,8 @@
     </div>
   </section>
   <section class="atuacao-section" id="services">
-    <h2>Áreas de Atuação</h2>
-    <p class="intro">Especialização em Direito Civil e suas diversas vertentes.</p>
+    <h2 style="text-align: center; color: var(--grafite-escuro);">Áreas de Atuação</h2>
+    <p class="intro" style="text-align: center; color: var(--grafite-escuro);">Especialização em Direito Civil e suas diversas vertentes.</p>
     <ul class="atuacao-lista">
       <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família" onclick="abrirModal('modal1')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal1')">
         <img src="fotos/familia.png" alt="Ícone Direito de Família" class="icon" loading="lazy" />
@@ -422,6 +400,7 @@
       <p id="modal3Desc">Defesa dos direitos dos consumidores em compras, contratos e serviços.</p>
     </div>
   </div>
+
   <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title" aria-describedby="modal4Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal4')">&times;</button>
@@ -453,7 +432,6 @@
       <p id="modal7Desc">Atuação na defesa das mulheres vítimas de violência doméstica, sexual e outras formas de agressão.</p>
     </div>
   </div>
-
   <footer>
     &copy; 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
   </footer>
