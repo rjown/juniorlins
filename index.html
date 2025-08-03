@@ -15,7 +15,8 @@
   integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
-  />
+/>
+
 
   <style>
     :root {
@@ -309,246 +310,71 @@
         font-size: 1rem;
       }
     }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-    <nav id="nav-menu">
-      <a href="#inicio" class="active">Início</a>
-      <a href="#about">Sobre</a>
-      <a href="#services">Atuação</a>
-      <a href="#contact">Contato</a>
-    </nav>
-
-    <img src="fotos/logo3.png" alt="Foto de perfil" class="profile-pic" loading="lazy" />
-  </header>
-
-  <section class="home-section" id="inicio">
-    <img src="fotos/logo1.png" alt="Logo do escritório" class="logo-principal" loading="lazy" />
-    <div class="subtexto-logo">Compromisso, ética e excelência jurídica ao seu lado.</div>
-
-    <div class="apresentacao">
-      <h2>Quem somos</h2>
-      <p>
-        Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
-        Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
-      </p>
-    </div>
-  </section>
-  <!-- Parte 2 -->
-
-  <section class="sobre-section" id="about">
-    <img src="fotos/cabral1.jpg" alt="Foto Dr. Alfredo Cabral de Melo" loading="lazy" />
-    <p class="sobre-texto">
-      O escritório — Cabral de Melo Advocacia — está nessa estrutura desde 2021 e, desde então, busca atender e desenvolver um trabalho diferenciado dentro da advocacia, evitando litígios e promovendo a pacificação.<br><br>
-      O escritório é capitaneado por Dr. Alfredo Cabral de Melo, especialista em Direito Civil e Processo Civil, com maior enfoque no Direito das Famílias e Sucessões, além de ter forte atuação na advocacia empresarial e imobiliária.
-    </p>
-  </section>
-
-  <section class="atuacao-section" id="services">
-    <h2>Áreas de Atuação</h2>
-    <p class="intro">Especialização em Direito Civil e suas diversas vertentes.</p>
-    <ul class="atuacao-lista">
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família" onclick="abrirModal('modal1')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal1')">
-        <img src="fotos/familia.png" alt="Ícone Direito de Família" class="icon" />
-        <div class="atuacao-nome">Direito de Família</div>
-      </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito das Sucessões" onclick="abrirModal('modal2')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal2')">
-        <img src="fotos/sucessoes.png" alt="Ícone Direito das Sucessões" class="icon" />
-        <div class="atuacao-nome">Direito das Sucessões</div>
-      </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito do Consumidor" onclick="abrirModal('modal3')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal3')">
-        <img src="fotos/consumidor.png" alt="Ícone Direito do Consumidor" class="icon" />
-        <div class="atuacao-nome">Direito do Consumidor</div>
-      </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito Cível" onclick="abrirModal('modal4')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal4')">
-        <img src="fotos/civil.png" alt="Ícone Direito Cível" class="icon" />
-        <div class="atuacao-nome">Direito Cível</div>
-      </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito Previdenciário" onclick="abrirModal('modal5')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal5')">
-        <img src="fotos/previdencia.png" alt="Ícone Direito Previdenciário" class="icon" />
-        <div class="atuacao-nome">Direito Previdenciário</div>
-      </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito à Saúde" onclick="abrirModal('modal6')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal6')">
-        <img src="fotos/saude.png" alt="Ícone Direito à Saúde" class="icon" />
-        <div class="atuacao-nome">Direito à Saúde</div>
-      </li>
-      <li tabindex="0" role="button" aria-pressed="false" aria-label="Violência contra a mulher" onclick="abrirModal('modal7')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal7')">
-        <img src="fotos/violencia.png" alt="Ícone Violência contra a mulher" class="icon" />
-        <div class="atuacao-nome">Violência contra a mulher</div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Modais das atuações -->
-  <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal1')">&times;</button>
-      <h3 id="modal1Title">Direito de Família</h3>
-      <p id="modal1Desc">Atuação em questões como divórcio, guarda, pensão alimentícia, adoção e tutela.</p>
-    </div>
-  </div>
-
-  <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2Title" aria-describedby="modal2Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal2')">&times;</button>
-      <h3 id="modal2Title">Direito das Sucessões</h3>
-      <p id="modal2Desc">Orientação e processos relacionados a inventários, testamentos e partilha de bens.</p>
-    </div>
-  </div>
-  <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal3Title" aria-describedby="modal3Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal3')">&times;</button>
-      <h3 id="modal3Title">Direito do Consumidor</h3>
-      <p id="modal3Desc">Defesa dos direitos dos consumidores em compras, contratos e serviços.</p>
-    </div>
-  </div>
-
-  <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title" aria-describedby="modal4Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal4')">&times;</button>
-      <h3 id="modal4Title">Direito Cível</h3>
-      <p id="modal4Desc">Consultoria e processos cíveis diversos, como contratos e responsabilidade civil.</p>
-    </div>
-  </div>
-  <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal5Title" aria-describedby="modal5Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal5')">&times;</button>
-      <h3 id="modal5Title">Direito Previdenciário</h3>
-      <p id="modal5Desc">Acompanhamento em benefícios previdenciários, aposentadorias e pensões.</p>
-    </div>
-  </div>
-
-  <div id="modal6" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal6Title" aria-describedby="modal6Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal6')">&times;</button>
-      <h3 id="modal6Title">Direito à Saúde</h3>
-      <p id="modal6Desc">Atuação em casos relacionados ao direito ao acesso à saúde e tratamentos.</p>
-    </div>
-  </div>
-
-  <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title" aria-describedby="modal7Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal7')">&times;</button>
-      <h3 id="modal7Title">Violência contra a mulher</h3>
-      <p id="modal7Desc">Atuação na defesa das mulheres vítimas de violência doméstica, sexual e outras formas de agressão.</p>
-    </div>
-  </div>
-  <!-- Modais das atuações -->
-  <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal1')">&times;</button>
-      <h3 id="modal1Title">Direito de Família</h3>
-      <p id="modal1Desc">Atuação em questões como divórcio, guarda, pensão alimentícia, adoção e tutela.</p>
-    </div>
-  </div>
-
-  <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2Title" aria-describedby="modal2Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal2')">&times;</button>
-      <h3 id="modal2Title">Direito das Sucessões</h3>
-      <p id="modal2Desc">Orientação e processos relacionados a inventários, testamentos e partilha de bens.</p>
-    </div>
-  </div>
-
-  <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal3Title" aria-describedby="modal3Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal3')">&times;</button>
-      <h3 id="modal3Title">Direito do Consumidor</h3>
-      <p id="modal3Desc">Defesa dos direitos dos consumidores em compras, contratos e serviços.</p>
-    </div>
-  </div>
-
-  <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title" aria-describedby="modal4Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal4')">&times;</button>
-      <h3 id="modal4Title">Direito Cível</h3>
-      <p id="modal4Desc">Consultoria e processos cíveis diversos, como contratos e responsabilidade civil.</p>
-    </div>
-  </div>
-
-  <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal5Title" aria-describedby="modal5Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal5')">&times;</button>
-      <h3 id="modal5Title">Direito Previdenciário</h3>
-      <p id="modal5Desc">Acompanhamento em benefícios previdenciários, aposentadorias e pensões.</p>
-    </div>
-  </div>
-
-  <div id="modal6" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal6Title" aria-describedby="modal6Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal6')">&times;</button>
-      <h3 id="modal6Title">Direito à Saúde</h3>
-      <p id="modal6Desc">Atuação em casos relacionados ao direito ao acesso à saúde e tratamentos.</p>
-    </div>
-  </div>
-
-  <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title" aria-describedby="modal7Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal7')">&times;</button>
-      <h3 id="modal7Title">Violência contra a mulher</h3>
-      <p id="modal7Desc">Atuação na defesa das mulheres vítimas de violência doméstica, sexual e outras formas de agressão.</p>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
-  </footer>
-
-  <script>
-    // Script para hamburger menu mobile
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('open');
-    });
-
-    // Fechar menu ao clicar em link (mobile)
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('open');
-      });
-    });
-
-    // Funções para abrir e fechar modais
-    function abrirModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.style.display = 'block';
-      modal.setAttribute('aria-hidden', 'false');
-      modal.focus();
-      // Fechar modal ao clicar fora do conteúdo
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          fecharModal(id);
-        }
-      });
-      // Fechar modal com ESC
-      document.addEventListener('keydown', function escListener(e) {
-        if (e.key === 'Escape') {
-          fecharModal(id);
-          document.removeEventListener('keydown', escListener);
-        }
-      });
+    /* NOVA SEÇÃO ATUAÇÃO */
+    .atuacao-section {
+      max-width: 900px;
+      margin: 3rem auto 4rem auto;
+      padding: 0 1rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--grafite-escuro);
+      text-align: center; /* centraliza conteúdo */
     }
 
-    function fecharModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
+    .atuacao-section h2 {
+      color: var(--cobre-rose);
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+      text-align: center; /* correção adicionada */
     }
-  </script>
-  <style>
+
+    /* Container vertical para os ícones */
+    .atuacoes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .atuacao {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--grafite-escuro);
+      transition: color 0.3s ease;
+    }
+    .atuacao:hover {
+      color: var(--menu-hover);
+    }
+
+    .atuacao h3 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.15rem;
+      text-align: center;
+    }
+
+    .atuacao img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none; /* evita seleção da imagem */
+      transition: filter 0.3s ease;
+    }
+
+    .atuacao:hover img {
+      filter: brightness(0.8);
+    }
+
     /* Estilos para os modais */
     .modal {
       display: none;
@@ -561,6 +387,7 @@
       overflow: auto;
       background-color: rgba(0,0,0,0.4);
       font-family: 'Montserrat', sans-serif;
+      padding: 2rem 1rem;
     }
     .modal-content {
       background-color: #fff;
@@ -571,8 +398,9 @@
       position: relative;
       box-shadow: 0 2px 15px rgba(0,0,0,0.3);
       color: var(--grafite-escuro);
+      outline: none;
     }
-    .fechar {
+    .close {
       position: absolute;
       top: 10px;
       right: 15px;
@@ -581,52 +409,270 @@
       font-size: 2rem;
       font-weight: 700;
       cursor: pointer;
-      color: var(--grafite-escuro);
-      line-height: 1;
-      transition: color 0.3s ease;
+      color: var(--cobre-rose);
     }
-    .fechar:hover,
-    .fechar:focus {
+    .close:hover {
       color: var(--menu-hover);
-      outline: none;
     }
 
-    /* Estilos para ícones da atuação e nomes */
-    .atuacao-lista {
-      list-style: none;
-      padding-left: 0;
-      max-width: 300px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .atuacao-lista li {
-      cursor: pointer;
-      user-select: none;
-      outline: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--grafite-escuro);
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    .atuacao-lista li:hover,
-    .atuacao-lista li:focus {
-      color: var(--menu-hover);
-    }
-    .atuacao-lista li img.icon {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
-    .atuacao-nome {
-      text-align: center;
+    /* Responsividade dos modais */
+    @media (max-width: 600px) {
+      .modal-content {
+        margin: 15% 10px;
+        padding: 1.5rem;
+        max-width: 90%;
+      }
     }
   </style>
+</head>
+<body>
+  <header>
+    <div class="hamburger" id="hamburger" aria-label="Menu de navegação" tabindex="0" role="button">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav-menu" aria-label="Menu principal">
+      <a href="#home" class="active">Home</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#atuacao">Áreas de Atuação</a>
+      <a href="#contato">Contato</a>
+      <a href="#offer" class="cta">Offer Yourself</a>
+    </nav>
+
+    <img src="profilepic1.jpeg" alt="Foto de perfil" class="profile-pic" loading="lazy" />
+
+  </header>
+
+  <main>
+    <section id="home" class="home-section" tabindex="-1">
+      <img
+        src="logo_principal.png"
+        alt="Logo Dr. Alfredo Cabral de Melo"
+        class="logo-principal"
+        loading="lazy"
+      />
+      <div class="subtexto-logo">Advocacia e Consultoria Jurídica</div>
+      <div class="apresentacao" aria-label="Quem somos">
+        <h2>Quem Somos</h2>
+        <p>
+          Somos um escritório focado em advocacia especializada e consultoria jurídica, oferecendo atendimento personalizado e dedicado aos nossos clientes.
+        </p>
+      </div>
+    </section>
+
+    <section id="sobre" class="sobre-section" tabindex="-1" aria-labelledby="sobre-title">
+      <img src="foto_escritorio.jpg" alt="Foto do escritório" loading="lazy" />
+      <div class="sobre-texto">
+        <h2 id="sobre-title">Sobre</h2>
+        <p>
+          O Dr. Alfredo Cabral de Melo atua com ética, profissionalismo e compromisso, buscando sempre a melhor solução para cada caso.
+        </p>
+      </div>
+    </section>
+
+    <section id="atuacao" class="atuacao-section" tabindex="-1" aria-labelledby="atuacao-title">
+      <h2 id="atuacao-title">Áreas de Atuação</h2>
+      <div class="atuacoes-container" role="list" aria-label="Lista de áreas de atuação">
+        <div class="atuacao" role="listitem" tabindex="0" aria-describedby="modal-civil">
+          <h3>Civil</h3>
+          <img src="fotos/civil.png" alt="Ícone Civil" loading="lazy" />
+        </div>
+        <div class="atuacao" role="listitem" tabindex="0" aria-describedby="modal-consumidor">
+          <h3>Consumidor</h3>
+          <img src="fotos/consumidor.png" alt="Ícone Consumidor" loading="lazy" />
+        </div>
+        <div class="atuacao" role="listitem" tabindex="0" aria-describedby="modal-familia">
+          <h3>Família</h3>
+          <img src="fotos/familia.png" alt="Ícone Família" loading="lazy" />
+        </div>
+        <div class="atuacao" role="listitem" tabindex="0" aria-describedby="modal-previdencia">
+          <h3>Previdência</h3>
+          <img src="fotos/previdencia.png" alt="Ícone Previdência" loading="lazy" />
+        </div>
+        <div class="atuacao" role="listitem" tabindex="0" aria-describedby="modal-saude">
+          <h3>Saúde</h3>
+          <img src="fotos/saude.png" alt="Ícone Saúde" loading="lazy" />
+        </div>
+        <div class="atuacao" role="listitem" tabindex="0" aria-describedby="modal-sucessoes">
+          <h3>Sucessões</h3>
+          <img src="fotos/sucessoes.png" alt="Ícone Sucessões" loading="lazy" />
+        </div>
+        <div class="atuacao" role="listitem" tabindex="0" aria-describedby="modal-violencia">
+          <h3>Violência</h3>
+          <img src="fotos/violencia.png" alt="Ícone Violência" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Modais para cada área de atuação -->
+    <div id="modal-civil" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-civil-title" tabindex="-1">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar modal">&times;</button>
+        <h2 id="modal-civil-title">Civil</h2>
+        <p>Atuação em Direito Civil, contratos, responsabilidade civil, indenizações e direitos pessoais.</p>
+      </div>
+    </div>
+
+    <div id="modal-consumidor" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-consumidor-title" tabindex="-1">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar modal">&times;</button>
+        <h2 id="modal-consumidor-title">Consumidor</h2>
+        <p>Atuação em Direito do Consumidor, proteção ao consumidor e defesa contra práticas abusivas.</p>
+      </div>
+    </div>
+
+    <div id="modal-familia" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-familia-title" tabindex="-1">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar modal">&times;</button>
+        <h2 id="modal-familia-title">Família</h2>
+        <p>Atuação em Direito de Família, divórcio, guarda, alimentos e questões parentais.</p>
+      </div>
+    </div>
+
+    <div id="modal-previdencia" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-previdencia-title" tabindex="-1">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar modal">&times;</button>
+        <h2 id="modal-previdencia-title">Previdência</h2>
+        <p>Consultoria e assessoria em Direito Previdenciário, benefícios e aposentadorias.</p>
+      </div>
+    </div>
+
+    <div id="modal-saude" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-saude-title" tabindex="-1">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar modal">&times;</button>
+        <h2 id="modal-saude-title">Saúde</h2>
+        <p>Atuação em Direito da Saúde, planos de saúde e questões hospitalares.</p>
+      </div>
+    </div>
+
+    <div id="modal-sucessoes" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-sucessoes-title" tabindex="-1">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar modal">&times;</button>
+        <h2 id="modal-sucessoes-title">Sucessões</h2>
+        <p>Atuação em Direito Sucessório, inventários e testamentos.</p>
+      </div>
+    </div>
+
+    <div id="modal-violencia" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-violencia-title" tabindex="-1">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar modal">&times;</button>
+        <h2 id="modal-violencia-title">Violência</h2>
+        <p>Atuação em Direito Criminal relacionado à violência doméstica e proteção da vítima.</p>
+      </div>
+    </div>
+
+    <section id="contato" tabindex="-1" aria-labelledby="contato-title">
+      <h2 id="contato-title" style="text-align:center; color: var(--cobre-rose); margin-bottom: 2rem;">Contato</h2>
+      <form id="contato-form" action="javascript:void(0);" aria-label="Formulário de contato">
+        <label for="nome">Nome:</label><br />
+        <input type="text" id="nome" name="nome" required /><br /><br />
+
+        <label for="email">E-mail:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="mensagem">Mensagem:</label><br />
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea><br /><br />
+
+        <button type="submit" style="background-color: var(--cobre-rose); color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: 600;">
+          Enviar
+        </button>
+      </form>
+    </section>
+
+    <section id="offer" tabindex="-1" aria-labelledby="offer-title" style="padding: 2rem 1rem; max-width: 900px; margin: 3rem auto;">
+      <h2 id="offer-title" style="text-align:center; color: var(--cobre-rose); margin-bottom: 2rem;">Offer Yourself</h2>
+      <p style="text-align:center; font-family: 'Montserrat', sans-serif;">
+        If I don’t message you in 24h, you probably typed your nickname wrong.
+      </p>
+      <form id="offer-form" action="javascript:void(0);" aria-label="Formulário Offer Yourself">
+        <label for="nickname">Nickname:</label><br />
+        <input type="text" id="nickname" name="nickname" required /><br /><br />
+
+        <label for="emailOffer">E-mail:</label><br />
+        <input type="email" id="emailOffer" name="emailOffer" required /><br /><br />
+
+        <button type="submit" style="background-color: var(--cobre-rose); color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: 600;">
+          Submit
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Dr. Alfredo Cabral de Melo - Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // Script do menu hamburger mobile
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    // Fecha menu ao clicar em algum link
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    // Modais das áreas de atuação
+    const atuacoes = document.querySelectorAll('.atuacao');
+    const modais = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.close');
+
+    atuacoes.forEach((atuacao) => {
+      atuacao.addEventListener('click', () => {
+        const descId = atuacao.getAttribute('aria-describedby');
+        const modal = document.getElementById(descId);
+        if (modal) {
+          modal.style.display = 'block';
+          modal.focus();
+        }
+      });
+      atuacao.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          atuacao.click();
+        }
+      });
+    });
+
+    closeButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        btn.closest('.modal').style.display = 'none';
+      });
+    });
+
+    window.addEventListener('click', (event) => {
+      modais.forEach((modal) => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+
+    // Envio do formulário contato - Simulação
+    const contatoForm = document.getElementById('contato-form');
+    contatoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Mensagem enviada com sucesso!');
+      contatoForm.reset();
+    });
+
+    // Envio do formulário offer yourself - Simulação
+    const offerForm = document.getElementById('offer-form');
+    offerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Offer submitted!');
+      offerForm.reset();
+    });
+  </script>
 </body>
 </html>
