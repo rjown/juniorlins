@@ -344,10 +344,10 @@
   </section>
   <section class="atuacao-section" id="services">
     <h2 style="text-align:center; color: var(--cobre-rose); font-family: Helvetica, Arial, sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700; letter-spacing: 0.05em;">Áreas de Atuação</h2>
-    <p class="intro" style="text-align:center; color: var(--grafite-escuro); max-width: 600px; margin: 0 auto 2rem auto; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; line-height: 1.6;">
-      Atuamos com excelência em diversas frentes do Direito, oferecendo suporte completo e especializado de acordo com a necessidade de cada cliente. Conheça algumas das principais áreas em que podemos ajudar.
+    <p class="intro" style="text-align:center; color: var(--grafite-escuro); max-width: 500px; margin: 0 auto 2rem auto;">
+      Especialização em Direito Civil e suas diversas vertentes.
     </p>
-    <ul class="atuacao-lista">
+    <ul class="atuacao-lista" role="list">
       <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família" onclick="abrirModal('modal1')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal1')">
         <img src="fotos/familia.png" alt="Ícone Direito de Família" class="icon" />
         <div class="atuacao-nome">Direito de Família</div>
@@ -422,7 +422,7 @@
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal8')">&times;</button>
       <h3 id="modal8Title">Direito Marítimo</h3>
-      <p id="modal8Desc">Atuação em questões relacionadas ao transporte marítimo, navegação, contratos e litígios marítimos.</p>
+      <p id="modal8Desc">Atuação em questões ligadas a navegação, transporte marítimo, seguros e regulamentações portuárias.</p>
     </div>
   </div>
 
@@ -430,6 +430,87 @@
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal9')">&times;</button>
       <h3 id="modal9Title">Direito Eleitoral</h3>
-      <p id="modal9Desc">Assessoria jurídica em processos eleitorais, candidaturas, impugnações e campanhas.</p>
+      <p id="modal9Desc">Atuação em processos eleitorais, campanhas, registro de candidaturas e defesa em crimes eleitorais.</p>
     </div>
   </div>
+
+  <style>
+    /* Estilos para os modais */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1500;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 8% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      color: var(--grafite-escuro);
+    }
+    .fechar {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--grafite-escuro);
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .fechar:hover,
+    .fechar:focus {
+      color: var(--menu-hover);
+      outline: none;
+    }
+
+    /* Estilos para ícones da atuação e nomes */
+    .atuacao-lista {
+      list-style: none;
+      padding-left: 0;
+      max-width: 300px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .atuacao-lista li {
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--grafite-escuro);
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    .atuacao-lista li:hover,
+    .atuacao-lista li:focus {
+      color: var(--menu-hover);
+    }
+    .atuacao-lista li img.icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .atuacao-nome {
+      text-align: center;
+    }
+  </style>
