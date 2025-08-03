@@ -343,11 +343,9 @@
     </div>
   </section>
   <section class="atuacao-section" id="services">
-    <h2 style="text-align:center; color: var(--cobre-rose); font-family: Helvetica, Arial, sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700; letter-spacing: 0.05em;">Áreas de Atuação</h2>
-    <p class="intro" style="text-align:center; color: var(--grafite-escuro); max-width: 500px; margin: 0 auto 2rem auto;">
-      Especialização em Direito Civil e suas diversas vertentes.
-    </p>
-    <ul class="atuacao-lista" role="list">
+    <h2 style="text-align:center; color: var(--cobre-rose); font-family: Helvetica, Arial, sans-serif; font-weight: 700; font-size: 1.8rem; margin-bottom: 1rem;">Áreas de Atuação</h2>
+    <p class="intro" style="text-align:center; color: var(--grafite-escuro); margin-bottom: 2rem;">Especialização em Direito Civil e suas diversas vertentes.</p>
+    <ul class="atuacao-lista">
       <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família" onclick="abrirModal('modal1')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal1')">
         <img src="fotos/familia.png" alt="Ícone Direito de Família" class="icon" />
         <div class="atuacao-nome">Direito de Família</div>
@@ -378,8 +376,9 @@
       </li>
     </ul>
   </section>
+
   <!-- Modais das atuações -->
-  <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1">
+  <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1" aria-hidden="true">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal1')">&times;</button>
       <h3 id="modal1Title">Direito de Família</h3>
@@ -387,7 +386,7 @@
     </div>
   </div>
 
-  <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2Title" aria-describedby="modal2Desc" tabindex="-1">
+  <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2Title" aria-describedby="modal2Desc" tabindex="-1" aria-hidden="true">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal2')">&times;</button>
       <h3 id="modal2Title">Direito das Sucessões</h3>
@@ -395,14 +394,15 @@
     </div>
   </div>
 
-  <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title" aria-describedby="modal4Desc" tabindex="-1">
+  <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title" aria-describedby="modal4Desc" tabindex="-1" aria-hidden="true">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal4')">&times;</button>
       <h3 id="modal4Title">Direito Cível</h3>
       <p id="modal4Desc">Consultoria e processos cíveis diversos, como contratos e responsabilidade civil.</p>
     </div>
   </div>
-  <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal5Title" aria-describedby="modal5Desc" tabindex="-1">
+
+  <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal5Title" aria-describedby="modal5Desc" tabindex="-1" aria-hidden="true">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal5')">&times;</button>
       <h3 id="modal5Title">Direito Previdenciário</h3>
@@ -410,30 +410,76 @@
     </div>
   </div>
 
-  <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title" aria-describedby="modal7Desc" tabindex="-1">
+  <div id="modal8" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal8Title" aria-describedby="modal8Desc" tabindex="-1" aria-hidden="true">
+    <div class="modal-content">
+      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal8')">&times;</button>
+      <h3 id="modal8Title">Direito Marítimo</h3>
+      <p id="modal8Desc">Atuação em questões relacionadas à navegação, transporte marítimo, seguros e legislação portuária.</p>
+    </div>
+  </div>
+
+  <div id="modal9" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal9Title" aria-describedby="modal9Desc" tabindex="-1" aria-hidden="true">
+    <div class="modal-content">
+      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal9')">&times;</button>
+      <h3 id="modal9Title">Direito Eleitoral</h3>
+      <p id="modal9Desc">Assessoria em processos eleitorais, registros de candidaturas e defesa de direitos políticos.</p>
+    </div>
+  </div>
+
+  <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title" aria-describedby="modal7Desc" tabindex="-1" aria-hidden="true">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal7')">&times;</button>
       <h3 id="modal7Title">Violência contra a mulher</h3>
       <p id="modal7Desc">Atuação na defesa das mulheres vítimas de violência doméstica, sexual e outras formas de agressão.</p>
     </div>
   </div>
+  <script>
+    // Script para hamburger menu mobile
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
-  <div id="modal8" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal8Title" aria-describedby="modal8Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal8')">&times;</button>
-      <h3 id="modal8Title">Direito Marítimo</h3>
-      <p id="modal8Desc">Atuação em questões ligadas a navegação, transporte marítimo, seguros e regulamentações portuárias.</p>
-    </div>
-  </div>
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
 
-  <div id="modal9" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal9Title" aria-describedby="modal9Desc" tabindex="-1">
-    <div class="modal-content">
-      <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal9')">&times;</button>
-      <h3 id="modal9Title">Direito Eleitoral</h3>
-      <p id="modal9Desc">Atuação em processos eleitorais, campanhas, registro de candidaturas e defesa em crimes eleitorais.</p>
-    </div>
-  </div>
+    // Fechar menu ao clicar em link (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
 
+    // Funções para abrir e fechar modais
+    function abrirModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.style.display = 'block';
+      modal.setAttribute('aria-hidden', 'false');
+      modal.focus();
+      // Fechar modal ao clicar fora do conteúdo
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          fecharModal(id);
+        }
+      });
+      // Fechar modal com ESC
+      document.addEventListener('keydown', function escListener(e) {
+        if (e.key === 'Escape') {
+          fecharModal(id);
+          document.removeEventListener('keydown', escListener);
+        }
+      });
+    }
+
+    function fecharModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  </script>
   <style>
     /* Estilos para os modais */
     .modal {
@@ -514,3 +560,5 @@
       text-align: center;
     }
   </style>
+</body>
+</html>
