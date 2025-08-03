@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,11 +11,13 @@
 
   <!-- Importação Font Awesome para ícones -->
   <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
 
   <style>
     :root {
@@ -308,6 +311,7 @@
         font-size: 1rem;
       }
     }
+
     /* NOVA SEÇÃO ATUAÇÃO */
     .atuacao-section {
       max-width: 900px;
@@ -315,51 +319,106 @@
       padding: 0 1rem;
       font-family: 'Montserrat', sans-serif;
       color: var(--grafite-escuro);
-      text-align: center;
+      text-align: center; /* centraliza conteúdo */
     }
 
     .atuacao-section h2 {
       color: var(--cobre-rose);
       font-weight: 700;
       font-size: 2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 2rem;
       letter-spacing: 0.05em;
-      text-align: center;
     }
 
-    .atuacao-lista {
-      list-style: none;
-      padding-left: 0;
-      max-width: 600px;
+    /* Container vertical para os ícones */
+    .atuacoes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+      max-width: 400px;
       margin: 0 auto;
     }
 
-    /* NOVO ESTILO DOS ITENS COM ICONES EM COLUNA */
-    .atuacao-lista li {
+    .atuacao {
+      cursor: pointer;
+      user-select: none;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      cursor: pointer;
+      gap: 0.6rem;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--grafite-escuro);
       transition: color 0.3s ease;
-      user-select: none;
     }
-    .atuacao-lista li:hover {
+    .atuacao:hover {
       color: var(--menu-hover);
     }
 
-    /* Ícones substituídos por imagens */
-    .atuacao-lista li img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      flex-shrink: 0;
+    .atuacao h3 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.15rem;
+      text-align: center;
     }
 
+    .atuacao img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none; /* evita seleção da imagem */
+      transition: filter 0.3s ease;
+    }
+
+    .atuacao:hover img {
+      filter: brightness(0.8);
+    }
+
+    /* Estilos para os modais */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1500;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+      font-family: 'Montserrat', sans-serif;
+      padding: 2rem 1rem;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 8% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      color: var(--grafite-escuro);
+      outline: none;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--grafite-escuro);
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .close:hover,
+    .close:focus {
+      color: var(--menu-hover);
+      outline: none;
+    }
   </style>
 </head>
 <body>
@@ -387,82 +446,65 @@
     <div class="apresentacao">
       <h2>Quem somos</h2>
       <p>
-        Somos um escritório de advocacia especializado e humanizado em soluções
-  <section class="atuacao-section" id="services">
-    <h2>Áreas de Atuação</h2>
-    <p class="intro">Especialização em Direito Civil e suas diversas vertentes.</p>
-    <div class="atuacao-lista-icones">
-      <div class="atuacao-item" tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família" onclick="abrirModal('modal1')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal1')">
-        <div class="atuacao-nome">Direito de Família</div>
-        <img src="fotos/familia.png" alt="Ícone Direito de Família" loading="lazy" />
-      </div>
-      <div class="atuacao-item" tabindex="0" role="button" aria-pressed="false" aria-label="Direito das Sucessões" onclick="abrirModal('modal2')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal2')">
-        <div class="atuacao-nome">Direito das Sucessões</div>
-        <img src="fotos/sucessoes.png" alt="Ícone Direito das Sucessões" loading="lazy" />
-      </div>
-      <div class="atuacao-item" tabindex="0" role="button" aria-pressed="false" aria-label="Direito do Consumidor" onclick="abrirModal('modal3')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal3')">
-        <div class="atuacao-nome">Direito do Consumidor</div>
-        <img src="fotos/consumidor.png" alt="Ícone Direito do Consumidor" loading="lazy" />
-      </div>
-      <div class="atuacao-item" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Cível" onclick="abrirModal('modal4')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal4')">
-        <div class="atuacao-nome">Direito Cível</div>
-        <img src="fotos/civil.png" alt="Ícone Direito Cível" loading="lazy" />
-      </div>
-      <div class="atuacao-item" tabindex="0" role="button" aria-pressed="false" aria-label="Direito Previdenciário" onclick="abrirModal('modal5')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal5')">
-        <div class="atuacao-nome">Direito Previdenciário</div>
-        <img src="fotos/previdencia.png" alt="Ícone Direito Previdenciário" loading="lazy" />
-      </div>
-      <div class="atuacao-item" tabindex="0" role="button" aria-pressed="false" aria-label="Direito à Saúde" onclick="abrirModal('modal6')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal6')">
-        <div class="atuacao-nome">Direito à Saúde</div>
-        <img src="fotos/saude.png" alt="Ícone Direito à Saúde" loading="lazy" />
-      </div>
-      <div class="atuacao-item" tabindex="0" role="button" aria-pressed="false" aria-label="Violência contra a mulher" onclick="abrirModal('modal7')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal7')">
-        <div class="atuacao-nome">Violência contra a mulher</div>
-        <img src="fotos/violencia.png" alt="Ícone Violência contra a mulher" loading="lazy" />
-      </div>
+        Somos um escritório de advocacia especializado e humanizado em
+  <section class="home-section" id="inicio">
+    <img src="fotos/logo1.png" alt="Logo do escritório" class="logo-principal" loading="lazy" />
+    <div class="subtexto-logo">Compromisso, ética e excelência jurídica ao seu lado.</div>
+
+    <div class="apresentacao">
+      <h2>Quem somos</h2>
+      <p>
+        Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
+        Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
+      </p>
     </div>
   </section>
 
-  <style>
-    .atuacao-lista-icones {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .atuacao-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-      outline: none;
-    }
-    .atuacao-item img {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      margin-top: 0.3rem;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .atuacao-item:hover img,
-    .atuacao-item:focus img {
-      transform: scale(1.1);
-      box-shadow: 0 0 10px var(--cobre-rose-escuro);
-    }
-    .atuacao-nome {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--grafite-escuro);
-      user-select: none;
-    }
-  </style>
+  <section class="sobre-section" id="about">
+    <img src="fotos/cabral1.jpg" alt="Foto Dr. Alfredo Cabral de Melo" loading="lazy" />
+    <p class="sobre-texto">
+      O escritório — Cabral de Melo Advocacia — está nessa estrutura desde 2021 e, desde então, busca atender e desenvolver um trabalho diferenciado dentro da advocacia, evitando litígios e promovendo a pacificação.<br><br>
+      O escritório é capitaneado por Dr. Alfredo Cabral de Melo, especialista em Direito Civil e Processo Civil, com maior enfoque no Direito das Famílias e Sucessões, além de ter forte atuação na advocacia empresarial e imobiliária.
+    </p>
+  </section>
+
+  <section class="atuacao-section" id="services">
+    <h2>Áreas de Atuação</h2>
+    <p class="intro">Especialização em Direito Civil e suas diversas vertentes.</p>
+    <ul class="atuacao-lista">
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito de Família" onclick="abrirModal('modal1')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal1')">
+        <img src="fotos/familia.png" alt="Ícone Direito de Família" class="icon" />
+        <div class="atuacao-nome">Direito de Família</div>
+      </li>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito das Sucessões" onclick="abrirModal('modal2')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal2')">
+        <img src="fotos/sucessoes.png" alt="Ícone Direito das Sucessões" class="icon" />
+        <div class="atuacao-nome">Direito das Sucessões</div>
+      </li>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito do Consumidor" onclick="abrirModal('modal3')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal3')">
+        <img src="fotos/consumidor.png" alt="Ícone Direito do Consumidor" class="icon" />
+        <div class="atuacao-nome">Direito do Consumidor</div>
+      </li>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito Cível" onclick="abrirModal('modal4')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal4')">
+        <img src="fotos/civil.png" alt="Ícone Direito Cível" class="icon" />
+        <div class="atuacao-nome">Direito Cível</div>
+      </li>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito Previdenciário" onclick="abrirModal('modal5')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal5')">
+        <img src="fotos/previdencia.png" alt="Ícone Direito Previdenciário" class="icon" />
+        <div class="atuacao-nome">Direito Previdenciário</div>
+      </li>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Direito à Saúde" onclick="abrirModal('modal6')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal6')">
+        <img src="fotos/saude.png" alt="Ícone Direito à Saúde" class="icon" />
+        <div class="atuacao-nome">Direito à Saúde</div>
+      </li>
+      <li tabindex="0" role="button" aria-pressed="false" aria-label="Violência contra a mulher" onclick="abrirModal('modal7')" onkeydown="if(event.key==='Enter' || event.key===' ') abrirModal('modal7')">
+        <img src="fotos/violencia.png" alt="Ícone Violência contra a mulher" class="icon" />
+        <div class="atuacao-nome">Violência contra a mulher</div>
+      </li>
+    </ul>
+  </section>
+
   <!-- Modais das atuações -->
-  <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1" inert>
+  <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title" aria-describedby="modal1Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal1')">&times;</button>
       <h3 id="modal1Title">Direito de Família</h3>
@@ -470,15 +512,14 @@
     </div>
   </div>
 
-  <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2Title" aria-describedby="modal2Desc" tabindex="-1" inert>
+  <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2Title" aria-describedby="modal2Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal2')">&times;</button>
       <h3 id="modal2Title">Direito das Sucessões</h3>
       <p id="modal2Desc">Orientação e processos relacionados a inventários, testamentos e partilha de bens.</p>
     </div>
   </div>
-
-  <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal3Title" aria-describedby="modal3Desc" tabindex="-1" inert>
+  <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal3Title" aria-describedby="modal3Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal3')">&times;</button>
       <h3 id="modal3Title">Direito do Consumidor</h3>
@@ -486,15 +527,14 @@
     </div>
   </div>
 
-  <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title" aria-describedby="modal4Desc" tabindex="-1" inert>
+  <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title" aria-describedby="modal4Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal4')">&times;</button>
       <h3 id="modal4Title">Direito Cível</h3>
       <p id="modal4Desc">Consultoria e processos cíveis diversos, como contratos e responsabilidade civil.</p>
     </div>
   </div>
-
-  <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal5Title" aria-describedby="modal5Desc" tabindex="-1" inert>
+  <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal5Title" aria-describedby="modal5Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal5')">&times;</button>
       <h3 id="modal5Title">Direito Previdenciário</h3>
@@ -502,7 +542,7 @@
     </div>
   </div>
 
-  <div id="modal6" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal6Title" aria-describedby="modal6Desc" tabindex="-1" inert>
+  <div id="modal6" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal6Title" aria-describedby="modal6Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal6')">&times;</button>
       <h3 id="modal6Title">Direito à Saúde</h3>
@@ -510,7 +550,7 @@
     </div>
   </div>
 
-  <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title" aria-describedby="modal7Desc" tabindex="-1" inert>
+  <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title" aria-describedby="modal7Desc" tabindex="-1">
     <div class="modal-content">
       <button class="fechar" aria-label="Fechar modal" onclick="fecharModal('modal7')">&times;</button>
       <h3 id="modal7Title">Violência contra a mulher</h3>
@@ -540,35 +580,26 @@
       });
     });
 
-    // Funções para abrir e fechar modais com controle do atributo inert
+    // Funções para abrir e fechar modais
     function abrirModal(id) {
       const modal = document.getElementById(id);
       if (!modal) return;
       modal.style.display = 'block';
-      modal.removeAttribute('inert');
       modal.setAttribute('aria-hidden', 'false');
       modal.focus();
-
-      // Inert para o restante do conteúdo enquanto modal aberto
-      document.body.querySelectorAll('body > *:not(.modal)').forEach(el => {
-        el.setAttribute('inert', '');
-      });
-
       // Fechar modal ao clicar fora do conteúdo
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
           fecharModal(id);
         }
       });
-
       // Fechar modal com ESC
-      function escListener(e) {
+      document.addEventListener('keydown', function escListener(e) {
         if (e.key === 'Escape') {
           fecharModal(id);
           document.removeEventListener('keydown', escListener);
         }
-      }
-      document.addEventListener('keydown', escListener);
+      });
     }
 
     function fecharModal(id) {
@@ -576,15 +607,8 @@
       if (!modal) return;
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
-      modal.setAttribute('inert', '');
-
-      // Remover inert do restante do conteúdo
-      document.body.querySelectorAll('body > *:not(.modal)').forEach(el => {
-        el.removeAttribute('inert');
-      });
     }
   </script>
-
   <style>
     /* Estilos para os modais */
     .modal {
@@ -627,4 +651,43 @@
       color: var(--menu-hover);
       outline: none;
     }
+
+    /* Estilos para ícones da atuação e nomes */
+    .atuacao-lista {
+      list-style: none;
+      padding-left: 0;
+      max-width: 300px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .atuacao-lista li {
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--grafite-escuro);
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    .atuacao-lista li:hover,
+    .atuacao-lista li:focus {
+      color: var(--menu-hover);
+    }
+    .atuacao-lista li img.icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .atuacao-nome {
+      text-align: center;
+    }
   </style>
+</body>
+</html>
