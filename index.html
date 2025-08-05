@@ -20,15 +20,15 @@
   <style>
     :root {
       --branco: #ffffff;
-      --grafite-escuro: #2c2c2c; /* para menus e textos principais */
+      --grafite-escuro: #2c2c2c;
       --cinza-fosco: rgba(43, 43, 43, 0.1);
-      --cobre-rose: #d69d80; /* para títulos */
-      --cinza-claro: #e6b18e; /* para subtítulo no header */
-      --preto-profundo: #2c2c2c; /* usado no texto do botão CTA e menus */
-      --cobre-rose-escuro: #b67c67; /* para bordas e linhas */
-      --botao-cta-fundo: #f4c39d; /* botão CTA */
-      --menu-hover: #c58b72; /* hover e active no menu */
-      --sobre-texto-hover: #b67c67; /* cor destaque do texto Sobre */
+      --cobre-rose: #d69d80;
+      --cinza-claro: #e6b18e;
+      --preto-profundo: #2c2c2c;
+      --cobre-rose-escuro: #b67c67;
+      --botao-cta-fundo: #f4c39d;
+      --menu-hover: #c58b72;
+      --sobre-texto-hover: #b67c67;
     }
 
     * {
@@ -67,7 +67,7 @@
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      order: 2; /* para garantir posição atrás do hamburger */
+      order: 2;
     }
 
     nav a {
@@ -98,7 +98,6 @@
       background: #b89a75;
     }
 
-    /* Botão hamburger - oculto por padrão */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -107,8 +106,9 @@
       height: 22px;
       cursor: pointer;
       z-index: 1100;
-      order: 1; /* para garantir posição à esquerda do nav */
+      order: 1;
     }
+
     .hamburger div {
       width: 25px;
       height: 3px;
@@ -118,22 +118,22 @@
       position: relative;
     }
 
-    /* Transformação do hamburger quando ativo */
     .hamburger.active div:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
+
     .hamburger.active div:nth-child(2) {
       opacity: 0;
     }
+
     .hamburger.active div:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Menu mobile - oculto por padrão */
     @media (max-width: 768px) {
       nav {
         position: fixed;
-        top: 64px; /* altura do header */
+        top: 64px;
         left: 0;
         background: var(--branco);
         height: calc(100vh - 64px);
@@ -145,14 +145,17 @@
         transition: transform 0.3s ease-in-out;
         order: 2;
       }
+
       nav.open {
         transform: translateX(0);
       }
+
       nav a {
         font-size: 1.1rem;
         margin-bottom: 1.5rem;
         color: var(--grafite-escuro);
       }
+
       nav a.cta {
         background: var(--botao-cta-fundo);
         color: var(--preto-profundo);
@@ -161,13 +164,13 @@
         border-radius: 6px;
         padding: 0.7rem 0;
       }
+
       .hamburger {
         display: flex;
         order: 1;
       }
     }
 
-    /* Perfil foto no canto superior direito */
     .profile-pic {
       width: 100px;
       height: 100px;
@@ -181,7 +184,6 @@
       z-index: 1200;
     }
 
-    /* Espaçamento para compensar o header fixo */
     main, .home-section {
       padding-top: 80px;
     }
@@ -193,33 +195,30 @@
       color: var(--grafite-escuro);
     }
 
-    /* Logo flexível para diferentes telas */
     .logo-principal {
       width: 60vw;
       max-width: 550px;
       min-width: 250px;
       height: auto;
-      margin: 0 auto 1rem auto;
+      margin: 0 auto 0.5rem auto;
       display: block;
       filter: brightness(1);
       transition: transform 0.3s ease;
     }
+
     .logo-principal:hover {
       transform: scale(1.05);
     }
 
-    /* Subtítulo novo texto, menor e sem fundo */
     .subtexto-logo {
-      font-size: 0.85rem;
-      color: var(--cinza-claro);
-      margin-bottom: 3rem;
-      font-style: normal;
+      font-family: Helvetica, Arial, sans-serif;
+      color: var(--cobre-rose);
+      font-size: 1.8rem;
+      font-weight: 700;
       letter-spacing: 0.05em;
-      font-weight: 500;
-      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
     }
-
-    /* Seção “Quem somos” sem balão, texto flutuante */
     .apresentacao {
       max-width: 650px;
       margin: 0 auto;
@@ -260,7 +259,6 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* NOVA SEÇÃO SOBRE */
     .sobre-section {
       max-width: 900px;
       margin: 3rem auto 4rem auto;
@@ -288,14 +286,12 @@
       cursor: pointer;
     }
 
-    /* Efeito hover para desktop */
     .sobre-texto:hover,
     .sobre-texto.ativo {
       color: var(--sobre-texto-hover);
       text-shadow: 0 0 5px rgba(182,124,103,0.8);
     }
 
-    /* Responsividade: empilha vertical em telas pequenas */
     @media (max-width: 768px) {
       .sobre-section {
         flex-direction: column;
@@ -434,7 +430,6 @@
     </div>
   </div>
   <script>
-    // Script para hamburger menu mobile
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
@@ -443,7 +438,6 @@
       navMenu.classList.toggle('open');
     });
 
-    // Fechar menu ao clicar em link (mobile)
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -451,20 +445,17 @@
       });
     });
 
-    // Funções para abrir e fechar modais
     function abrirModal(id) {
       const modal = document.getElementById(id);
       if (!modal) return;
       modal.style.display = 'block';
       modal.setAttribute('aria-hidden', 'false');
       modal.focus();
-      // Fechar modal ao clicar fora do conteúdo
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
           fecharModal(id);
         }
       });
-      // Fechar modal com ESC
       document.addEventListener('keydown', function escListener(e) {
         if (e.key === 'Escape') {
           fecharModal(id);
@@ -481,7 +472,6 @@
     }
   </script>
   <style>
-    /* Estilos para os modais */
     .modal {
       display: none;
       position: fixed;
@@ -522,8 +512,6 @@
       color: var(--menu-hover);
       outline: none;
     }
-
-    /* Estilos para ícones da atuação e nomes */
     .atuacao-lista {
       list-style: none;
       padding-left: 0;
