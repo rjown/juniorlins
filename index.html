@@ -522,20 +522,22 @@
     .atuacao-nome {
       text-align: center;
     }
-    .contato-balao {
-      background-color: #343435;
-      color: #F4C39D;
-      max-width: 480px;
-      margin: 2rem auto 4rem auto;
-      padding: 1.8rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(52,52,53,0.8);
-      font-family: 'Montserrat', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
+   .contato-balao {
+  background-color: #343435;
+  color: #F4C39D;
+  max-width: 680px;     /* Aumentado para comportar os ícones */
+  margin: 2rem auto 4rem auto;
+  padding: 2rem 2.5rem; /* Um pouco mais de padding lateral */
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(52,52,53,0.8);
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  overflow: hidden;    /* Para garantir que nada escape */
+}
+
     .contato-icon {
       width: 50px;
       height: 50px;
