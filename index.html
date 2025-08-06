@@ -249,70 +249,6 @@
       text-align: center;
       padding: 0 10px;
     }
-  <style>
-    /* Balão de contato */
-    .contato-balao {
-      background-color: var(--baloon-bg);
-      color: var(--baloon-text);
-      max-width: 320px;
-      margin: 2rem auto 4rem auto;
-      padding: 1.8rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(52,52,53,0.8);
-      font-family: 'Montserrat', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .contato-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      user-select: none;
-    }
-    .contato-item a {
-      color: var(--baloon-text);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .contato-item a:hover {
-      text-decoration: underline;
-    }
-    .contato-icon {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-      user-select: none;
-    }
-    .contato-email-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
-    .botao-copiar {
-      background: transparent;
-      border: 1.5px solid var(--baloon-text);
-      border-radius: 6px;
-      padding: 0.25rem 0.6rem;
-      color: var(--baloon-text);
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: none;
-    }
-    .botao-copiar:hover,
-    .botao-copiar:focus {
-      background-color: var(--baloon-text);
-      color: var(--baloon-bg);
-      outline: none;
-    }
   </style>
 </head>
 <body>
@@ -438,18 +374,20 @@
     </div>
   </div>
   <section class="contato-balao" id="contact">
-    <div class="contato-item">
-      <img src="fotos/whatsapp.png" alt="WhatsApp" class="contato-icon" loading="lazy" />
-      <a href="https://api.whatsapp.com/send?phone=558181742706" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    </div>
-    <div class="contato-item">
-      <img src="fotos/instagram.png" alt="Instagram" class="contato-icon" loading="lazy" />
-      <a href="https://www.instagram.com/cabral.de.melo.adv" target="_blank" rel="noopener noreferrer">Instagram</a>
-    </div>
-    <div class="contato-item contato-email-wrapper">
-      <img src="fotos/email.png" alt="Email" class="contato-icon" loading="lazy" />
-      <span>alfredo.cabral@cabraldemeloadvocacia.com.br</span>
-      <button class="botao-copiar" aria-label="Copiar email" onclick="copiarEmail()">Copiar</button>
+    <div class="contatos-icones">
+      <div class="contato-item" tabindex="0">
+        <img src="fotos/whatsapp.png" alt="WhatsApp" class="contato-icon" loading="lazy" />
+        <div class="contato-nome">WhatsApp</div>
+      </div>
+      <div class="contato-item" tabindex="0">
+        <img src="fotos/instagram.png" alt="Instagram" class="contato-icon" loading="lazy" />
+        <div class="contato-nome">Instagram</div>
+      </div>
+      <div class="contato-item contato-email-wrapper" tabindex="0">
+        <img src="fotos/email.png" alt="Email" class="contato-icon" loading="lazy" />
+        <span class="email-text">alfredo.cabral@cabraldemeloadvocacia.com.br</span>
+        <button class="botao-copiar" aria-label="Copiar email" onclick="copiarEmail()">Copiar</button>
+      </div>
     </div>
   </section>
 
@@ -506,81 +444,75 @@
       modal.setAttribute('aria-hidden', 'true');
     }
   </script>
+
   <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1500;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
+    /* Balão de contato */
+    .contato-balao {
+      background-color: #343435;
+      color: #F4C39D;
+      max-width: 320px;
+      margin: 2rem auto 4rem auto;
+      padding: 1.8rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(52,52,53,0.8);
       font-family: 'Montserrat', sans-serif;
-    }
-    .modal-content {
-      background-color: #fff;
-      margin: 8% auto;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 500px;
-      position: relative;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-      color: var(--grafite-escuro);
-    }
-    .fechar {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: transparent;
-      border: none;
-      font-size: 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--grafite-escuro);
-      line-height: 1;
-      transition: color 0.3s ease;
-    }
-    .fechar:hover,
-    .fechar:focus {
-      color: var(--menu-hover);
-      outline: none;
-    }
-    .atuacao-lista {
-      list-style: none;
-      padding-left: 0;
-      max-width: 300px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
       align-items: center;
+      gap: 1.5rem;
     }
-    .atuacao-lista li {
+    .contatos-icones {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      width: 100%;
+    }
+    .contato-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
       cursor: pointer;
       user-select: none;
-      outline: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--grafite-escuro);
+      color: #F4C39D;
       font-weight: 600;
       font-size: 1.1rem;
-      transition: color 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
     }
-    .atuacao-lista li:hover,
-    .atuacao-lista li:focus {
-      color: var(--menu-hover);
-    }
-    .atuacao-lista li img.icon {
-      width: 60px;
-      height: 60px;
+    .contato-icon {
+      width: 50px;
+      height: 50px;
       object-fit: contain;
+      user-select: none;
     }
-    .atuacao-nome {
-      text-align: center;
+    .contato-email-wrapper {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.6rem;
+      justify-content: center;
+      cursor: default;
+    }
+    .email-text {
+      font-size: 1.1rem;
+      color: #F4C39D;
+      user-select: text;
+    }
+    .botao-copiar {
+      background: transparent;
+      border: 1.5px solid #F4C39D;
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+      color: #F4C39D;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    .botao-copiar:hover,
+    .botao-copiar:focus {
+      background-color: #F4C39D;
+      color: #343435;
+      outline: none;
     }
   </style>
 </body>
