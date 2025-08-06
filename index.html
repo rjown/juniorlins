@@ -29,6 +29,10 @@
       --botao-cta-fundo: #f4c39d;
       --menu-hover: #c58b72;
       --sobre-texto-hover: #b67c67;
+
+      /* Novas cores para contato */
+      --contato-bg: #343435;
+      --contato-text: #F4C39D;
     }
 
     * {
@@ -220,15 +224,14 @@
       margin-bottom: 1.5rem;
     }
     .apresentacao {
-  max-width: 650px;
-  margin: 3rem auto 0 auto; /* adicionei margem superior 3rem */
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  text-align: center;
-  color: var(--grafite-escuro);
-}
-
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center;
+      color: var(--grafite-escuro);
+    }
 
     .apresentacao h2 {
       color: var(--cobre-rose);
@@ -330,14 +333,14 @@
     <img src="fotos/logo1.png" alt="Logo do escritório" class="logo-principal" loading="lazy" />
     <div class="subtexto-logo">Compromisso, ética e excelência jurídica ao seu lado.</div>
 
-   <div class="apresentacao" id="about">
-  <h2>Quem somos</h2>
-  <img src="fotos/cabral.jpg" alt="Foto Dr. Alfredo Cabral de Melo" loading="lazy" style="max-width: 300px; border-radius: 8px; margin: 1rem auto; display: block;" />
-  <p>
-    Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
-    Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
-  </p>
-</div>
+    <div class="apresentacao">
+      <h2>Quem somos</h2>
+      <img src="fotos/cabral.jpg" alt="Foto Dr. Alfredo Cabral de Melo" loading="lazy" style="max-width: 300px; border-radius: 8px; margin: 1rem auto; display: block;" />
+      <p>
+        Somos um escritório de advocacia especializado e humanizado em soluções jurídicas estratégicas.
+        Buscamos sempre oferecer um atendimento e uma solução personalizada para cada cliente, com ética, clareza e compromisso.
+      </p>
+    </div>
   </section>
   <section class="atuacao-section" id="services">
     <h2 style="text-align:center; color: var(--cobre-rose); font-family: Helvetica, Arial, sans-serif; font-weight: 700; font-size: 1.8rem; margin-bottom: 1rem;">Áreas de Atuação</h2>
@@ -430,124 +433,46 @@
       <p id="modal7Desc">Atuação na defesa das mulheres vítimas de violência doméstica, sexual e outras formas de agressão.</p>
     </div>
   </div>
+  <section id="contact" style="padding: 4rem 1rem; background-color: var(--branco); text-align: center;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #343435; border-radius: 12px; padding: 2rem;">
+      <div style="color: #F4C39D; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+
+        <!-- WHATSAPP -->
+        <a href="https://wa.me/558181742706" target="_blank" style="text-decoration: none; color: #F4C39D;">
+          <img src="fotos/whatsapp.png" alt="Ícone WhatsApp" style="width: 40px; height: 40px;" loading="lazy" />
+          <div>Whatsapp</div>
+        </a>
+
+        <!-- INSTAGRAM -->
+        <a href="https://www.instagram.com/cabral.de.melo.adv?igsh=N2tweXQyMzF3amRi" target="_blank" style="text-decoration: none; color: #F4C39D;">
+          <img src="fotos/instagram.png" alt="Ícone Instagram" style="width: 40px; height: 40px;" loading="lazy" />
+          <div>Instagram</div>
+        </a>
+
+        <!-- EMAIL -->
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <img src="fotos/email.png" alt="Ícone Email" style="width: 40px; height: 40px;" loading="lazy" />
+          <div style="color: #F4C39D; font-size: 0.95rem;">alfredo.cabral@cabraldemeloadvocacia.com.br</div>
+          <button onclick="copiarEmail()" style="margin-left: auto; background-color: transparent; border: 1px solid #F4C39D; color: #F4C39D; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Copiar</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Dr. Alfredo Cabral de Melo. Todos os direitos reservados.
+  </footer>
+
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('open');
-    });
-
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('open');
+    function copiarEmail() {
+      const email = "alfredo.cabral@cabraldemeloadvocacia.com.br";
+      navigator.clipboard.writeText(email).then(function () {
+        alert("E-mail copiado com sucesso!");
+      }, function (err) {
+        alert("Erro ao copiar o e-mail.");
       });
-    });
-
-    function abrirModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.style.display = 'block';
-      modal.setAttribute('aria-hidden', 'false');
-      modal.focus();
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          fecharModal(id);
-        }
-      });
-      document.addEventListener('keydown', function escListener(e) {
-        if (e.key === 'Escape') {
-          fecharModal(id);
-          document.removeEventListener('keydown', escListener);
-        }
-      });
-    }
-
-    function fecharModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
     }
   </script>
-  <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1500;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-      font-family: 'Montserrat', sans-serif;
-    }
-    .modal-content {
-      background-color: #fff;
-      margin: 8% auto;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 500px;
-      position: relative;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-      color: var(--grafite-escuro);
-    }
-    .fechar {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: transparent;
-      border: none;
-      font-size: 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--grafite-escuro);
-      line-height: 1;
-      transition: color 0.3s ease;
-    }
-    .fechar:hover,
-    .fechar:focus {
-      color: var(--menu-hover);
-      outline: none;
-    }
-    .atuacao-lista {
-      list-style: none;
-      padding-left: 0;
-      max-width: 300px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .atuacao-lista li {
-      cursor: pointer;
-      user-select: none;
-      outline: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--grafite-escuro);
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    .atuacao-lista li:hover,
-    .atuacao-lista li:focus {
-      color: var(--menu-hover);
-    }
-    .atuacao-lista li img.icon {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
-    .atuacao-nome {
-      text-align: center;
-    }
-  </style>
 </body>
 </html>
