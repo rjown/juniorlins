@@ -373,24 +373,25 @@
       <p id="modal7Desc">Atuação na defesa das mulheres vítimas de violência doméstica, sexual e outras formas de agressão.</p>
     </div>
   </div>
-  <section class="contato-balao" id="contact">
-    <div class="contatos-icones">
-      <div class="contato-item" tabindex="0">
+  <section class="contato-balao" id="contact" role="region" aria-label="Informações de contato">
+    <div class="contato-icons-row" style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 1rem;">
+      <div class="contato-item" style="display: flex; flex-direction: column; align-items: center; cursor: pointer; user-select: none;">
         <img src="fotos/whatsapp.png" alt="WhatsApp" class="contato-icon" loading="lazy" />
-        <div class="contato-nome">WhatsApp</div>
+        <div style="color: #F4C39D; margin-top: 0.5rem; font-weight: 600;">WhatsApp</div>
       </div>
-      <div class="contato-item" tabindex="0">
+      <div class="contato-item" style="display: flex; flex-direction: column; align-items: center; cursor: pointer; user-select: none;">
         <img src="fotos/instagram.png" alt="Instagram" class="contato-icon" loading="lazy" />
-        <div class="contato-nome">Instagram</div>
+        <div style="color: #F4C39D; margin-top: 0.5rem; font-weight: 600;">Instagram</div>
       </div>
-      <div class="contato-item contato-email-wrapper" tabindex="0">
-        <img src="fotos/email.png" alt="Email" class="contato-icon" loading="lazy" />
-        <span class="email-text">alfredo.cabral@cabraldemeloadvocacia.com.br</span>
-        <button class="botao-copiar" aria-label="Copiar email" onclick="copiarEmail()">Copiar</button>
+      <div class="contato-item" style="display: flex; flex-direction: column; align-items: center; cursor: default; user-select: text;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: #F4C39D; font-weight: 600;">
+          <img src="fotos/email.png" alt="Email" class="contato-icon" loading="lazy" />
+          <span>alfredo.cabral@cabraldemeloadvocacia.com.br</span>
+        </div>
+        <button class="botao-copiar" aria-label="Copiar email" onclick="copiarEmail()" style="margin-top: 0.5rem; color: #F4C39D; border-color: #F4C39D;">Copiar</button>
       </div>
     </div>
   </section>
-
   <script>
     function copiarEmail() {
       const email = "alfredo.cabral@cabraldemeloadvocacia.com.br";
@@ -446,11 +447,85 @@
   </script>
 
   <style>
-    /* Balão de contato */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1500;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 8% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      color: var(--grafite-escuro);
+    }
+    .fechar {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--grafite-escuro);
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .fechar:hover,
+    .fechar:focus {
+      color: var(--menu-hover);
+      outline: none;
+    }
+    .atuacao-lista {
+      list-style: none;
+      padding-left: 0;
+      max-width: 300px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .atuacao-lista li {
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--grafite-escuro);
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    .atuacao-lista li:hover,
+    .atuacao-lista li:focus {
+      color: var(--menu-hover);
+    }
+    .atuacao-lista li img.icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .atuacao-nome {
+      text-align: center;
+    }
     .contato-balao {
       background-color: #343435;
       color: #F4C39D;
-      max-width: 320px;
+      max-width: 480px;
       margin: 2rem auto 4rem auto;
       padding: 1.8rem 2rem;
       border-radius: 12px;
@@ -461,41 +536,11 @@
       align-items: center;
       gap: 1.5rem;
     }
-    .contatos-icones {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      width: 100%;
-    }
-    .contato-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      user-select: none;
-      color: #F4C39D;
-      font-weight: 600;
-      font-size: 1.1rem;
-      font-family: 'Montserrat', sans-serif;
-    }
     .contato-icon {
       width: 50px;
       height: 50px;
       object-fit: contain;
       user-select: none;
-    }
-    .contato-email-wrapper {
-      flex-direction: row;
-      align-items: center;
-      gap: 0.6rem;
-      justify-content: center;
-      cursor: default;
-    }
-    .email-text {
-      font-size: 1.1rem;
-      color: #F4C39D;
-      user-select: text;
     }
     .botao-copiar {
       background: transparent;
@@ -515,5 +560,3 @@
       outline: none;
     }
   </style>
-</body>
-</html>
