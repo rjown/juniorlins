@@ -396,24 +396,24 @@ html {
   <div style="margin-top: 0.5rem; font-weight: 600;">Instagram</div>
 </a>
   <div class="contato-item" style="display: flex; flex-direction: column; align-items: center; cursor: default; user-select: text;">
-    <div style="display: flex; align-items: center; gap: 0.5rem; color: #F4C39D; font-weight: 600;">
-      <img src="fotos/email.png" alt="Email" class="contato-icon" loading="lazy" />
-      <span>alfredo.cabral@cabraldemeloadvocacia.com.br</span>
-    </div>
-    <button class="botao-copiar" aria-label="Copiar email" onclick="copiarEmail()" style="margin-top: 0.5rem; color: #F4C39D; border-color: #F4C39D;">Copiar</button>
+  <div style="display: flex; align-items: center; gap: 0.5rem; color: #F4C39D; font-weight: 600;">
+    <img src="fotos/email.png" alt="Email" class="contato-icon" loading="lazy" />
+    <span>contato@cabraldemeloadvocacia.com.br</span>
   </div>
+  <button class="botao-copiar" aria-label="Copiar email" onclick="copiarEmail()" style="margin-top: 0.5rem; color: #F4C39D; border-color: #F4C39D;">Copiar</button>
+</div>
 </div>
   </section>
   <script>
-    function copiarEmail() {
-      const email = "alfredo.cabral@cabraldemeloadvocacia.com.br";
-      navigator.clipboard.writeText(email).then(() => {
-        alert('Email copiado para a área de transferência!');
-      }, () => {
-        alert('Não foi possível copiar o email.');
-      });
-    }
-  </script>
+  function copiarEmail() {
+    const email = "contato@cabraldemeloadvocacia.com.br";
+    navigator.clipboard.writeText(email).then(() => {
+      alert('Email copiado para a área de transferência!');
+    }, () => {
+      alert('Não foi possível copiar o email.');
+    });
+  }
+</script>
 
   <script>
     const hamburger = document.getElementById('hamburger');
