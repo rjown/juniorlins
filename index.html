@@ -63,12 +63,14 @@
     }
 
     .brand .brand-mark{
-      width:40px;height:40px;border-radius:6px;
+      width:42px;height:42px;border-radius:6px;
       background: linear-gradient(135deg, var(--prata-medio), var(--prata-claro));
       display:flex;align-items:center;justify-content:center;
       box-shadow: 0 4px 18px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.6);
     }
-    .brand .brand-mark img{width:28px;height:28px;object-fit:contain}
+    .brand .brand-mark img{
+      width:28px;height:28px;object-fit:contain
+    }
 
     nav{
       display:flex;
@@ -104,7 +106,7 @@
       overflow:hidden;
     }
 
-    /* decorative blurred backgrounds (left + right) */
+    /* blurred background logos */
     .trinity-bg-left,
     .trinity-bg-right{
       position:absolute;
@@ -120,7 +122,7 @@
     .trinity-bg-left{ left:-12% }
     .trinity-bg-right{ right:-12%; transform: scaleX(-1) translateY(-3%) }
 
-    /* central logo (sharp) */
+    /* central logo */
     .trinity-center{
       display:block;
       width:min(40vw,520px);
@@ -131,7 +133,7 @@
       margin:0 auto;
     }
 
-    /* TRI-NITY big title (two lines with hyphen) */
+    /* TRI-NITY title */
     .tri-nity-text{
       font-family: 'Merriweather', serif;
       font-weight:900;
@@ -147,9 +149,9 @@
       z-index:22;
       letter-spacing: 0.02em;
     }
+
     .tri-nity-text .hyphen{display:block}
 
-    /* small tagline under title */
     .trinity-sub{
       margin-top:14px;
       color:var(--prata-claro);
@@ -159,7 +161,6 @@
       opacity:0.95;
     }
 
-    /* CTA buttons */
     .home-ctas{
       display:flex;
       gap:14px;
@@ -186,7 +187,6 @@
     }
     .btn:hover{ transform: translateY(-4px); box-shadow: 0 14px 48px rgba(0,0,0,0.7) }
 
-    /* contact floater (bottom-right) */
     .contact-floater{
       position:fixed;
       right:20px;
@@ -205,7 +205,6 @@
     }
     .contact-floater img{width:28px;height:28px;object-fit:contain;display:block}
 
-    /* simple footer credit (optional) */
     footer{
       text-align:center;
       padding:24px 12px;
@@ -214,7 +213,6 @@
       opacity:0.6;
     }
 
-    /* responsive */
     @media (max-width:900px){
       nav{display:none}
       .hamburger{display:flex}
@@ -231,8 +229,7 @@
   <header>
     <div class="brand" aria-hidden="true">
       <div class="brand-mark" aria-hidden="true">
-        <!-- small mark using trinity logo if available -->
-        <img src="trinity-logo.jpeg" alt="" loading="lazy" style="width:22px;height:22px;object-fit:contain">
+        <img src="fotos/trinity-logo.jpeg" alt="Trinity" loading="lazy">
       </div>
       <div style="font-weight:700;letter-spacing:2px;color:var(--prata-claro);font-size:0.95rem">TRINITY</div>
     </div>
@@ -251,53 +248,46 @@
   <!-- HERO -->
   <main>
     <section class="home-section" id="inicio" role="region" aria-label="Seção principal Trinity">
-      <!-- blurred background logos (same image) -->
-      <img src="trinity-logo.jpeg" alt="" aria-hidden="true" class="trinity-bg-left" loading="lazy">
-      <img src="trinity-logo.jpeg" alt="" aria-hidden="true" class="trinity-bg-right" loading="lazy">
 
-      <!-- central sharp logo -->
-      <img src="trinity-logo.jpeg" alt="Trinity logo" class="trinity-center" loading="lazy">
+      <img src="fotos/trinity-logo.jpeg" alt="" aria-hidden="true" class="trinity-bg-left" loading="lazy">
+      <img src="fotos/trinity-logo.jpeg" alt="" aria-hidden="true" class="trinity-bg-right" loading="lazy">
 
-      <!-- TRI-NITY title -->
+      <img src="fotos/trinity-logo.jpeg" alt="Trinity logo" class="trinity-center" loading="lazy">
+
       <div class="tri-nity-text" role="heading" aria-level="1">
         <span class="hyphen">TRI-</span>
         <span>NITY</span>
       </div>
 
-      <!-- small tagline (optional) -->
-      <div class="trinity-sub" aria-hidden="false">Minimal. Metal. Precise.</div>
+      <div class="trinity-sub">Minimal. Metal. Precise.</div>
 
-      <!-- CTAs -->
-      <div class="home-ctas" role="group" aria-label="Ações principais">
+      <div class="home-ctas">
         <a class="btn primary" href="https://api.whatsapp.com/send/?phone=558181742706&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a class="btn" href="https://www.instagram.com/cabral.de.melo.adv" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
     </section>
   </main>
 
-  <!-- contact floating icons (keeps the instagram & whatsapp you kept) -->
-  <div class="contact-floater" aria-hidden="false">
-    <a href="https://api.whatsapp.com/send/?phone=558181742706&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-      <img src="fotos/whatsapp.png" alt="WhatsApp" loading="lazy">
+  <!-- Floating Icons -->
+  <div class="contact-floater">
+    <a href="https://api.whatsapp.com/send/?phone=558181742706&text&type=phone_number&app_absent=0" target="_blank">
+      <img src="fotos/whatsapp.png" alt="WhatsApp">
     </a>
-    <a href="https://www.instagram.com/cabral.de.melo.adv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <img src="fotos/instagram.png" alt="Instagram" loading="lazy">
+    <a href="https://www.instagram.com/cabral.de.melo.adv" target="_blank">
+      <img src="fotos/instagram.png" alt="Instagram">
     </a>
   </div>
 
-  <footer aria-hidden="true">
-    <!-- keep minimal; you can remove or edit later -->
+  <footer>
     © TRINITY
   </footer>
 
   <script>
-    // Hamburger toggle (keeps behavior from original)
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
-      // simple mobile menu: toggle display
       if(navMenu.style.display === 'flex'){
         navMenu.style.display = 'none';
       } else {
@@ -313,7 +303,6 @@
       }
     });
 
-    // close mobile menu when clicking links
     document.querySelectorAll('#nav-menu a').forEach(a=>{
       a.addEventListener('click', ()=>{
         if(window.innerWidth <= 900){
@@ -322,7 +311,6 @@
       });
     });
 
-    // simple accessibility: allow Enter on hamburger
     hamburger.addEventListener('keydown', (e)=>{
       if(e.key === 'Enter' || e.key === ' '){
         e.preventDefault();
