@@ -112,17 +112,20 @@
 
     /* Arrows laterais */
     .arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      font-size:44px;
-      color:rgba(255,255,255,0.9);
-      pointer-events:none;
-      user-select:none;
-      font-weight:300;
-    }
-    .arrow.left{ left:28px; }
-    .arrow.right{ right:28px; }
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:44px; /* tamanho igual ao original */
+  color:rgba(255,255,255,0.9);
+  pointer-events:auto;
+  user-select:none;
+  font-weight:900; /* manter espessura igual ao título */
+  font-family:'Orbitron', sans-serif; /* mesma fonte do título */
+  cursor:pointer;
+}
+.arrow.left{ left:28px; }
+.arrow.right{ right:28px; }
+
 
     /* Responsivo */
     @media(max-width:900px){
@@ -202,8 +205,8 @@
 
   <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
 
-  <div class="arrow left">←</div>
-  <div class="arrow right">→</div>
+  <div class="arrow left">&lt;</div>
+<div class="arrow right">&gt;</div>
 
 </div>
 
