@@ -1,323 +1,155 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TRINITY</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRINITY</title>
 
-  <!-- Fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
 
-  <!-- Font Awesome (icons fallback) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
 
-  <style>
-    /* ====== PALETA TRINITY (preto + prata) ====== */
-    :root{
-      --preto: #000000;
-      --grafite: #0f0f0f;
-      --prata-claro: #d9d9d9;
-      --prata-medio: #bfbfbf;
-      --prata-escuro: #7a7a7a;
-      --branco: #ffffff;
+        body {
+            background: #3a3a3a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-      --bg: var(--preto);
-      --text: var(--prata-claro);
-      --muted: rgba(255,255,255,0.06);
-      --glass: rgba(255,255,255,0.03);
-    }
+        .frame {
+            width: 88vw;
+            height: 82vh;
+            background: #000;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
+        }
 
-    /* Reset & base */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.4;
-      overflow-x:hidden;
-    }
-    a{color:inherit;text-decoration:none}
+        /* grade + brilho, estilo do exemplo */
+        .grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(white 1px, transparent 1px),
+                linear-gradient(90deg, white 1px, transparent 1px);
+            background-size: 25% 25%;
+            opacity: 0.25;
+            mix-blend-mode: screen;
+        }
 
-    /* Header */
-    header{
-      position:fixed;
-      top:0;left:0;
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:18px 28px;
-      z-index:1200;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-bottom:1px solid rgba(255,255,255,0.04);
-      backdrop-filter: blur(4px);
-    }
+        /* Conteúdo principal */
+        .content {
+            position: absolute;
+            inset: 0;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+        /* Título FUTURE adaptado para TRINITY */
+        .title {
+            font-size: 110px;
+            font-weight: 900;
+            line-height: 85px;
+            letter-spacing: -3px;
+            color: #fff;
+        }
 
-    .brand .brand-mark{
-      width:42px;height:42px;border-radius:6px;
-      background: linear-gradient(135deg, var(--prata-medio), var(--prata-claro));
-      display:flex;align-items:center;justify-content:center;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.6);
-    }
-    .brand .brand-mark img{
-      width:28px;height:28px;object-fit:contain
-    }
+        .title span {
+            display: block;
+        }
 
-    nav{
-      display:flex;
-      gap:20px;
-      align-items:center;
-    }
-    nav a{
-      font-size:0.95rem;font-weight:600;
-      color:var(--prata-claro);
-      letter-spacing:1px;
-      opacity:0.95;
-      transition: color .18s ease, transform .18s ease;
-    }
-    nav a:hover, nav a.active{ color: var(--branco); transform: translateY(-2px) }
+        /* 3D shape imaginária substituída pela sua logo */
+        .center-logo {
+            position: absolute;
+            right: 14%;
+            top: 32%;
+            transform: translateY(-50%);
+            width: 300px;
+            filter: brightness(1.2) contrast(1);
+        }
 
-    /* hamburger for mobile */
-    .hamburger{
-      display:none;
-      width:28px;height:22px;flex-direction:column;justify-content:space-between;cursor:pointer;
-    }
-    .hamburger span{
-      display:block;height:3px;background:var(--prata-claro);border-radius:3px;transition:all .22s ease;
-    }
+        /* botões */
+        .buttons {
+            position: absolute;
+            bottom: 55px;
+            left: 55px;
+            display: flex;
+            gap: 18px;
+        }
 
-    /* HERO */
-    .home-section{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:120px 20px 80px;
-      position:relative;
-      overflow:hidden;
-    }
+        .btn {
+            padding: 16px 34px;
+            border: 2px solid white;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            color: white;
+        }
 
-    /* blurred background logos */
-    .trinity-bg-left,
-    .trinity-bg-right{
-      position:absolute;
-      top:6%;
-      width:55%;
-      max-width:1200px;
-      opacity:0.06;
-      filter: blur(30px) saturate(120%);
-      transform: translateY(-3%);
-      pointer-events:none;
-      mix-blend-mode:screen;
-    }
-    .trinity-bg-left{ left:-12% }
-    .trinity-bg-right{ right:-12%; transform: scaleX(-1) translateY(-3%) }
+        .btn:hover {
+            background: white;
+            color: black;
+        }
 
-    /* central logo */
-    .trinity-center{
-      display:block;
-      width:min(40vw,520px);
-      max-width:560px;
-      transform:translateZ(0);
-      filter: drop-shadow(0 12px 40px rgba(0,0,0,0.7));
-      z-index:20;
-      margin:0 auto;
-    }
+        /* setas */
+        .arrow-left, .arrow-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 48px;
+            color: white;
+            opacity: 0.8;
+            cursor: pointer;
+            user-select: none;
+        }
 
-    /* TRI-NITY title */
-    .tri-nity-text{
-      font-family: 'Merriweather', serif;
-      font-weight:900;
-      font-size: clamp(48px,9vw,120px);
-      line-height:0.9;
-      text-align:center;
-      color:var(--branco);
-      margin-top:18px;
-      text-shadow:
-        0 2px 0 rgba(0,0,0,0.6),
-        0 18px 40px rgba(0,0,0,0.6),
-        0 0 18px rgba(255,255,255,0.02);
-      z-index:22;
-      letter-spacing: 0.02em;
-    }
-
-    .tri-nity-text .hyphen{display:block}
-
-    .trinity-sub{
-      margin-top:14px;
-      color:var(--prata-claro);
-      font-weight:300;
-      letter-spacing:1px;
-      z-index:22;
-      opacity:0.95;
-    }
-
-    .home-ctas{
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      margin-top:28px;
-      z-index:22;
-    }
-    .btn{
-      padding:12px 18px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
-      color:var(--prata-claro);
-      font-weight:700;
-      letter-spacing:0.6px;
-      transform:translateZ(0);
-      transition: transform .16s ease, box-shadow .16s ease;
-    }
-    .btn.primary{
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      color:var(--branco);
-      border:1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 8px 36px rgba(0,0,0,0.65);
-    }
-    .btn:hover{ transform: translateY(-4px); box-shadow: 0 14px 48px rgba(0,0,0,0.7) }
-
-    .contact-floater{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      z-index:1300;
-    }
-    .contact-floater a{
-      width:52px;height:52px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-    }
-    .contact-floater img{width:28px;height:28px;object-fit:contain;display:block}
-
-    footer{
-      text-align:center;
-      padding:24px 12px;
-      color:var(--prata-escuro);
-      font-size:0.85rem;
-      opacity:0.6;
-    }
-
-    @media (max-width:900px){
-      nav{display:none}
-      .hamburger{display:flex}
-      .trinity-bg-left,.trinity-bg-right{display:none}
-      .tri-nity-text{font-size: clamp(34px, 12vw, 72px);margin-top:8px}
-      .trinity-center{width:min(62vw,420px)}
-      .contact-floater{right:12px;bottom:12px}
-    }
-  </style>
+        .arrow-left { left: 35px; }
+        .arrow-right { right: 35px; }
+    </style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="brand" aria-hidden="true">
-      <div class="brand-mark" aria-hidden="true">
-        <img src="fotos/trinity-logo.jpeg" alt="Trinity" loading="lazy">
-      </div>
-      <div style="font-weight:700;letter-spacing:2px;color:var(--prata-claro);font-size:0.95rem">TRINITY</div>
+    <div class="frame">
+
+        <div class="grid"></div>
+
+        <div class="content">
+
+            <!-- TÍTULO IGUAL AO EXEMPLO -->
+            <h1 class="title">
+                TRI<br>NITY
+            </h1>
+
+            <!-- LOGO CENTRAL -->
+            <img src="fotos/trinity-logo.png" alt="logo" class="center-logo">
+
+            <!-- BOTÕES IGUAIS AO EXEMPLO -->
+            <div class="buttons">
+                <a href="https://wa.me/558187770376" class="btn" target="_blank">WHATSAPP</a>
+                <a href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" class="btn" target="_blank">INSTAGRAM</a>
+            </div>
+
+        </div>
+
+        <!-- SETAS (DECORATIVAS) -->
+        <div class="arrow-left">&#8592;</div>
+        <div class="arrow-right">&#8594;</div>
+
     </div>
-
-    <nav id="nav-menu" aria-label="Main navigation">
-      <a href="#inicio" class="active">Home</a>
-      <a href="#inicio">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div id="hamburger" class="hamburger" aria-label="Abrir menu" role="button" tabindex="0">
-      <span></span><span></span><span></span>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <main>
-    <section class="home-section" id="inicio" role="region" aria-label="Seção principal Trinity">
-
-      <img src="fotos/trinity-logo.jpeg" alt="" aria-hidden="true" class="trinity-bg-left" loading="lazy">
-      <img src="fotos/trinity-logo.jpeg" alt="" aria-hidden="true" class="trinity-bg-right" loading="lazy">
-
-      <img src="fotos/trinity-logo.jpeg" alt="Trinity logo" class="trinity-center" loading="lazy">
-
-      <div class="tri-nity-text" role="heading" aria-level="1">
-        <span class="hyphen">TRI-</span>
-        <span>NITY</span>
-      </div>
-
-      <div class="trinity-sub">Minimal. Metal. Precise.</div>
-
-      <div class="home-ctas">
-        <a class="btn primary" href="https://api.whatsapp.com/send/?phone=558181742706&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        <a class="btn" href="https://www.instagram.com/cabral.de.melo.adv" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Floating Icons -->
-  <div class="contact-floater">
-    <a href="https://api.whatsapp.com/send/?phone=558181742706&text&type=phone_number&app_absent=0" target="_blank">
-      <img src="fotos/whatsapp.png" alt="WhatsApp">
-    </a>
-    <a href="https://www.instagram.com/cabral.de.melo.adv" target="_blank">
-      <img src="fotos/instagram.png" alt="Instagram">
-    </a>
-  </div>
-
-  <footer>
-    © TRINITY
-  </footer>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      if(navMenu.style.display === 'flex'){
-        navMenu.style.display = 'none';
-      } else {
-        navMenu.style.display = 'flex';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'fixed';
-        navMenu.style.top = '64px';
-        navMenu.style.left = '0';
-        navMenu.style.background = 'rgba(0,0,0,0.98)';
-        navMenu.style.width = '220px';
-        navMenu.style.padding = '1.5rem';
-        navMenu.style.gap = '1rem';
-      }
-    });
-
-    document.querySelectorAll('#nav-menu a').forEach(a=>{
-      a.addEventListener('click', ()=>{
-        if(window.innerWidth <= 900){
-          navMenu.style.display = 'none';
-        }
-      });
-    });
-
-    hamburger.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        hamburger.click();
-      }
-    });
-  </script>
 
 </body>
 </html>
