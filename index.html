@@ -25,7 +25,6 @@
     body{
       font-family:'Montserrat',sans-serif;
       background:var(--bg);
-      /* removido height:100vh e flex para permitir scroll */
     }
 
     /* Moldura principal */
@@ -38,10 +37,10 @@
       position:relative;
       overflow:hidden;
       box-shadow:0 20px 50px rgba(0,0,0,0.7);
-      margin: 60px auto; /* centraliza horizontal e adiciona espaço vertical */
+      margin: 60px auto;
     }
 
-    /* Grade EXATAMENTE como o exemplo */
+    /* Grade */
     .grid-lines{
       position:absolute; inset:0;
       pointer-events:none;
@@ -67,7 +66,7 @@
     }
 
     .title{
-      font-family:'Orbitron', sans-serif; /* fonte do título */
+      font-family:'Orbitron', sans-serif;
       font-weight:900;
       font-size:clamp(70px, 8vw, 150px);
       line-height:0.82;
@@ -140,7 +139,7 @@
       padding: 20px 0;
       display: flex;
       justify-content: center;
-      position: relative; /* acompanha a frame */
+      position: relative;
       z-index: 10;
     }
 
@@ -174,7 +173,7 @@
 
     /* Seções separadas */
     section {
-      height: 100vh; /* cada seção ocupa toda a tela para scroll */
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -211,25 +210,30 @@
 
     <div class="arrow left">&lt;</div>
     <div class="arrow right">&gt;</div>
-
   </div>
 </section>
 
 <section id="about">
   <div class="frame">
     <h2 style="color:white;">About Section</h2>
+    <div class="arrow left">&lt;</div>
+    <div class="arrow right">&gt;</div>
   </div>
 </section>
 
 <section id="service">
   <div class="frame">
     <h2 style="color:white;">Service Section</h2>
+    <div class="arrow left">&lt;</div>
+    <div class="arrow right">&gt;</div>
   </div>
 </section>
 
 <section id="contact">
   <div class="frame">
     <h2 style="color:white;">Contact Section</h2>
+    <div class="arrow left">&lt;</div>
+    <div class="arrow right">&gt;</div>
   </div>
 </section>
 
@@ -248,7 +252,7 @@
     }
   }
 
-  // Adicionando eventos em todas as setas (uma por seção)
+  // Eventos em todas as setas
   rightArrow.forEach(arrow => {
     arrow.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % menuItems.length;
