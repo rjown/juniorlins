@@ -5,167 +5,154 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TRINITY</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg-page: #4a4a4a;
-      --panel-bg: #000;
+      --bg: #4a4a4a;
+      --panel: #000;
       --white: #ffffff;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
+    *{margin:0;padding:0;box-sizing:border-box;}
     body{
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg-page);
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
 
-    /* panel/frame like example */
-    .frame {
-      width: 90vw;
-      max-width: 1400px;
-      height: 78vh;
-      background: var(--panel-bg);
-      border-radius: 6px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-      position: relative;
-      overflow: hidden;
+    /* Moldura principal */
+    .frame{
+      width:92vw;
+      max-width:1500px;
+      height:78vh;
+      background:var(--panel);
+      border-radius:22px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 20px 50px rgba(0,0,0,0.7);
     }
 
-    /* subtle textured background (grain) */
-    .frame::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(rgba(255,255,255,0.02) 0.1px, transparent 0.2px),
-        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
-      background-size: 3px 3px;
-      mix-blend-mode: overlay;
-      pointer-events:none;
-    }
-
-    /* decorative rounded grid lines like the example */
+    /* Grade EXATAMENTE como o exemplo */
     .grid-lines{
-      position:absolute; inset:40px;
-      border-radius:10px;
+      position:absolute; inset:0;
       pointer-events:none;
     }
-    .grid-lines::before,
-    .grid-lines::after{
+    .grid-lines::before{
       content:"";
-      position:absolute; inset:0;
+      position:absolute; inset:40px;
+      border-radius:16px;
       background:
         linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
         linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 25% 25%;
-      mix-blend-mode: screen;
-      opacity: 0.5;
-      border-radius:10px;
+      background-size: 220px 220px;
+      opacity:0.35;
+      mix-blend-mode:screen;
     }
 
-    /* content area */
-    .panel {
-      position:absolute; inset:30px;
-      border-radius:12px;
-      overflow:hidden;
-      display:block;
-      padding:44px;
+    /* Conteúdo da esquerda */
+    .panel{
+      position:absolute;
+      left:60px;
+      top:50%;
+      transform:translateY(-50%);
     }
 
-    /* Big left title */
-    .title {
-      font-family: 'Merriweather', serif;
+    .title{
+      font-family:'Merriweather',serif;
       font-weight:900;
+      font-size:clamp(70px, 8vw, 150px);
+      line-height:0.82;
       color:var(--white);
-      font-size: clamp(64px, 8vw, 140px);
-      line-height: 0.9;
-      letter-spacing: -2px;
-      max-width: 40%;
+      letter-spacing:-3px;
     }
 
-    /* buttons below title */
-    .cta-row {
-      margin-top: 20px;
+    .cta-row{
+      margin-top:32px;
       display:flex;
-      gap:14px;
+      gap:16px;
     }
-    .cta {
-      display:inline-block;
-      padding:12px 26px;
-      border-radius:28px;
+    .cta{
+      padding:12px 30px;
+      border-radius:30px;
       border:2px solid rgba(255,255,255,0.9);
-      color:var(--white);
       text-decoration:none;
+      color:white;
       font-weight:700;
       font-size:14px;
-      background: transparent;
     }
-    .cta:hover{ background: rgba(255,255,255,0.06); color:#fff; }
+    .cta:hover{
+      background:rgba(255,255,255,0.12);
+    }
 
-    /* decorative arrows */
-    .arrow {
+    /* Logo grande da direita */
+    .center-logo{
+      position:absolute;
+      right:10%;
+      top:50%;
+      transform:translateY(-50%);
+      width:380px;
+      max-width:28%;
+      height:auto;
+      display:block;
+
+      /* garantir transparência real */
+      image-rendering:auto;
+      background:transparent !important;
+      filter:none !important;
+      mix-blend-mode:normal !important;
+    }
+
+    /* Arrows laterais */
+    .arrow{
       position:absolute;
       top:50%;
       transform:translateY(-50%);
-      font-size:34px;
+      font-size:44px;
       color:rgba(255,255,255,0.9);
       pointer-events:none;
+      user-select:none;
+      font-weight:300;
     }
-    .arrow.left{ left:28px }
-    .arrow.right{ right:28px }
+    .arrow.left{ left:28px; }
+    .arrow.right{ right:28px; }
 
-    /* center logo: IMPORTANT - keep transparency and no filters */
-    .center-logo{
-      position:absolute;
-      right:12%;
-      top:38%;
-      transform:translateY(-50%);
-      width: 360px;
-      max-width: 26%;
-      height:auto;
-      background: transparent !important;
-      mix-blend-mode: normal !important;
-      filter: none !important;
-      -webkit-filter: none !important;
-      display:block;
-      z-index:16;
-    }
-
-    /* responsive */
-    @media (max-width:900px){
-      .title{ font-size: clamp(40px, 12vw, 72px); max-width: 100%;}
-      .center-logo{ position: absolute; right:8%; width: 200px; top:45%}
-      .panel{ padding:20px }
+    /* Responsivo */
+    @media(max-width:900px){
+      .panel{ left:25px; }
+      .center-logo{
+        right:5%;
+        width:200px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="frame" role="main" aria-label="Trinity landing">
+<div class="frame">
 
-    <div class="grid-lines" aria-hidden="true"></div>
+  <div class="grid-lines"></div>
 
-    <div class="panel">
-      <h1 class="title">TRI<br>NITY</h1>
+  <div class="panel">
+    <h1 class="title">TRI<br>NITY</h1>
 
-      <div class="cta-row" aria-hidden="false">
-        <a class="cta" href="https://wa.me/558187770376" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
-        <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-      </div>
+    <div class="cta-row">
+      <a class="cta" href="https://wa.me/558187770376" target="_blank">WHATSAPP</a>
+      <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank">INSTAGRAM</a>
     </div>
-
-    <img src="fotos/trinity-logo-clean.png" alt="Trinity logo" class="center-logo" loading="lazy">
-
-    <div class="arrow left" aria-hidden="true">&#8592;</div>
-    <div class="arrow right" aria-hidden="true">&#8594;</div>
-
   </div>
+
+  <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
+
+  <div class="arrow left">←</div>
+  <div class="arrow right">→</div>
+
+</div>
 
 </body>
 </html>
