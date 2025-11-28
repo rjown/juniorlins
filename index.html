@@ -9,26 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
 
-
   <style>
     :root{
       --bg: #4a4a4a;
       --panel: #000;
       --white: #ffffff;
-      html {
-  scroll-behavior: smooth;
-}
+    }
 
+    html {
+      scroll-behavior: smooth;
     }
 
     *{margin:0;padding:0;box-sizing:border-box;}
+
     body{
       font-family:'Montserrat',sans-serif;
       background:var(--bg);
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      /* removido height:100vh e flex para permitir scroll */
     }
 
     /* Moldura principal */
@@ -41,6 +38,7 @@
       position:relative;
       overflow:hidden;
       box-shadow:0 20px 50px rgba(0,0,0,0.7);
+      margin: 60px auto; /* centraliza horizontal e adiciona espaço vertical */
     }
 
     /* Grade EXATAMENTE como o exemplo */
@@ -69,14 +67,13 @@
     }
 
     .title{
-  font-family:'Orbitron', sans-serif; /* alterado apenas para Orbitron */
-  font-weight:900;
-  font-size:clamp(70px, 8vw, 150px);
-  line-height:0.82;
-  color:var(--white);
-  letter-spacing:-3px;
-}
-
+      font-family:'Orbitron', sans-serif; /* fonte do título */
+      font-weight:900;
+      font-size:clamp(70px, 8vw, 150px);
+      line-height:0.82;
+      color:var(--white);
+      letter-spacing:-3px;
+    }
 
     .cta-row{
       margin-top:32px;
@@ -106,8 +103,6 @@
       max-width:28%;
       height:auto;
       display:block;
-
-      /* garantir transparência real */
       image-rendering:auto;
       background:transparent !important;
       filter:none !important;
@@ -116,20 +111,19 @@
 
     /* Arrows laterais */
     .arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:44px; /* tamanho igual ao original */
-  color:rgba(255,255,255,0.9);
-  pointer-events:auto;
-  user-select:none;
-  font-weight:900; /* manter espessura igual ao título */
-  font-family:'Orbitron', sans-serif; /* mesma fonte do título */
-  cursor:pointer;
-}
-.arrow.left{ left:28px; }
-.arrow.right{ right:28px; }
-
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:44px;
+      color:rgba(255,255,255,0.9);
+      pointer-events:auto;
+      user-select:none;
+      font-weight:900;
+      font-family:'Orbitron', sans-serif;
+      cursor:pointer;
+    }
+    .arrow.left{ left:28px; }
+    .arrow.right{ right:28px; }
 
     /* Responsivo */
     @media(max-width:900px){
@@ -140,15 +134,13 @@
       }
     }
 
-    /* ----------------------
-       CSS do menu ajustado
-       ---------------------- */
+    /* Menu horizontal flat */
     .main-menu {
       width: 100%;
-      padding: 20px 0; /* altura do menu */
+      padding: 20px 0;
       display: flex;
       justify-content: center;
-      position: relative; /* agora acompanha a frame */
+      position: relative; /* acompanha a frame */
       z-index: 10;
     }
 
@@ -180,45 +172,73 @@
       }
     }
 
+    /* Seções separadas */
+    section {
+      height: 100vh; /* cada seção ocupa toda a tela para scroll */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
   </style>
 </head>
 
 <body>
 
-<div class="frame">
+<!-- Seções do site -->
+<section id="home">
+  <div class="frame">
+    <header class="main-menu">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#service">Service</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <header class="main-menu">
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#service">Service</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <div class="grid-lines"></div>
 
-  <div class="grid-lines"></div>
-
-  <div class="panel">
-    <h1 class="title">TRI<br>NITY</h1>
-
-    <div class="cta-row">
-      <a class="cta" href="https://wa.me/558187770376" target="_blank">WHATSAPP</a>
-      <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank">INSTAGRAM</a>
+    <div class="panel">
+      <h1 class="title">TRI<br>NITY</h1>
+      <div class="cta-row">
+        <a class="cta" href="https://wa.me/558187770376" target="_blank">WHATSAPP</a>
+        <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank">INSTAGRAM</a>
+      </div>
     </div>
+
+    <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
+
+    <div class="arrow left">&lt;</div>
+    <div class="arrow right">&gt;</div>
+
   </div>
+</section>
 
-  <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
+<section id="about">
+  <div class="frame">
+    <h2 style="color:white;">About Section</h2>
+  </div>
+</section>
 
-  <div class="arrow left">&lt;</div>
-<div class="arrow right">&gt;</div>
+<section id="service">
+  <div class="frame">
+    <h2 style="color:white;">Service Section</h2>
+  </div>
+</section>
 
-</div>
-  <script>
+<section id="contact">
+  <div class="frame">
+    <h2 style="color:white;">Contact Section</h2>
+  </div>
+</section>
+
+<script>
   const menuItems = ['home','about','service','contact'];
   let currentIndex = 0;
 
-  const leftArrow = document.querySelector('.arrow.left');
-  const rightArrow = document.querySelector('.arrow.right');
+  const leftArrow = document.querySelectorAll('.arrow.left');
+  const rightArrow = document.querySelectorAll('.arrow.right');
 
   function scrollToSection(index) {
     const id = menuItems[index];
@@ -228,17 +248,21 @@
     }
   }
 
-  rightArrow.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % menuItems.length;
-    scrollToSection(currentIndex);
+  // Adicionando eventos em todas as setas (uma por seção)
+  rightArrow.forEach(arrow => {
+    arrow.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % menuItems.length;
+      scrollToSection(currentIndex);
+    });
   });
 
-  leftArrow.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
-    scrollToSection(currentIndex);
+  leftArrow.forEach(arrow => {
+    arrow.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+      scrollToSection(currentIndex);
+    });
   });
 </script>
-
 
 </body>
 </html>
