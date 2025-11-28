@@ -15,6 +15,10 @@
       --bg: #4a4a4a;
       --panel: #000;
       --white: #ffffff;
+      html {
+  scroll-behavior: smooth;
+}
+
     }
 
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -209,6 +213,32 @@
 <div class="arrow right">&gt;</div>
 
 </div>
+  <script>
+  const menuItems = ['home','about','service','contact'];
+  let currentIndex = 0;
+
+  const leftArrow = document.querySelector('.arrow.left');
+  const rightArrow = document.querySelector('.arrow.right');
+
+  function scrollToSection(index) {
+    const id = menuItems[index];
+    const section = document.getElementById(id);
+    if(section){
+      section.scrollIntoView({behavior:'smooth'});
+    }
+  }
+
+  rightArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % menuItems.length;
+    scrollToSection(currentIndex);
+  });
+
+  leftArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+    scrollToSection(currentIndex);
+  });
+</script>
+
 
 </body>
 </html>
