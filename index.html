@@ -129,63 +129,62 @@
         width:200px;
       }
     }
+
     /* ----------------------
-   CSS do menu
-   ---------------------- */
-.main-menu {
-  width: 100%;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: center;
-  position: absolute; /* flutua sobre a frame */
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
+       CSS do menu ajustado
+       ---------------------- */
+    .main-menu {
+      width: 100%;
+      padding: 20px 0; /* altura do menu */
+      display: flex;
+      justify-content: center;
+      position: relative; /* agora acompanha a frame */
+      z-index: 10;
+    }
 
-.main-menu nav {
-  display: flex;
-  gap: 40px;
-}
+    .main-menu nav {
+      display: flex;
+      gap: 40px;
+    }
 
-.main-menu nav a {
-  text-decoration: none;
-  color: var(--white);
-  font-size: 18px;
-  font-weight: 600;
-  transition: transform 0.2s ease;
-}
+    .main-menu nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
 
-.main-menu nav a:hover {
-  transform: scale(1.1);
-}
+    .main-menu nav a:hover {
+      transform: scale(1.1);
+    }
 
-@media (max-width: 768px) {
-  .main-menu nav {
-    flex-direction: column;
-    gap: 20px;
-  }
+    @media (max-width: 768px) {
+      .main-menu nav {
+        flex-direction: column;
+        gap: 20px;
+      }
 
-  .main-menu nav a:active {
-    transform: scale(1.1);
-  }
-}
+      .main-menu nav a:active {
+        transform: scale(1.1);
+      }
+    }
 
   </style>
 </head>
 
 <body>
-  <header class="main-menu">
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#service">Service</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
 
 <div class="frame">
+
+  <header class="main-menu">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#service">Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
   <div class="grid-lines"></div>
 
