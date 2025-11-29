@@ -207,6 +207,24 @@
 
       .cta-row{ flex-direction: column; gap: 12px; }
     }
+    /* Background decorativo com logos embaçadas */
+body::before, body::after {
+  content:"";
+  position:fixed;
+  z-index:0;
+  width: 400px;
+  height: auto;
+  background-image: url('fotos/trinity-logo-clean.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.05; /* baixa exposição */
+  filter: blur(25px);
+}
+
+body::before { top: -50px; left: -50px; }
+body::after  { bottom: -50px; right: -50px; }
+
   </style>
 </head>
 
