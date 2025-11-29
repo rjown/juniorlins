@@ -18,33 +18,25 @@
 
     html { scroll-behavior: smooth; }
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{ font-family:'Montserrat',sans-serif; background:var(--bg); position: relative; }
+    body{ font-family:'Montserrat',sans-serif; background:var(--bg); position: relative; overflow-x:hidden; }
 
     /* Background decorativo com logos embaçadas */
     body::before, body::after {
       content:"";
       position:fixed;
+      z-index:0;
+      width: 400px;
+      height: auto;
       background-image: url('fotos/trinity-logo-clean.png');
-      background-size: 400px auto;
+      background-size: contain;
       background-repeat: no-repeat;
+      background-position: center;
       opacity: 0.05; /* baixa exposição */
       filter: blur(25px);
-      z-index: 0;
+      pointer-events:none;
     }
-    body::before {
-      top: -50px;
-      left: -50px;
-      width: 50%;
-      height: 50%;
-      background-position: top left;
-    }
-    body::after {
-      bottom: -50px;
-      right: -50px;
-      width: 50%;
-      height: 50%;
-      background-position: bottom right;
-    }
+    body::before { top: -50px; left: -50px; }
+    body::after  { bottom: -50px; right: -50px; }
 
     /* Moldura principal */
     .frame{
@@ -118,6 +110,7 @@
       background:transparent !important;
       filter:none !important;
       mix-blend-mode:normal !important;
+      z-index:2;
     }
 
     /* Arrows laterais */
@@ -133,6 +126,7 @@
       font-family:'Orbitron', sans-serif;
       cursor:pointer;
       transition: transform 0.2s ease;
+      z-index:2;
     }
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
@@ -168,6 +162,7 @@
       align-items:center;
       justify-content:center;
       position: relative;
+      z-index:1;
     }
 
     /* RESPONSIVO */
@@ -207,24 +202,6 @@
 
       .cta-row{ flex-direction: column; gap: 12px; }
     }
-    /* Background decorativo com logos embaçadas */
-body::before, body::after {
-  content:"";
-  position:fixed;
-  z-index:0;
-  width: 400px;
-  height: auto;
-  background-image: url('fotos/trinity-logo-clean.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.05; /* baixa exposição */
-  filter: blur(25px);
-}
-
-body::before { top: -50px; left: -50px; }
-body::after  { bottom: -50px; right: -50px; }
-
   </style>
 </head>
 
