@@ -25,11 +25,7 @@
       position: fixed;
       z-index: 0;
       width: 400px;
-      height: 400px;
-      background-image: url('fotos/trinity-logo-clean.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+      height: auto;
       opacity: 0.05;
       filter: blur(25px);
       pointer-events: none;
@@ -159,6 +155,7 @@
       align-items:center;
       justify-content:center;
       position: relative;
+      z-index: 1;
     }
 
     /* RESPONSIVO */
@@ -198,15 +195,14 @@
 
       .cta-row{ flex-direction: column; gap: 12px; }
     }
-
   </style>
 </head>
 
 <body>
 
-<!-- Background decorativo -->
-<div class="bg-logo top-left"></div>
-<div class="bg-logo bottom-right"></div>
+<!-- Background logos -->
+<img src="fotos/trinity-logo-clean.png" class="bg-logo top-left" alt="">
+<img src="fotos/trinity-logo-clean.png" class="bg-logo bottom-right" alt="">
 
 <section id="home">
   <div class="frame">
