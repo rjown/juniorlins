@@ -18,25 +18,24 @@
 
     html { scroll-behavior: smooth; }
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{ font-family:'Montserrat',sans-serif; background:var(--bg); position: relative; overflow-x:hidden; }
+    body{ font-family:'Montserrat',sans-serif; background:var(--bg); position: relative; }
 
     /* Background decorativo com logos embaçadas */
-    body::before, body::after {
-      content:"";
-      position:fixed;
-      z-index:0;
+    .bg-logo {
+      position: fixed;
+      z-index: 0;
       width: 400px;
-      height: auto;
+      height: 400px;
       background-image: url('fotos/trinity-logo-clean.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      opacity: 0.05; /* baixa exposição */
+      opacity: 0.05;
       filter: blur(25px);
-      pointer-events:none;
+      pointer-events: none;
     }
-    body::before { top: -50px; left: -50px; }
-    body::after  { bottom: -50px; right: -50px; }
+    .bg-logo.top-left { top: -50px; left: -50px; }
+    .bg-logo.bottom-right { bottom: -50px; right: -50px; }
 
     /* Moldura principal */
     .frame{
@@ -110,7 +109,6 @@
       background:transparent !important;
       filter:none !important;
       mix-blend-mode:normal !important;
-      z-index:2;
     }
 
     /* Arrows laterais */
@@ -126,7 +124,6 @@
       font-family:'Orbitron', sans-serif;
       cursor:pointer;
       transition: transform 0.2s ease;
-      z-index:2;
     }
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
@@ -162,7 +159,6 @@
       align-items:center;
       justify-content:center;
       position: relative;
-      z-index:1;
     }
 
     /* RESPONSIVO */
@@ -202,10 +198,15 @@
 
       .cta-row{ flex-direction: column; gap: 12px; }
     }
+
   </style>
 </head>
 
 <body>
+
+<!-- Background decorativo -->
+<div class="bg-logo top-left"></div>
+<div class="bg-logo bottom-right"></div>
 
 <section id="home">
   <div class="frame">
