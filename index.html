@@ -1,293 +1,272 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TRINITY</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TRINITY</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #000;
-      --panel: #000;
-      --white: #ffffff;
-    }
+<style>
+:root{
+  --bg:#000;
+  --panel:#000;
+  --white:#fff;
+}
 
-    html { scroll-behavior: smooth; }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{ font-family:'Montserrat',sans-serif; background:var(--bg); position: relative; overflow-x:hidden; }
+html { scroll-behavior: smooth; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{ font-family:'Montserrat',sans-serif; background:var(--bg); position: relative; overflow-x:hidden; }
 
-    /* Logos decorativas fixas com blur */
-    .decor-logo {
-      position: fixed;
-      z-index: 0;
-      width: 400px;
-      height: auto;
-      opacity: 0.05;
-      filter: blur(25px);
-      pointer-events: none;
-    }
-    .decor-logo.top-left {
-      top: -50px;
-      left: -50px;
-    }
-    .decor-logo.bottom-right {
-      bottom: -50px;
-      right: -50px;
-    }
+.decor-logo {
+  position: fixed;
+  z-index:0;
+  width: 400px;
+  height: auto;
+  opacity:0.05;
+  filter: blur(25px);
+  pointer-events: none;
+}
 
-    /* Moldura principal */
-    .frame{
-      width:92vw; max-width:1500px; height:78vh;
-      background:var(--panel);
-      border-radius:22px;
-      position:relative;
-      overflow:hidden;
-      box-shadow:0 20px 50px rgba(0,0,0,0.7);
-      margin: 60px auto;
-      z-index: 1;
-    }
+.decor-logo.top-left { top:-50px; left:-50px; }
+.decor-logo.bottom-right { bottom:-50px; right:-50px; }
 
-    /* Grade */
-    .grid-lines{
-      position:absolute; inset:0; pointer-events:none;
-    }
-    .grid-lines::before{
-      content:"";
-      position:absolute; inset:40px;
-      border-radius:16px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 220px 220px;
-      opacity:0.35;
-      mix-blend-mode:screen;
-    }
+/* Moldura principal */
+.frame{
+  width:92vw; max-width:1500px; height:78vh;
+  background:var(--panel);
+  border-radius:22px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.7);
+  margin: 60px auto;
+  z-index:1;
+}
 
-    /* Conteúdo */
-    .panel{
-      position:absolute;
-      left:60px;
-      top:50%;
-      transform:translateY(-50%);
-    }
-    .title{
-      font-family:'Orbitron', sans-serif;
-      font-weight:900;
-      font-size:clamp(70px, 8vw, 150px);
-      line-height:0.82;
-      color:var(--white);
-      letter-spacing:-3px;
-    }
-    .cta-row{
-      margin-top:32px;
-      display:flex;
-      gap:16px;
-    }
-    .cta{
-      padding:12px 30px;
-      border-radius:30px;
-      border:2px solid rgba(255,255,255,0.9);
-      text-decoration:none;
-      color:white;
-      font-weight:700;
-      font-size:14px;
-    }
-    .cta:hover{ background:rgba(255,255,255,0.12); }
+/* Grade */
+.grid-lines{
+  position:absolute; inset:0; pointer-events:none;
+}
+.grid-lines::before{
+  content:"";
+  position:absolute; inset:40px;
+  border-radius:16px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size:220px 220px;
+  opacity:0.35;
+  mix-blend-mode:screen;
+}
 
-    /* Logo grande da direita */
-    .center-logo{
-      position:absolute;
-      right:10%;
-      top:50%;
-      transform:translateY(-50%);
-      width:380px; max-width:28%; height:auto; display:block;
-      image-rendering:auto;
-      background:transparent !important;
-      filter:none !important;
-      mix-blend-mode:normal !important;
-      z-index:1;
-    }
+/* Conteúdo */
+.panel{
+  position:absolute;
+  left:60px;
+  top:50%;
+  transform:translateY(-50%);
+}
+.title{
+  font-family:'Orbitron', sans-serif;
+  font-weight:900;
+  font-size:clamp(70px,8vw,150px);
+  line-height:0.82;
+  color:var(--white);
+  letter-spacing:-3px;
+}
+.cta-row{
+  margin-top:32px;
+  display:flex;
+  gap:16px;
+}
+.cta{
+  padding:12px 30px;
+  border-radius:30px;
+  border:2px solid rgba(255,255,255,0.9);
+  text-decoration:none;
+  color:white;
+  font-weight:700;
+  font-size:14px;
+}
+.cta:hover{ background:rgba(255,255,255,0.12); }
 
-    /* Arrows */
-    .arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      font-size:44px;
-      color:rgba(255,255,255,0.9);
-      pointer-events:auto;
-      user-select:none;
-      font-weight:900;
-      font-family:'Orbitron', sans-serif;
-      cursor:pointer;
-      transition: transform 0.2s ease;
-      z-index:2;
-    }
-    .arrow.left{ left:28px; }
-    .arrow.right{ right:28px; }
-    .arrow:hover, .arrow:active{ transform: translateY(-50%) scale(1.1); }
+.center-logo{
+  position:absolute;
+  right:10%;
+  top:50%;
+  transform:translateY(-50%);
+  width:380px; max-width:28%; height:auto; display:block;
+  z-index:1;
+}
 
-    /* Menu horizontal flat */
-    .main-menu {
-      width: 100%;
-      padding: 20px 0;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      z-index: 2;
-    }
-    .main-menu nav {
-      display: flex;
-      gap: 40px;
-      flex-wrap: nowrap;
-    }
-    .main-menu nav a{
-      text-decoration: none;
-      color: var(--white);
-      font-size: 18px;
-      font-weight: 600;
-      transition: transform 0.2s ease;
-    }
-    .main-menu nav a:hover{ transform: scale(1.1); }
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:44px;
+  color:rgba(255,255,255,0.9);
+  pointer-events:auto;
+  user-select:none;
+  font-weight:900;
+  font-family:'Orbitron', sans-serif;
+  cursor:pointer;
+  transition: transform 0.2s ease;
+  z-index:2;
+}
+.arrow.left{ left:28px; }
+.arrow.right{ right:28px; }
+.arrow:hover, .arrow:active{ transform: translateY(-50%) scale(1.1); }
 
-    /* Seções */
-    section{
-      height: 100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position: relative;
-    }
+/* Menu */
+.main-menu {
+  width:100%;
+  padding:20px 0;
+  display:flex;
+  justify-content:center;
+  position: relative;
+  z-index:2;
+}
+.main-menu nav {
+  display:flex;
+  gap:40px;
+  flex-wrap:nowrap;
+}
+.main-menu nav a{
+  text-decoration:none;
+  color: var(--white);
+  font-size:18px;
+  font-weight:600;
+  transition: transform 0.2s ease;
+}
+.main-menu nav a:hover{ transform: scale(1.1); }
 
-    /* RESPONSIVO */
-    @media(max-width:900px){
-      .panel{
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        padding: 20px;
-        text-align: center;
-      }
+/* Seções */
+section{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position: relative;
+}
 
-      .center-logo{
-        position: relative;
-        top: auto;
-        right: auto;
-        transform: none;
-        width: 60%;
-        margin: 20px auto;
-        display: block;
-      }
-
-      .frame{
-        height: auto;
-        min-height: 400px;
-        margin: 40px 20px;
-      }
-
-      .arrow.left, .arrow.right{
-        font-size: 36px;
-        top: auto;
-        bottom: 20px;
-      }
-      .arrow.left{ left: 20px; }
-      .arrow.right{ right: 20px; }
-
-      .cta-row{ flex-direction: column; gap: 12px; }
-    }
-  </style>
+/* RESPONSIVO */
+@media(max-width:900px){
+  .panel{
+    position: relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    padding:20px;
+    text-align:center;
+  }
+  .center-logo{
+    position: relative;
+    top:auto;
+    right:auto;
+    transform:none;
+    width:60%;
+    margin:20px auto;
+    display:block;
+  }
+  .frame{
+    height:auto;
+    min-height:400px;
+    margin:40px 20px;
+  }
+  .arrow.left, .arrow.right{
+    font-size:36px;
+    top:auto;
+    bottom:20px;
+  }
+  .arrow.left{ left:20px; }
+  .arrow.right{ right:20px; }
+  .cta-row{ flex-direction: column; gap:12px; }
+}
+</style>
 </head>
-
 <body>
 
-<!-- Logos decorativas fixas -->
-<img src="fotos/trinity-logo-clean.png" class="decor-logo top-left" alt="Logo decorativa topo esquerdo">
-<img src="fotos/trinity-logo-clean.png" class="decor-logo bottom-right" alt="Logo decorativa baixo direito">
+<!-- Logos decorativas -->
+<img src="fotos/trinity-logo-clean.png" class="decor-logo top-left" alt="Logo topo esquerdo">
+<img src="fotos/trinity-logo-clean.png" class="decor-logo bottom-right" alt="Logo baixo direito">
 
 <section id="home">
-  <div class="frame">
-    <header class="main-menu">
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#service">Service</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<div class="frame">
+  <header class="main-menu">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#service">Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div class="grid-lines"></div>
+  <div class="grid-lines"></div>
 
-    <div class="panel">
-      <h1 class="title">TRI<br>NITY</h1>
-      <div class="cta-row">
-        <a class="cta" href="https://wa.me/558187770376" target="_blank">WHATSAPP</a>
-        <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank">INSTAGRAM</a>
-      </div>
+  <div class="panel">
+    <h1 class="title">TRI<br>NITY</h1>
+    <div class="cta-row">
+      <a class="cta" href="https://wa.me/558187770376" target="_blank">WHATSAPP</a>
+      <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank">INSTAGRAM</a>
     </div>
-
-    <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
-    <div class="arrow left">&lt;</div>
-    <div class="arrow right">&gt;</div>
   </div>
+
+  <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
+  <div class="arrow left">&lt;</div>
+  <div class="arrow right">&gt;</div>
+</div>
 </section>
 
 <section id="about">
-  <div class="frame">
-    <h2 style="color:white;">About Section</h2>
-    <div class="arrow left">&lt;</div>
-    <div class="arrow right">&gt;</div>
-  </div>
+<div class="frame">
+<h2 style="color:white;">About Section</h2>
+<div class="arrow left">&lt;</div>
+<div class="arrow right">&gt;</div>
+</div>
 </section>
 
 <section id="service">
-  <div class="frame">
-    <h2 style="color:white;">Service Section</h2>
-    <div class="arrow left">&lt;</div>
-    <div class="arrow right">&gt;</div>
-  </div>
+<div class="frame">
+<h2 style="color:white;">Service Section</h2>
+<div class="arrow left">&lt;</div>
+<div class="arrow right">&gt;</div>
+</div>
 </section>
 
 <section id="contact">
-  <div class="frame">
-    <h2 style="color:white;">Contact Section</h2>
-    <div class="arrow left">&lt;</div>
-    <div class="arrow right">&gt;</div>
-  </div>
+<div class="frame">
+<h2 style="color:white;">Contact Section</h2>
+<div class="arrow left">&lt;</div>
+<div class="arrow right">&gt;</div>
+</div>
 </section>
 
 <script>
-  const menuItems = ['home','about','service','contact'];
-  let currentIndex = 0;
+const menuItems = ['home','about','service','contact'];
+let currentIndex = 0;
+const leftArrow = document.querySelectorAll('.arrow.left');
+const rightArrow = document.querySelectorAll('.arrow.right');
 
-  const leftArrow = document.querySelectorAll('.arrow.left');
-  const rightArrow = document.querySelectorAll('.arrow.right');
+function scrollToSection(index){
+  const id = menuItems[index];
+  const section = document.getElementById(id);
+  if(section) section.scrollIntoView({behavior:'smooth'});
+}
 
-  function scrollToSection(index) {
-    const id = menuItems[index];
-    const section = document.getElementById(id);
-    if(section){
-      section.scrollIntoView({behavior:'smooth'});
-    }
-  }
-
-  rightArrow.forEach(arrow => {
-    arrow.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % menuItems.length;
-      scrollToSection(currentIndex);
-    });
+rightArrow.forEach(arrow=>{
+  arrow.addEventListener('click', ()=>{
+    currentIndex=(currentIndex+1)%menuItems.length;
+    scrollToSection(currentIndex);
   });
-
-  leftArrow.forEach(arrow => {
-    arrow.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
-      scrollToSection(currentIndex);
-    });
+});
+leftArrow.forEach(arrow=>{
+  arrow.addEventListener('click', ()=>{
+    currentIndex=(currentIndex-1+menuItems.length)%menuItems.length;
+    scrollToSection(currentIndex);
   });
+});
 </script>
 
 </body>
