@@ -124,15 +124,6 @@
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
 
-    /* Responsivo */
-    @media(max-width:900px){
-      .panel{ left:25px; }
-      .center-logo{
-        right:5%;
-        width:200px;
-      }
-    }
-
     /* Menu horizontal flat */
     .main-menu {
       width: 100%;
@@ -178,6 +169,48 @@
       align-items: center;
       justify-content: center;
       position: relative;
+    }
+
+    /* RESPONSIVO PARA CELULAR – AJUSTE DE DIMENSÕES */
+    @media(max-width:900px){
+      .panel{
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .center-logo{
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 60%;
+        margin: 20px auto;
+        display: block;
+      }
+
+      .frame{
+        height: auto;
+        min-height: 400px;
+        margin: 40px 20px;
+      }
+
+      .arrow.left, .arrow.right{
+        font-size: 36px;
+        top: auto;
+        bottom: 20px;
+      }
+
+      .arrow.left{ left: 20px; }
+      .arrow.right{ right: 20px; }
+
+      .cta-row{
+        flex-direction: column;
+        gap: 12px;
+      }
     }
   </style>
 </head>
