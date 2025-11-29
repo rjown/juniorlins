@@ -24,33 +24,24 @@
       position: relative;
     }
 
-    /* Background wallpaper da logo atualizado */
-body::before{
-  content: "";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 200%;      /* muito maior que a tela */
-  height: 200%;
-  background: url('fotos/trinity-logo-clean.png') no-repeat center center;
-  background-size: contain;  /* mantém proporção da logo */
-  opacity: 0.03;    /* exposição bem baixa */
-  filter: blur(60px); /* embaçamento forte */
-  transform: translate(-50%, -50%); /* centraliza corretamente */
-  z-index: -1;
-  pointer-events: none;
-}
-
-
-    /* Logos fixas nos cantos */
+    /* Logos fixas nos cantos transformadas em wallpaper discreto */
     .corner-logo{
       position: fixed;
-      width: 80px; /* tamanho da logo */
+      width: 500px; /* bem grande */
       height: auto;
-      z-index: 100;
+      z-index: 0; /* atrás dos elementos principais */
+      opacity: 0.05; /* exposição baixa */
+      filter: blur(40px); /* embaçado */
+      pointer-events: none; /* não interferem em cliques */
     }
-    .corner-logo.top-left{ top: 20px; left: 20px; }
-    .corner-logo.bottom-right{ bottom: 20px; right: 20px; }
+    .corner-logo.top-left{
+      top: -100px;  /* desloca parcialmente fora da tela */
+      left: -100px;
+    }
+    .corner-logo.bottom-right{
+      bottom: -100px;
+      right: -100px;
+    }
 
     /* Moldura principal */
     .frame{
@@ -221,7 +212,7 @@ body::before{
 
 <body>
 
-<!-- Logos nos cantos -->
+<!-- Logos nos cantos (embaçadas, wallpaper discreto) -->
 <img src="fotos/trinity-logo-clean.png" class="corner-logo top-left" alt="Logo Top Left">
 <img src="fotos/trinity-logo-clean.png" class="corner-logo bottom-right" alt="Logo Bottom Right">
 
