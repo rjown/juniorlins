@@ -16,22 +16,13 @@
       --white: #ffffff;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     *{margin:0;padding:0;box-sizing:border-box;}
-
-    body{
-      font-family:'Montserrat',sans-serif;
-      background:var(--bg);
-    }
+    body{ font-family:'Montserrat',sans-serif; background:var(--bg); }
 
     /* Moldura principal */
     .frame{
-      width:92vw;
-      max-width:1500px;
-      height:78vh;
+      width:92vw; max-width:1500px; height:78vh;
       background:var(--panel);
       border-radius:22px;
       position:relative;
@@ -42,8 +33,7 @@
 
     /* Grade */
     .grid-lines{
-      position:absolute; inset:0;
-      pointer-events:none;
+      position:absolute; inset:0; pointer-events:none;
     }
     .grid-lines::before{
       content:"";
@@ -88,9 +78,7 @@
       font-weight:700;
       font-size:14px;
     }
-    .cta:hover{
-      background:rgba(255,255,255,0.12);
-    }
+    .cta:hover{ background:rgba(255,255,255,0.12); }
 
     /* Logo grande da direita */
     .center-logo{
@@ -98,10 +86,7 @@
       right:10%;
       top:50%;
       transform:translateY(-50%);
-      width:380px;
-      max-width:28%;
-      height:auto;
-      display:block;
+      width:380px; max-width:28%; height:auto; display:block;
       image-rendering:auto;
       background:transparent !important;
       filter:none !important;
@@ -120,9 +105,15 @@
       font-weight:900;
       font-family:'Orbitron', sans-serif;
       cursor:pointer;
+      transition: transform 0.2s ease; /* animação de relevo */
     }
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
+
+    /* Efeito relevo nas setas */
+    .arrow:hover, .arrow:active{
+      transform: translateY(-50%) scale(1.1);
+    }
 
     /* Menu horizontal flat */
     .main-menu {
@@ -133,35 +124,30 @@
       position: relative;
       z-index: 10;
     }
-
     .main-menu nav {
       display: flex;
       gap: 40px;
-      flex-wrap: nowrap; /* força os links ficarem em linha */
+      flex-wrap: nowrap; /* mantém links lado a lado */
     }
-
-    .main-menu nav a {
+    .main-menu nav a{
       text-decoration: none;
       color: var(--white);
       font-size: 18px;
       font-weight: 600;
       transition: transform 0.2s ease;
     }
-
-    .main-menu nav a:hover {
-      transform: scale(1.1);
-    }
+    .main-menu nav a:hover{ transform: scale(1.1); }
 
     /* Seções separadas */
-    section {
+    section{
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       position: relative;
     }
 
-    /* RESPONSIVO PARA CELULAR – AJUSTE DE DIMENSÕES */
+    /* RESPONSIVO PARA CELULAR */
     @media(max-width:900px){
       .panel{
         position: relative;
@@ -193,21 +179,16 @@
         top: auto;
         bottom: 20px;
       }
-
       .arrow.left{ left: 20px; }
       .arrow.right{ right: 20px; }
 
-      .cta-row{
-        flex-direction: column;
-        gap: 12px;
-      }
+      .cta-row{ flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- Seções do site -->
 <section id="home">
   <div class="frame">
     <header class="main-menu">
@@ -275,7 +256,6 @@
     }
   }
 
-  // Eventos em todas as setas
   rightArrow.forEach(arrow => {
     arrow.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % menuItems.length;
