@@ -20,15 +20,40 @@
     *{margin:0;padding:0;box-sizing:border-box;}
     body{ font-family:'Montserrat',sans-serif; background:var(--bg); }
 
+    /* Layout principal do site */
+    main {
+      display: flex;
+      flex-direction: row; /* horizontal no desktop */
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px;
+    }
+
+    section {
+      flex: 0 0 auto;
+      width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
     /* Moldura principal */
     .frame{
-      width:92vw; max-width:1500px; height:78vh;
+      width:100%;
+      max-width:600px;
+      height:78vh;
       background:var(--panel);
       border-radius:22px;
       position:relative;
       overflow:hidden;
       box-shadow:0 20px 50px rgba(0,0,0,0.7);
-      margin: 60px auto;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     /* Grade */
@@ -37,7 +62,7 @@
     }
     .grid-lines::before{
       content:"";
-      position:absolute; inset:40px;
+      position:absolute; inset:20px;
       border-radius:16px;
       background:
         linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
@@ -105,17 +130,16 @@
       font-weight:900;
       font-family:'Orbitron', sans-serif;
       cursor:pointer;
-      transition: transform 0.2s ease; /* animação de relevo */
+      transition: transform 0.2s ease;
     }
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
 
-    /* Efeito relevo nas setas */
     .arrow:hover, .arrow:active{
       transform: translateY(-50%) scale(1.1);
     }
 
-    /* Menu horizontal flat */
+    /* Menu horizontal */
     .main-menu {
       width: 100%;
       padding: 20px 0;
@@ -127,7 +151,7 @@
     .main-menu nav {
       display: flex;
       gap: 40px;
-      flex-wrap: nowrap; /* mantém links lado a lado */
+      flex-wrap: nowrap;
     }
     .main-menu nav a{
       text-decoration: none;
@@ -138,24 +162,31 @@
     }
     .main-menu nav a:hover{ transform: scale(1.1); }
 
-    /* Seções separadas */
-    section{
-      height: 100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position: relative;
-    }
-
-    /* RESPONSIVO PARA CELULAR */
+    /* RESPONSIVO */
     @media(max-width:900px){
+      main {
+        flex-direction: column; /* vertical no celular */
+        align-items: center;
+      }
+
+      section {
+        width: 90%;
+        margin-bottom: 40px;
+      }
+
+      .frame{
+        height: auto;
+        min-height: 400px;
+        margin: 0 auto;
+      }
+
       .panel{
         position: relative;
         left: auto;
         top: auto;
         transform: none;
-        padding: 20px;
         text-align: center;
+        padding: 20px;
       }
 
       .center-logo{
@@ -163,32 +194,29 @@
         top: auto;
         right: auto;
         transform: none;
-        width: 60%;
+        width: 80%;
         margin: 20px auto;
         display: block;
       }
 
-      .frame{
-        height: auto;
-        min-height: 400px;
-        margin: 40px 20px;
-      }
-
       .arrow.left, .arrow.right{
-        font-size: 36px;
-        top: auto;
-        bottom: 20px;
+        font-size:36px;
+        top:auto;
+        bottom:20px;
       }
-      .arrow.left{ left: 20px; }
-      .arrow.right{ right: 20px; }
+      .arrow.left{ left:20px; }
+      .arrow.right{ right:20px; }
 
       .cta-row{ flex-direction: column; gap: 12px; }
+      .main-menu nav{
+        flex-wrap: nowrap; /* nunca empilha os links */
+      }
     }
   </style>
 </head>
 
 <body>
-
+<main>
 <section id="home">
   <div class="frame">
     <header class="main-menu">
@@ -201,7 +229,6 @@
     </header>
 
     <div class="grid-lines"></div>
-
     <div class="panel">
       <h1 class="title">TRI<br>NITY</h1>
       <div class="cta-row">
@@ -209,9 +236,7 @@
         <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank">INSTAGRAM</a>
       </div>
     </div>
-
     <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
-
     <div class="arrow left">&lt;</div>
     <div class="arrow right">&gt;</div>
   </div>
@@ -240,6 +265,7 @@
     <div class="arrow right">&gt;</div>
   </div>
 </section>
+</main>
 
 <script>
   const menuItems = ['home','about','service','contact'];
@@ -270,6 +296,5 @@
     });
   });
 </script>
-
 </body>
 </html>
