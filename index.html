@@ -1,200 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TRINITY</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TRINITY</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #4a4a4a;
-      --panel: #000;
-      --white: #ffffff;
-    }
+<style>
+:root{
+  --bg: #4a4a4a;
+  --panel: #000;
+  --white: #ffffff;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    *{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body{
-      font-family:'Montserrat',sans-serif;
-      background:var(--bg);
-    }
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--bg);
+}
 
-    /* Moldura principal */
-    .frame{
-      width:92vw;
-      max-width:1500px;
-      height:78vh;
-      background:var(--panel);
-      border-radius:22px;
-      position:relative;
-      overflow:hidden;
-      box-shadow:0 20px 50px rgba(0,0,0,0.7);
-      margin: 60px auto;
-      transition: transform 0.5s ease;
-    }
+/* Cards */
+.frame{
+  width:92vw;
+  max-width:1500px;
+  height:78vh;
+  background:var(--panel);
+  border-radius:22px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.7);
+  margin: 60px auto;
+  transition: all 0.3s ease;
+}
 
-    /* Grade */
-    .grid-lines{
-      position:absolute; inset:0;
-      pointer-events:none;
-    }
-    .grid-lines::before{
-      content:"";
-      position:absolute; inset:40px;
-      border-radius:16px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 220px 220px;
-      opacity:0.35;
-      mix-blend-mode:screen;
-    }
+/* Grade */
+.grid-lines{
+  position:absolute; inset:0;
+  pointer-events:none;
+}
+.grid-lines::before{
+  content:"";
+  position:absolute; inset:40px;
+  border-radius:16px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 220px 220px;
+  opacity:0.35;
+  mix-blend-mode:screen;
+}
 
-    /* Conteúdo da esquerda */
-    .panel{
-      position:absolute;
-      left:60px;
-      top:50%;
-      transform:translateY(-50%);
-    }
+/* Conteúdo da esquerda */
+.panel{
+  position:absolute;
+  left:60px;
+  top:50%;
+  transform:translateY(-50%);
+}
 
-    .title{
-      font-family:'Orbitron', sans-serif;
-      font-weight:900;
-      font-size:clamp(70px, 8vw, 150px);
-      line-height:0.82;
-      color:var(--white);
-      letter-spacing:-3px;
-    }
+.title{
+  font-family:'Orbitron', sans-serif;
+  font-weight:900;
+  font-size:clamp(70px, 8vw, 150px);
+  line-height:0.82;
+  color:var(--white);
+  letter-spacing:-3px;
+}
 
-    .cta-row{
-      margin-top:32px;
-      display:flex;
-      gap:16px;
-    }
-    .cta{
-      padding:12px 30px;
-      border-radius:30px;
-      border:2px solid rgba(255,255,255,0.9);
-      text-decoration:none;
-      color:white;
-      font-weight:700;
-      font-size:14px;
-    }
-    .cta:hover{
-      background:rgba(255,255,255,0.12);
-    }
+.cta-row{
+  margin-top:32px;
+  display:flex;
+  gap:16px;
+}
+.cta{
+  padding:12px 30px;
+  border-radius:30px;
+  border:2px solid rgba(255,255,255,0.9);
+  text-decoration:none;
+  color:white;
+  font-weight:700;
+  font-size:14px;
+}
+.cta:hover{
+  background:rgba(255,255,255,0.12);
+}
 
-    /* Logo grande da direita */
-    .center-logo{
-      position:absolute;
-      right:10%;
-      top:50%;
-      transform:translateY(-50%);
-      width:380px;
-      max-width:28%;
-      height:auto;
-      display:block;
-      image-rendering:auto;
-      background:transparent !important;
-      filter:none !important;
-      mix-blend-mode:normal !important;
-    }
+/* Logo grande da direita */
+.center-logo{
+  position:absolute;
+  right:10%;
+  top:50%;
+  transform:translateY(-50%);
+  width:380px;
+  max-width:28%;
+  height:auto;
+  display:block;
+  image-rendering:auto;
+  background:transparent !important;
+  filter:none !important;
+  mix-blend-mode:normal !important;
+}
 
-    /* Arrows laterais */
-    .arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      font-size:44px;
-      color:rgba(255,255,255,0.9);
-      pointer-events:auto;
-      user-select:none;
-      font-weight:900;
-      font-family:'Orbitron', sans-serif;
-      cursor:pointer;
-      transition: transform 0.2s ease;
-    }
-    .arrow.left{ left:28px; }
-    .arrow.right{ right:28px; }
-    .arrow:hover { transform: scale(1.2); }
+/* Arrows laterais */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:44px;
+  color:rgba(255,255,255,0.9);
+  pointer-events:auto;
+  user-select:none;
+  font-weight:900;
+  font-family:'Orbitron', sans-serif;
+  cursor:pointer;
+  transition: transform 0.2s ease;
+}
+.arrow.left{ left:28px; }
+.arrow.right{ right:28px; }
+.arrow:hover, .arrow:active{
+  transform: translateY(-50%) scale(1.2);
+}
 
-    /* Responsivo */
-    @media(max-width:900px){
-      .panel{ left:25px; }
-      .center-logo{
-        right:5%;
-        width:200px;
-      }
-    }
+/* Menu horizontal flat */
+.main-menu {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
 
-    /* Menu horizontal flat */
-    .main-menu {
-      width: 100%;
-      padding: 20px 0;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      z-index: 10;
-    }
+.main-menu nav {
+  display: flex;
+  gap: 40px;
+}
 
-    .main-menu nav {
-      display: flex;
-      gap: 40px;
-    }
+.main-menu nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
 
-    .main-menu nav a {
-      text-decoration: none;
-      color: var(--white);
-      font-size: 18px;
-      font-weight: 600;
-      transition: transform 0.2s ease;
-    }
+.main-menu nav a:hover, .main-menu nav a:active {
+  transform: scale(1.1);
+}
 
-    .main-menu nav a:hover {
-      transform: scale(1.1);
-    }
+@media (max-width: 768px) {
+  .main-menu nav {
+    flex-direction: row; /* mantém horizontal no celular */
+    gap: 20px;
+  }
+}
 
-    @media (max-width: 768px) {
-      .main-menu nav {
-        flex-direction: row; /* mantém horizontal no celular */
-        gap: 20px;
-        overflow-x: auto;
-        padding: 0 10px;
-      }
-
-      .main-menu nav a:active {
-        transform: scale(1.1);
-      }
-    }
-
-    /* Seções separadas */
-    section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    /* Rotacionar cards no celular */
-    @media(max-width:768px){
-      .frame{
-        transform: rotate(90deg);
-        transform-origin: top left;
-        width: 90vh;  /* ajusta largura após rotação */
-        height: 80vw; /* ajusta altura após rotação */
-      }
-    }
-  </style>
+/* Responsivo - cards verticalizados no celular */
+@media (max-width: 768px){
+  .frame{
+    width:90vw;
+    height:250px; /* mais alto para vertical */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+section {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  position: relative;
+  margin-bottom:40px;
+}
+</style>
 </head>
 
 <body>
