@@ -137,6 +137,7 @@
     .main-menu nav {
       display: flex;
       gap: 40px;
+      flex-wrap: nowrap; /* força os links ficarem em linha */
     }
 
     .main-menu nav a {
@@ -149,17 +150,6 @@
 
     .main-menu nav a:hover {
       transform: scale(1.1);
-    }
-
-    @media (max-width: 768px) {
-      .main-menu nav {
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .main-menu nav a:active {
-        transform: scale(1.1);
-      }
     }
 
     /* Seções separadas */
