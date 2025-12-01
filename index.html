@@ -14,6 +14,7 @@
       --bg: #000000;
       --panel: #000;
       --white: #ffffff;
+      --neon: #7b2cfb; /* roxo neon */
     }
 
     html { scroll-behavior: smooth; }
@@ -22,7 +23,7 @@
       font-family:'Montserrat',sans-serif; 
       background:var(--bg);
       position: relative;
-      overflow-x: hidden;  /* remove corte lateral */
+      overflow-x: hidden;
     }
 
     /* Logos fixas nos cantos */
@@ -35,14 +36,8 @@
       filter: blur(30px);
       pointer-events: none;
     }
-    .corner-logo.top-left{
-      top: -80px;
-      left: -80px;
-    }
-    .corner-logo.bottom-right{
-      bottom: -80px;
-      right: -80px;
-    }
+    .corner-logo.top-left{ top: -80px; left: -80px; }
+    .corner-logo.bottom-right{ bottom: -80px; right: -80px; }
 
     /* Moldura */
     .frame{
@@ -73,6 +68,7 @@
       mix-blend-mode:screen;
     }
 
+    /* Painel title */
     .panel{
       position:absolute;
       left:60px;
@@ -90,23 +86,36 @@
       word-break: break-word;
     }
 
+    /* ============================
+       BOTÕES FUTURISTAS ESTILO TRINITY
+       ============================ */
+    .cta{
+      padding:12px 34px;
+      border-radius: 60px;
+      border: 2px solid var(--neon);
+      text-decoration:none;
+      color:white;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:1px;
+      position:relative;
+      transition:0.25s ease;
+      box-shadow: 0 0 12px rgba(123,44,251,0.4);
+    }
+    .cta:hover{
+      background:var(--neon);
+      box-shadow:0 0 20px var(--neon);
+      transform: scale(1.06);
+    }
+
     .cta-row{
       margin-top:32px;
       display:flex;
       gap:16px;
       flex-wrap: wrap;
     }
-    .cta{
-      padding:12px 30px;
-      border-radius:30px;
-      border:2px solid rgba(255,255,255,0.9);
-      text-decoration:none;
-      color:white;
-      font-weight:700;
-      font-size:14px;
-      text-align:center;
-    }
 
+    /* Logo central */
     .center-logo{
       position:absolute;
       right:10%;
@@ -117,41 +126,63 @@
       height:auto;
     }
 
-    /* Arrows */
+    /* ============================
+       SETAS (ARROWS) FUTURISTAS
+       ============================ */
     .arrow{
       position:absolute;
       top:50%;
       transform:translateY(-50%);
-      font-size:44px;
-      color:white;
-      cursor:pointer;
+      font-size:48px;
       font-family:'Orbitron', sans-serif;
+      color:var(--neon);
+      cursor:pointer;
       z-index: 5;
+      transition: 0.25s ease;
+      text-shadow: 0 0 18px var(--neon);
     }
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
-    .arrow:hover{ transform:translateY(-50%) scale(1.1); }
+    .arrow:hover{
+      transform:translateY(-50%) scale(1.2);
+      text-shadow: 0 0 35px var(--neon);
+    }
 
-    /* Menu horizontal */
+    /* ============================
+       MENU FUTURISTA HORIZONTAL
+       ============================ */
     .main-menu {
       width: 100%;
-      padding: 20px 0;
+      padding: 20px 0 30px 0;
       display: flex;
       justify-content: center;
       position: relative;
       z-index: 10;
     }
+
     .main-menu nav {
       display: flex;
-      gap: 30px;
-      flex-wrap: wrap; /* permite quebrar no mobile */
+      gap: 40px;
+      flex-wrap: wrap;
       justify-content: center;
     }
+
     .main-menu nav a{
       text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
       color: var(--white);
-      font-size: 18px;
-      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .main-menu nav a:hover{
+      border-color: var(--neon);
+      color: var(--neon);
+      text-shadow: 0 0 12px var(--neon);
     }
 
     section{
@@ -161,8 +192,11 @@
       justify-content:center;
     }
 
-    /* RESPONSIVO */
+    /* ============================
+       RESPONSIVO
+       ============================ */
     @media(max-width:900px){
+
       .frame{
         margin: 40px 10px;
         padding: 20px 10px 60px 10px;
@@ -200,7 +234,7 @@
       .arrow{
         top: auto;
         bottom: 20px;
-        font-size: 34px;
+        font-size: 38px;
       }
       .arrow.left{ left: 20px; }
       .arrow.right{ right: 20px; }
@@ -220,17 +254,20 @@
 
 <body>
 
-<img src="fotos/trinity-logo-clean.png" class="corner-logo top-left" alt="Logo Top Left">
-<img src="fotos/trinity-logo-clean.png" class="corner-logo bottom-right" alt="Logo Bottom Right">
+<!-- LOGOS CANTOS -->
+<img src="fotos/trinity-logo-clean.png" class="corner-logo top-left">
+<img src="fotos/trinity-logo-clean.png" class="corner-logo bottom-right">
 
+<!-- ================= HOME ================= -->
 <section id="home">
   <div class="frame">
+
     <header class="main-menu">
       <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#service">Service</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#service">SERVICE</a>
+        <a href="#contact">CONTACT</a>
       </nav>
     </header>
 
@@ -238,42 +275,56 @@
 
     <div class="panel">
       <h1 class="title">TRI<br>NITY</h1>
+
       <div class="cta-row">
-        <a class="cta" href="https://wa.me/558187770376">WHATSAPP</a>
-        <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==">INSTAGRAM</a>
+        <a class="cta" href="https://wa.me/558187770376?text=Ol%C3%A1+Trinity%2C+tudo+bom%3F+Gostaria+de+um+or%C3%A7amento%2C+como+funciona%3F">WHATSAPP</a>
+        <a class="cta" href="https://www.instagram.com/trinitycorporations">INSTAGRAM</a>
       </div>
     </div>
 
-    <img src="fotos/trinity-logo-clean.png" class="center-logo" alt="Logo Trinity">
+    <img src="fotos/trinity-logo-clean.png" class="center-logo">
 
     <div class="arrow left">&lt;</div>
     <div class="arrow right">&gt;</div>
   </div>
 </section>
 
+<!-- ================= ABOUT ================= -->
 <section id="about">
   <div class="frame">
-    <h2 style="color:white;">About Section</h2>
+    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--neon);">
+      ABOUT SECTION
+    </h2>
+
     <div class="arrow left">&lt;</div>
     <div class="arrow right">&gt;</div>
   </div>
 </section>
 
+<!-- ================= SERVICE ================= -->
 <section id="service">
   <div class="frame">
-    <h2 style="color:white;">Service Section</h2>
+    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--neon);">
+      SERVICE SECTION
+    </h2>
+
     <div class="arrow left">&lt;</div>
     <div class="arrow right">&gt;</div>
   </div>
 </section>
 
+<!-- ================= CONTACT ================= -->
 <section id="contact">
   <div class="frame">
-    <h2 style="color:white;">Contact Section</h2>
+    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--neon);">
+      CONTACT SECTION
+    </h2>
+
     <div class="arrow left">&lt;</div>
     <div class="arrow right">&gt;</div>
   </div>
 </section>
+
 
 <script>
   const menuItems = ['home','about','service','contact'];
