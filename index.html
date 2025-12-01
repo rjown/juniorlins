@@ -14,7 +14,10 @@
       --bg: #000000;
       --panel: #000;
       --white: #ffffff;
-      --neon: #7b2cfb; /* roxo neon */
+
+      /* PRATEADO FUTURISTA */
+      --silver: #d8d8d8;
+      --silver-glow: rgba(255,255,255,0.65);
     }
 
     html { scroll-behavior: smooth; }
@@ -61,8 +64,8 @@
       position:absolute; inset:40px;
       border-radius:16px;
       background:
-        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
       background-size: 220px 220px;
       opacity:0.35;
       mix-blend-mode:screen;
@@ -86,13 +89,13 @@
       word-break: break-word;
     }
 
-    /* ============================
-       BOTÕES FUTURISTAS ESTILO TRINITY
-       ============================ */
+    /* =================================
+       BOTÕES ESTILO TRINITY - PRATEADO
+       ================================= */
     .cta{
       padding:12px 34px;
       border-radius: 60px;
-      border: 2px solid var(--neon);
+      border: 2px solid var(--silver);
       text-decoration:none;
       color:white;
       font-weight:700;
@@ -100,12 +103,18 @@
       letter-spacing:1px;
       position:relative;
       transition:0.25s ease;
-      box-shadow: 0 0 12px rgba(123,44,251,0.4);
+      background: linear-gradient(to bottom, #ffffff0a, #ffffff05);
+      box-shadow:
+        0 0 12px rgba(255,255,255,0.35),
+        inset 0 0 8px rgba(255,255,255,0.15);
     }
     .cta:hover{
-      background:var(--neon);
-      box-shadow:0 0 20px var(--neon);
+      background: linear-gradient(to bottom, #ffffff25, #ffffff10);
+      box-shadow:
+        0 0 22px var(--silver-glow),
+        inset 0 0 12px rgba(255,255,255,0.5);
       transform: scale(1.06);
+      border-color: #f5f5f5;
     }
 
     .cta-row{
@@ -126,31 +135,32 @@
       height:auto;
     }
 
-    /* ============================
-       SETAS (ARROWS) FUTURISTAS
-       ============================ */
+    /* =================================
+       SETAS FUTURISTAS PRATEADAS
+       ================================= */
     .arrow{
       position:absolute;
       top:50%;
       transform:translateY(-50%);
       font-size:48px;
       font-family:'Orbitron', sans-serif;
-      color:var(--neon);
+      color:var(--silver);
       cursor:pointer;
       z-index: 5;
       transition: 0.25s ease;
-      text-shadow: 0 0 18px var(--neon);
+      text-shadow: 0 0 16px var(--silver-glow);
     }
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
     .arrow:hover{
       transform:translateY(-50%) scale(1.2);
-      text-shadow: 0 0 35px var(--neon);
+      text-shadow: 0 0 30px var(--silver);
+      color: #ffffff;
     }
 
-    /* ============================
-       MENU FUTURISTA HORIZONTAL
-       ============================ */
+    /* =================================
+       MENU FUTURISTA (PRATEADO)
+       ================================= */
     .main-menu {
       width: 100%;
       padding: 20px 0 30px 0;
@@ -180,9 +190,9 @@
     }
 
     .main-menu nav a:hover{
-      border-color: var(--neon);
-      color: var(--neon);
-      text-shadow: 0 0 12px var(--neon);
+      border-color: var(--silver);
+      color: var(--silver);
+      text-shadow: 0 0 12px var(--silver-glow);
     }
 
     section{
@@ -192,9 +202,9 @@
       justify-content:center;
     }
 
-    /* ============================
+    /* =================================
        RESPONSIVO
-       ============================ */
+       ================================= */
     @media(max-width:900px){
 
       .frame{
@@ -292,7 +302,7 @@
 <!-- ================= ABOUT ================= -->
 <section id="about">
   <div class="frame">
-    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--neon);">
+    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--silver-glow);">
       ABOUT SECTION
     </h2>
 
@@ -304,7 +314,7 @@
 <!-- ================= SERVICE ================= -->
 <section id="service">
   <div class="frame">
-    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--neon);">
+    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--silver-glow);">
       SERVICE SECTION
     </h2>
 
@@ -316,7 +326,7 @@
 <!-- ================= CONTACT ================= -->
 <section id="contact">
   <div class="frame">
-    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--neon);">
+    <h2 style="color:white;font-family:Orbitron;font-size:50px;text-shadow:0 0 20px var(--silver-glow);">
       CONTACT SECTION
     </h2>
 
