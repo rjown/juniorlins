@@ -11,7 +11,7 @@
 
   <style>
     :root{
-      --bg: #000000; /* Fundo totalmente preto */
+      --bg: #000000;
       --panel: #000;
       --white: #ffffff;
     }
@@ -22,39 +22,42 @@
       font-family:'Montserrat',sans-serif; 
       background:var(--bg);
       position: relative;
+      overflow-x: hidden;  /* remove corte lateral */
     }
 
-    /* Logos fixas nos cantos transformadas em wallpaper discreto */
+    /* Logos fixas nos cantos */
     .corner-logo{
       position: fixed;
-      width: 500px; /* bem grande */
+      width: 380px;
       height: auto;
-      z-index: 3; /* atrás dos elementos principais */
-      opacity: 0.25; /* exposição baixa */
-      filter: blur(30px); /* embaçado */
-      pointer-events: none; /* não interferem em cliques */
+      z-index: 3;
+      opacity: 0.22;
+      filter: blur(30px);
+      pointer-events: none;
     }
     .corner-logo.top-left{
-      top: -100px;  /* desloca parcialmente fora da tela */
-      left: -100px;
+      top: -80px;
+      left: -80px;
     }
     .corner-logo.bottom-right{
-      bottom: -100px;
-      right: -100px;
+      bottom: -80px;
+      right: -80px;
     }
 
-    /* Moldura principal */
+    /* Moldura */
     .frame{
-      width:92vw; max-width:1500px; height:78vh;
-      background:var(--panel);
-      border-radius:22px;
-      position:relative;
-      overflow:hidden;
-      box-shadow:0 20px 50px rgba(0,0,0,0.7);
+      width: 92vw;
+      max-width: 1500px;
+      min-height: 75vh;
+      background: var(--panel);
+      border-radius: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
       margin: 60px auto;
+      padding-bottom: 50px;
     }
 
-    /* Grade */
     .grid-lines{
       position:absolute; inset:0; pointer-events:none;
     }
@@ -70,7 +73,6 @@
       mix-blend-mode:screen;
     }
 
-    /* Conteúdo da esquerda */
     .panel{
       position:absolute;
       left:60px;
@@ -81,16 +83,18 @@
     .title{
       font-family:'Orbitron', sans-serif;
       font-weight:900;
-      font-size:clamp(70px, 8vw, 150px);
+      font-size: clamp(48px, 10vw, 140px);
       line-height:0.82;
       color:var(--white);
       letter-spacing:-3px;
+      word-break: break-word;
     }
 
     .cta-row{
       margin-top:32px;
       display:flex;
       gap:16px;
+      flex-wrap: wrap;
     }
     .cta{
       padding:12px 30px;
@@ -100,45 +104,35 @@
       color:white;
       font-weight:700;
       font-size:14px;
+      text-align:center;
     }
-    .cta:hover{ background:rgba(255,255,255,0.12); }
 
-    /* Logo grande da direita */
     .center-logo{
       position:absolute;
       right:10%;
       top:50%;
       transform:translateY(-50%);
-      width:380px; max-width:28%; height:auto; display:block;
-      image-rendering:auto;
-      background:transparent !important;
-      filter:none !important;
-      mix-blend-mode:normal !important;
+      width:360px;
+      max-width: 40%;
+      height:auto;
     }
 
-    /* Arrows laterais */
+    /* Arrows */
     .arrow{
       position:absolute;
       top:50%;
       transform:translateY(-50%);
       font-size:44px;
-      color:rgba(255,255,255,0.9);
-      pointer-events:auto;
-      user-select:none;
-      font-weight:900;
-      font-family:'Orbitron', sans-serif;
+      color:white;
       cursor:pointer;
-      transition: transform 0.2s ease; /* animação de relevo */
+      font-family:'Orbitron', sans-serif;
+      z-index: 5;
     }
     .arrow.left{ left:28px; }
     .arrow.right{ right:28px; }
+    .arrow:hover{ transform:translateY(-50%) scale(1.1); }
 
-    /* Efeito relevo nas setas */
-    .arrow:hover, .arrow:active{
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    /* Menu horizontal flat */
+    /* Menu horizontal */
     .main-menu {
       width: 100%;
       padding: 20px 0;
@@ -149,70 +143,83 @@
     }
     .main-menu nav {
       display: flex;
-      gap: 40px;
-      flex-wrap: nowrap; /* mantém links lado a lado */
+      gap: 30px;
+      flex-wrap: wrap; /* permite quebrar no mobile */
+      justify-content: center;
     }
     .main-menu nav a{
       text-decoration: none;
       color: var(--white);
       font-size: 18px;
       font-weight: 600;
-      transition: transform 0.2s ease;
     }
-    .main-menu nav a:hover{ transform: scale(1.1); }
 
-    /* Seções separadas */
     section{
-      height: 100vh;
+      min-height: 100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      position: relative;
     }
 
-    /* RESPONSIVO PARA CELULAR */
+    /* RESPONSIVO */
     @media(max-width:900px){
+      .frame{
+        margin: 40px 10px;
+        padding: 20px 10px 60px 10px;
+      }
+
       .panel{
         position: relative;
-        left: auto;
-        top: auto;
+        left: 0;
+        top: 0;
         transform: none;
-        padding: 20px;
-        text-align: center;
+        text-align:center;
+        margin-top: 30px;
+      }
+
+      .title{
+        font-size: clamp(42px, 14vw, 100px);
       }
 
       .center-logo{
         position: relative;
-        top: auto;
         right: auto;
+        top: auto;
         transform: none;
-        width: 60%;
-        margin: 20px auto;
-        display: block;
+        width: 70%;
+        max-width: 320px;
+        margin: 25px auto;
+        display:block;
       }
 
-      .frame{
-        height: auto;
-        min-height: 400px;
-        margin: 40px 20px;
+      .corner-logo{
+        width: 250px;
+        filter: blur(25px);
       }
 
-      .arrow.left, .arrow.right{
-        font-size: 36px;
+      .arrow{
         top: auto;
         bottom: 20px;
+        font-size: 34px;
       }
       .arrow.left{ left: 20px; }
       .arrow.right{ right: 20px; }
 
-      .cta-row{ flex-direction: column; gap: 12px; }
+      .cta-row{
+        flex-direction: column;
+        align-items:center;
+        width:100%;
+      }
+      .cta{
+        width: 70%;
+        max-width: 260px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- Logos nos cantos (embaçadas, wallpaper discreto) -->
 <img src="fotos/trinity-logo-clean.png" class="corner-logo top-left" alt="Logo Top Left">
 <img src="fotos/trinity-logo-clean.png" class="corner-logo bottom-right" alt="Logo Bottom Right">
 
@@ -232,8 +239,8 @@
     <div class="panel">
       <h1 class="title">TRI<br>NITY</h1>
       <div class="cta-row">
-        <a class="cta" href="https://wa.me/558187770376" target="_blank">WHATSAPP</a>
-        <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==" target="_blank">INSTAGRAM</a>
+        <a class="cta" href="https://wa.me/558187770376">WHATSAPP</a>
+        <a class="cta" href="https://www.instagram.com/trinitycorporations?igsh=MWN4dmRsYm01NXF2YQ==">INSTAGRAM</a>
       </div>
     </div>
 
